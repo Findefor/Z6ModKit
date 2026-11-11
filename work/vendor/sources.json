@@ -1,0 +1,32 @@
+[
+  {
+    "path": "work/vendor/key/extract_key.py",
+    "source": "WonderLantern/nikon-fw-key-tool/33426e892afd329a3b366b73776bcf53b9ac4ee8/extract_key.py",
+    "sha256": "f1853000f4751f75b28b03a0cb7623db7e3c55d421985bb2a4d454c7f617f458"
+  },
+  {
+    "path": "work/vendor/key/decrypt_firmware.py",
+    "source": "WonderLantern/nikon-fw-key-tool/33426e892afd329a3b366b73776bcf53b9ac4ee8/decrypt_firmware.py",
+    "sha256": "142e3142bc5bbb268ecc7c686408b7bc8fcb4eb27d1edf87b4679477e2e19647"
+  },
+  {
+    "path": "work/vendor/z30/z30_120.py",
+    "source": "WonderLantern/wonder-lantern-z30/b602735fbcdc47eec6300f0422b30a68110fc237/src/z30_extensions/platform/z30_120.py",
+    "sha256": "fa9804decd69420a7e33b6650345101b515cb409a4c05325b4bab1b15382e40a"
+  },
+  {
+    "path": "work/vendor/z30/bitrate_slowmo_uncap.py",
+    "source": "WonderLantern/wonder-lantern-z30/b602735fbcdc47eec6300f0422b30a68110fc237/src/z30_extensions/features/bitrate_slowmo_uncap.py",
+    "sha256": "adeef5b7888de59686521148aea53fd099a86fcb457181d6730cda4a441b3be3"
+  },
+  {
+    "path": "work/vendor/z30/bitrate-slowmo-uncap.md",
+    "source": "WonderLantern/wonder-lantern-z30/b602735fbcdc47eec6300f0422b30a68110fc237/docs/bitrate-slowmo-uncap.md",
+    "sha256": "0c8bac164909a7f30c741e8eae89fbfaf1183cb4d3a2734d922025dd5b3d0510"
+  },
+  {
+    "path": "work/vendor/ptp.h",
+    "source": "gphoto/libgphoto2/master/camlibs/ptp2/ptp.h",
+    "sha256": "c4d84d7c72fe27cf5992afbb0dd6b51ee172906f952790284f57f70cd8e9543a"
+  }
+]

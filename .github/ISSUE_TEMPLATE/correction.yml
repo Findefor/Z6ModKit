@@ -1,0 +1,61 @@
+name: Correction or reproducibility issue
+description: Report an incorrect claim, contradictory evidence, or an offline script failure.
+title: "[Correction] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Link the exact claim or failing script and provide the smallest useful evidence.
+        Read CONTRIBUTING.md. Do not upload firmware, keys, full dumps, credentials, or identifiers.
+        An offline failure does not require testing anything on a camera.
+  - type: dropdown
+    id: issue_kind
+    attributes:
+      label: Issue type
+      options:
+        - Incorrect or overstated claim
+        - Offline script failure or unexpected result
+        - Contradictory evidence
+        - Missing reproduction detail
+    validations:
+      required: true
+  - type: textarea
+    id: affected
+    attributes:
+      label: Affected claim or code
+      description: Link the file/line and repository commit, quote the specific claim briefly, or identify the script and check that failed.
+    validations:
+      required: true
+  - type: textarea
+    id: target
+    attributes:
+      label: Target and environment
+      description: Model/firmware, module name/SHA-256, address basis if relevant, OS/architecture, Python and dependency versions. Mark unavailable details explicitly; omit identifiers.
+    validations:
+      required: true
+  - type: textarea
+    id: expected_observed
+    attributes:
+      label: Expected versus observed
+      description: Explain the discrepancy and include minimal sanitized output. Identify whether the evidence is static, emulated, hardware-reported, inferred, or unverified.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction or evidence provenance
+      description: Give minimal offline commands and input conditions, or a source URL with pinned revision/document page. For hardware evidence, describe the existing observation and its provenance. State stub boundaries and unknowns.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_correction
+    attributes:
+      label: Suggested correction and limits
+      description: Optional wording or code change, alternative explanation, and any remaining uncertainty. A proposed fix need not already exist.
+  - type: checkboxes
+    id: sharing
+    attributes:
+      label: Sharing check
+      options:
+        - label: I checked the text and attachments and excluded firmware, keys, full dumps, credentials, and personal or device identifiers.
+          required: true

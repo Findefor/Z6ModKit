@@ -1,0 +1,81 @@
+{
+  "keys_validated": true,
+  "images": [
+    {
+      "name": "Z6_2_0170.bin",
+      "sha256": "5a9640b4c07abe1ecbf5a52655cbec6b893bba045bb2a1a1d21055b9f8f9d06d",
+      "modules": [
+        {
+          "name": "ex1850_012000.bi",
+          "file_offset": 240,
+          "size": 524290,
+          "sha256": "9c65cad554ed02f83d37fbc825a8eb9efe79e3f32f98894dd5dd73edee416983",
+          "crc16_residue": 0,
+          "path": "work/analysis/Z6_2_0170/ex1850_012000.bi.bin"
+        },
+        {
+          "name": "_tpj01_v140.bin",
+          "file_offset": 524530,
+          "size": 57346,
+          "sha256": "e60998537d46a15c430154aeeb589026aca015256d27e2d5990589d23a59c88e",
+          "crc16_residue": 0,
+          "path": "work/analysis/Z6_2_0170/_tpj01_v140.bin"
+        },
+        {
+          "name": "eg1850_mas_01700",
+          "file_offset": 581876,
+          "size": 38750138,
+          "sha256": "bb83613121f843d65101da936d942acdc513d86dbd3abc26259d0d870d03f5d4",
+          "crc16_residue": 0,
+          "path": "work/analysis/Z6_2_0170/eg1850_mas_01700.bin"
+        },
+        {
+          "name": "vr1850_010100.bi",
+          "file_offset": 39332014,
+          "size": 838664,
+          "sha256": "7e48c59adff7b917b41d2a2643ae692588c7b92b955d69f0000531885df274d9",
+          "crc16_residue": 0,
+          "path": "work/analysis/Z6_2_0170/vr1850_010100.bi.bin"
+        },
+        {
+          "name": "eg1850_sla_01700",
+          "file_offset": 40170678,
+          "size": 8832194,
+          "sha256": "3fd8c2cbdf57fadb03f6d69b596b58a8703efdd61ae82572d5afeea0241a9ed5",
+          "crc16_residue": 0,
+          "path": "work/analysis/Z6_2_0170/eg1850_sla_01700.bin"
+        }
+      ]
+    },
+    {
+      "name": "Z_30_0120.bin",
+      "sha256": "1a5449ef505f1f347ed4e066a6a3f588ea542240680e83f4ebcae3b16da3434a",
+      "modules": [
+        {
+          "name": "ex2090_012000.bi",
+          "file_offset": 176,
+          "size": 524290,
+          "sha256": "733559b1fbfa0754cc166a479888128c811e12fe0263f3c99c1925f109698a26",
+          "crc16_residue": 0,
+          "path": "work/analysis/Z_30_0120/ex2090_012000.bi.bin"
+        },
+        {
+          "name": "_tpj04_v10a5.bin",
+          "file_offset": 524466,
+          "size": 32802,
+          "sha256": "7a6b56050c06ca04ede95109ad724410209f05043ee458869e761d898d9b9627",
+          "crc16_residue": 0,
+          "path": "work/analysis/Z_30_0120/_tpj04_v10a5.bin"
+        },
+        {
+          "name": "eg2090_0120a0.bi",
+          "file_offset": 557268,
+          "size": 33939514,
+          "sha256": "8a99ced2d8220729ba067587b0624bf30c81757abc5d728768134b1c7fd457fa",
+          "crc16_residue": 0,
+          "path": "work/analysis/Z_30_0120/eg2090_0120a0.bi.bin"
+        }
+      ]
+    }
+  ]
+}

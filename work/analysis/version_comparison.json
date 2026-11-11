@@ -1,0 +1,840 @@
+{
+  "archives_executed": false,
+  "versions": [
+    {
+      "file": "Z6_2_0102.bin",
+      "source": "\u0411\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0430 \u0441\u0442\u0430\u0440\u044b\u0445 \u043f\u0440\u043e\u0448\u0438\u0432\u043e\u043a/F-Z6II-V102W.exe",
+      "sha256": "d29ee398e8bbbdcdcaaccc4522b5d5ee01b2e51952646b08f27165996ef86116",
+      "module_crcs_passed": 5,
+      "package_crc_passed": true,
+      "modules": [
+        {
+          "name": "eg1850_mas_01020",
+          "size": 37390074,
+          "sha256": "16361dcd14de1f4190e83febe573995a3b7ef9fa81be181315d58a89dde4f30b",
+          "table_address": "0x108fd5d4",
+          "stride": 32,
+          "count": 34,
+          "table_sha256": "139acdf7632ec66ea7657570349d656a1194e261d4c7aec0e701bf44a2b0c6c2",
+          "4k_rows": [
+            {
+              "row": 0,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 1,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 2,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 3,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 4,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 5,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 6,
+              "fps": 25.0,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 7,
+              "fps": 25.0,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 8,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 9,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            }
+          ],
+          "encoder_ubfx_address": "0x104b5c3a",
+          "encoder_pc_literal_loads": [
+            {
+              "load_address": "0x104b5ccc",
+              "literal_address": "0x104b5fac",
+              "value": 156250
+            }
+          ]
+        },
+        {
+          "name": "eg1850_sla_01020",
+          "size": 8779010,
+          "sha256": "a518f6d27f3d40ccf14821261bcf00a2fd49b52bf4508e101450829ba314b0ae",
+          "table_address": "0x101db4c8",
+          "stride": 32,
+          "count": 34,
+          "table_sha256": "139acdf7632ec66ea7657570349d656a1194e261d4c7aec0e701bf44a2b0c6c2",
+          "4k_rows": [
+            {
+              "row": 0,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 1,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 2,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 3,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 4,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 5,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 6,
+              "fps": 25.0,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 7,
+              "fps": 25.0,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 8,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 9,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            }
+          ],
+          "encoder_ubfx_address": "0x100a1fc2",
+          "encoder_pc_literal_loads": [
+            {
+              "load_address": "0x100a2054",
+              "literal_address": "0x100a2334",
+              "value": 156250
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "Z6_2_0110_01.bin",
+      "source": "\u0411\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0430 \u0441\u0442\u0430\u0440\u044b\u0445 \u043f\u0440\u043e\u0448\u0438\u0432\u043e\u043a/F-Z6II-V110W.exe",
+      "sha256": "6f6b0718622fa989a16411dfa0b86a0c64a1b9fd97e8d3dc482b236699c5ccc6",
+      "module_crcs_passed": 5,
+      "package_crc_passed": true,
+      "modules": [
+        {
+          "name": "eg1850_mas_0110e",
+          "size": 37411130,
+          "sha256": "8e5a8ad9e2dd856e4c9c1936820a64716da26a700651acd6aa147c7043cf4c98",
+          "table_address": "0x108feb54",
+          "stride": 32,
+          "count": 34,
+          "table_sha256": "139acdf7632ec66ea7657570349d656a1194e261d4c7aec0e701bf44a2b0c6c2",
+          "4k_rows": [
+            {
+              "row": 0,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 1,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 2,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 3,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 4,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 5,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 6,
+              "fps": 25.0,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 7,
+              "fps": 25.0,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 8,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 9,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            }
+          ],
+          "encoder_ubfx_address": "0x104b6af2",
+          "encoder_pc_literal_loads": [
+            {
+              "load_address": "0x104b6b84",
+              "literal_address": "0x104b6e64",
+              "value": 156250
+            }
+          ]
+        },
+        {
+          "name": "eg1850_sla_0110e",
+          "size": 8780354,
+          "sha256": "53ae9f652562c42b4e7956a670176e1aa733fb174967f9a6b2faa5803e77d0d5",
+          "table_address": "0x101db748",
+          "stride": 32,
+          "count": 34,
+          "table_sha256": "139acdf7632ec66ea7657570349d656a1194e261d4c7aec0e701bf44a2b0c6c2",
+          "4k_rows": [
+            {
+              "row": 0,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 1,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 2,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 3,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 4,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 5,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 6,
+              "fps": 25.0,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 7,
+              "fps": 25.0,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 8,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 9,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            }
+          ],
+          "encoder_ubfx_address": "0x100a1fde",
+          "encoder_pc_literal_loads": [
+            {
+              "load_address": "0x100a2070",
+              "literal_address": "0x100a2350",
+              "value": 156250
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "Z6_2_0160.bin",
+      "source": "\u0411\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0430 \u0441\u0442\u0430\u0440\u044b\u0445 \u043f\u0440\u043e\u0448\u0438\u0432\u043e\u043a/F-Z6II-V160W.exe",
+      "sha256": "f8f4f7a8b9b355dd679b409a682560fbc3b3476862337a7ff5c479560909c2dd",
+      "module_crcs_passed": 5,
+      "package_crc_passed": true,
+      "modules": [
+        {
+          "name": "eg1850_mas_0160b",
+          "size": 38637306,
+          "sha256": "f94725c36535087b182f49444729b1871b9ae6a4b615337e9d5b157a6d479a92",
+          "table_address": "0x1091a7d4",
+          "stride": 32,
+          "count": 34,
+          "table_sha256": "139acdf7632ec66ea7657570349d656a1194e261d4c7aec0e701bf44a2b0c6c2",
+          "4k_rows": [
+            {
+              "row": 0,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 1,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 2,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 3,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 4,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 5,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 6,
+              "fps": 25.0,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 7,
+              "fps": 25.0,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 8,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 9,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            }
+          ],
+          "encoder_ubfx_address": "0x104ba6c6",
+          "encoder_pc_literal_loads": [
+            {
+              "load_address": "0x104ba758",
+              "literal_address": "0x104baa38",
+              "value": 156250
+            }
+          ]
+        },
+        {
+          "name": "eg1850_sla_0160b",
+          "size": 8831810,
+          "sha256": "2a1906a3b443e04ab9fc957825a80061efe06931dfb5b2a6cda42a95d676d14c",
+          "table_address": "0x101dc988",
+          "stride": 32,
+          "count": 34,
+          "table_sha256": "139acdf7632ec66ea7657570349d656a1194e261d4c7aec0e701bf44a2b0c6c2",
+          "4k_rows": [
+            {
+              "row": 0,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 1,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 2,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 3,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 4,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 5,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 6,
+              "fps": 25.0,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 7,
+              "fps": 25.0,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 8,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 9,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            }
+          ],
+          "encoder_ubfx_address": "0x100a21fa",
+          "encoder_pc_literal_loads": [
+            {
+              "load_address": "0x100a228c",
+              "literal_address": "0x100a256c",
+              "value": 156250
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "Z6_2_0162.bin",
+      "source": "\u0411\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0430 \u0441\u0442\u0430\u0440\u044b\u0445 \u043f\u0440\u043e\u0448\u0438\u0432\u043e\u043a/Z6_2_0162.bin",
+      "sha256": "cb0bef25b66a1cdc8a055897240d292fb4865ca432bac991aa3d777d7a6d0328",
+      "module_crcs_passed": 5,
+      "package_crc_passed": true,
+      "modules": [
+        {
+          "name": "eg1850_mas_0162a",
+          "size": 38637882,
+          "sha256": "cc0ca6e2584bc28f7cf3ebf7771b3e6222a377d72c52019ac1535b5d2154679b",
+          "table_address": "0x1091aa14",
+          "stride": 32,
+          "count": 34,
+          "table_sha256": "139acdf7632ec66ea7657570349d656a1194e261d4c7aec0e701bf44a2b0c6c2",
+          "4k_rows": [
+            {
+              "row": 0,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 1,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 2,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 3,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 4,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 5,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 6,
+              "fps": 25.0,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 7,
+              "fps": 25.0,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 8,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 9,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            }
+          ],
+          "encoder_ubfx_address": "0x104ba8fe",
+          "encoder_pc_literal_loads": [
+            {
+              "load_address": "0x104ba990",
+              "literal_address": "0x104bac70",
+              "value": 156250
+            }
+          ]
+        },
+        {
+          "name": "eg1850_sla_0162a",
+          "size": 8832194,
+          "sha256": "c4687a4309d372e6cbe93d3e8ccda2c20c3021a2921175b706b3d6e273022f81",
+          "table_address": "0x101dcb08",
+          "stride": 32,
+          "count": 34,
+          "table_sha256": "139acdf7632ec66ea7657570349d656a1194e261d4c7aec0e701bf44a2b0c6c2",
+          "4k_rows": [
+            {
+              "row": 0,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 1,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 2,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 3,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 4,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 5,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 6,
+              "fps": 25.0,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 7,
+              "fps": 25.0,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 8,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 9,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            }
+          ],
+          "encoder_ubfx_address": "0x100a2342",
+          "encoder_pc_literal_loads": [
+            {
+              "load_address": "0x100a23d4",
+              "literal_address": "0x100a26b4",
+              "value": 156250
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "Z6_2_0170.bin",
+      "source": "work/inputs/Z6_2_0170.bin",
+      "sha256": "5a9640b4c07abe1ecbf5a52655cbec6b893bba045bb2a1a1d21055b9f8f9d06d",
+      "module_crcs_passed": 5,
+      "package_crc_passed": true,
+      "modules": [
+        {
+          "name": "eg1850_mas_01700",
+          "size": 38750138,
+          "sha256": "bb83613121f843d65101da936d942acdc513d86dbd3abc26259d0d870d03f5d4",
+          "table_address": "0x1091d594",
+          "stride": 32,
+          "count": 34,
+          "table_sha256": "139acdf7632ec66ea7657570349d656a1194e261d4c7aec0e701bf44a2b0c6c2",
+          "4k_rows": [
+            {
+              "row": 0,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 1,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 2,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 3,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 4,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 5,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 6,
+              "fps": 25.0,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 7,
+              "fps": 25.0,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 8,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 9,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            }
+          ],
+          "encoder_ubfx_address": "0x104be3ba",
+          "encoder_pc_literal_loads": [
+            {
+              "load_address": "0x104be44c",
+              "literal_address": "0x104be72c",
+              "value": 156250
+            }
+          ]
+        },
+        {
+          "name": "eg1850_sla_01700",
+          "size": 8832194,
+          "sha256": "3fd8c2cbdf57fadb03f6d69b596b58a8703efdd61ae82572d5afeea0241a9ed5",
+          "table_address": "0x101dcb08",
+          "stride": 32,
+          "count": 34,
+          "table_sha256": "139acdf7632ec66ea7657570349d656a1194e261d4c7aec0e701bf44a2b0c6c2",
+          "4k_rows": [
+            {
+              "row": 0,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 1,
+              "fps": 59.94005994005994,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 2,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 3,
+              "fps": 50.0,
+              "maximum_mbps": 360.0,
+              "average_mbps": 300.0
+            },
+            {
+              "row": 4,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 5,
+              "fps": 29.97002997002997,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 6,
+              "fps": 25.0,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 7,
+              "fps": 25.0,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            },
+            {
+              "row": 8,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 144.0,
+              "average_mbps": 120.0
+            },
+            {
+              "row": 9,
+              "fps": 23.976023976023978,
+              "maximum_mbps": 72.0,
+              "average_mbps": 60.0
+            }
+          ],
+          "encoder_ubfx_address": "0x100a2342",
+          "encoder_pc_literal_loads": [
+            {
+              "load_address": "0x100a23d4",
+              "literal_address": "0x100a26b4",
+              "value": 156250
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

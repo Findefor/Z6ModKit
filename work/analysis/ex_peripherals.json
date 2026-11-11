@@ -1,0 +1,377 @@
+{
+  "camera_io": false,
+  "ex_sha256": "9c65cad554ed02f83d37fbc825a8eb9efe79e3f32f98894dd5dd73edee416983",
+  "initial_ram_sha256": "9ce2057c6f44fd87c6b1aa6ee700ee4ebf209f8d121ae18d6fe0619015b0c497",
+  "checks": [
+    {
+      "old_field": 0,
+      "new_field": 0,
+      "normalize": 0,
+      "initial_register_shadow": "a52d52e3bc6aff52",
+      "mismatched_readback": false,
+      "reinitialized_shadow": false,
+      "events": [
+        {
+          "ram_notification_stub": true
+        }
+      ],
+      "final_register_shadow": "a52d52e3bc6aff52",
+      "peripheral_program_status": 1,
+      "flash_unchanged": true
+    },
+    {
+      "old_field": 0,
+      "new_field": 5,
+      "normalize": 0,
+      "initial_register_shadow": "a52d52e3bc6aff52",
+      "mismatched_readback": false,
+      "reinitialized_shadow": false,
+      "events": [
+        {
+          "gpio_stub_level": 0
+        },
+        {
+          "write": 0,
+          "value": 0
+        },
+        {
+          "read": 0,
+          "value": 0
+        },
+        {
+          "write": 1,
+          "value": 192
+        },
+        {
+          "read": 1,
+          "value": 192
+        },
+        {
+          "write": 2,
+          "value": 82
+        },
+        {
+          "write": 3,
+          "value": 224
+        },
+        {
+          "read": 3,
+          "value": 224
+        },
+        {
+          "write": 4,
+          "value": 0
+        },
+        {
+          "write": 5,
+          "value": 106
+        },
+        {
+          "write": 7,
+          "value": 208
+        },
+        {
+          "write": 6,
+          "value": 243
+        },
+        {
+          "ram_notification_stub": true
+        }
+      ],
+      "final_register_shadow": "00c052e0006af3d0",
+      "peripheral_program_status": 1,
+      "flash_unchanged": true
+    },
+    {
+      "old_field": 5,
+      "new_field": 0,
+      "normalize": 0,
+      "initial_register_shadow": "a52d52e3bc6aff52",
+      "mismatched_readback": false,
+      "reinitialized_shadow": false,
+      "events": [
+        {
+          "write": 6,
+          "value": 247
+        },
+        {
+          "write": 0,
+          "value": 160
+        },
+        {
+          "read": 0,
+          "value": 160
+        },
+        {
+          "write": 1,
+          "value": 192
+        },
+        {
+          "read": 1,
+          "value": 192
+        },
+        {
+          "write": 2,
+          "value": 82
+        },
+        {
+          "write": 3,
+          "value": 224
+        },
+        {
+          "read": 3,
+          "value": 224
+        },
+        {
+          "write": 4,
+          "value": 0
+        },
+        {
+          "write": 5,
+          "value": 106
+        },
+        {
+          "write": 7,
+          "value": 82
+        },
+        {
+          "gpio_stub_level": 0
+        },
+        {
+          "ram_notification_stub": true
+        }
+      ],
+      "final_register_shadow": "a0c052e0006af752",
+      "peripheral_program_status": 1,
+      "flash_unchanged": true
+    },
+    {
+      "old_field": 5,
+      "new_field": 5,
+      "normalize": 0,
+      "initial_register_shadow": "a52d52e3bc6aff52",
+      "mismatched_readback": false,
+      "reinitialized_shadow": false,
+      "events": [
+        {
+          "ram_notification_stub": true
+        }
+      ],
+      "final_register_shadow": "a52d52e3bc6aff52",
+      "peripheral_program_status": 1,
+      "flash_unchanged": true
+    },
+    {
+      "old_field": 0,
+      "new_field": 5,
+      "normalize": 1,
+      "initial_register_shadow": "a52d52e3bc6aff52",
+      "mismatched_readback": false,
+      "reinitialized_shadow": false,
+      "events": [
+        {
+          "ram_notification_stub": true
+        }
+      ],
+      "final_register_shadow": "a52d52e3bc6aff52",
+      "peripheral_program_status": 1,
+      "flash_unchanged": true
+    },
+    {
+      "old_field": 0,
+      "new_field": 5,
+      "normalize": 0,
+      "initial_register_shadow": "a52d52e3bc6aff52",
+      "mismatched_readback": true,
+      "reinitialized_shadow": false,
+      "events": [
+        {
+          "gpio_stub_level": 0
+        },
+        {
+          "write": 0,
+          "value": 0
+        },
+        {
+          "read": 0,
+          "value": 1
+        },
+        {
+          "write": 0,
+          "value": 0
+        },
+        {
+          "read": 0,
+          "value": 1
+        },
+        {
+          "write": 0,
+          "value": 0
+        },
+        {
+          "read": 0,
+          "value": 1
+        },
+        {
+          "write": 1,
+          "value": 192
+        },
+        {
+          "write": 1,
+          "value": 192
+        },
+        {
+          "read": 1,
+          "value": 193
+        },
+        {
+          "write": 1,
+          "value": 192
+        },
+        {
+          "read": 1,
+          "value": 193
+        },
+        {
+          "write": 1,
+          "value": 192
+        },
+        {
+          "read": 1,
+          "value": 193
+        },
+        {
+          "write": 1,
+          "value": 192
+        },
+        {
+          "write": 2,
+          "value": 82
+        },
+        {
+          "write": 3,
+          "value": 224
+        },
+        {
+          "read": 3,
+          "value": 225
+        },
+        {
+          "write": 3,
+          "value": 224
+        },
+        {
+          "read": 3,
+          "value": 225
+        },
+        {
+          "write": 3,
+          "value": 224
+        },
+        {
+          "read": 3,
+          "value": 225
+        },
+        {
+          "write": 1,
+          "value": 192
+        },
+        {
+          "write": 4,
+          "value": 0
+        },
+        {
+          "write": 5,
+          "value": 106
+        },
+        {
+          "write": 7,
+          "value": 208
+        },
+        {
+          "write": 6,
+          "value": 243
+        },
+        {
+          "ram_notification_stub": true
+        }
+      ],
+      "final_register_shadow": "00c052e0006af3d0",
+      "peripheral_program_status": 1,
+      "flash_unchanged": true
+    },
+    {
+      "old_field": 0,
+      "new_field": 0,
+      "normalize": 0,
+      "initial_register_shadow": "a52d52e3bc6aff52",
+      "mismatched_readback": false,
+      "reinitialized_shadow": true,
+      "events": [
+        {
+          "gpio_configuration_stub": true
+        },
+        {
+          "gpio_configuration_stub": true
+        },
+        {
+          "ram_notification_stub": true
+        }
+      ],
+      "final_register_shadow": "0080a000008d3300",
+      "peripheral_program_status": 1,
+      "flash_unchanged": true
+    },
+    {
+      "case": "region6_event2000",
+      "rate_fixture": 50,
+      "busy_fixture": 0,
+      "event": "0x2000",
+      "tim2_arr_writes": [
+        2499
+      ],
+      "flash_unchanged": true,
+      "limitations": "Synthetic compact settings and state, modeled MMIO backing. Physical timer frequency and full boot are not emulated."
+    },
+    {
+      "case": "region6_event2000",
+      "rate_fixture": 60,
+      "busy_fixture": 0,
+      "event": "0x2000",
+      "tim2_arr_writes": [
+        2999
+      ],
+      "flash_unchanged": true,
+      "limitations": "Synthetic compact settings and state, modeled MMIO backing. Physical timer frequency and full boot are not emulated."
+    },
+    {
+      "case": "region6_event2000",
+      "rate_fixture": 50,
+      "busy_fixture": 1,
+      "event": "0x2000",
+      "tim2_arr_writes": [],
+      "flash_unchanged": true,
+      "limitations": "Synthetic compact settings and state, modeled MMIO backing. Physical timer frequency and full boot are not emulated."
+    }
+  ],
+  "scope": "Original region1 callback08029418, mode builders, programming routines, write/readback helper; original region6 endpoint and isolated event2000 worker with modeled TIM2 ARR.",
+  "stubs": [
+    "I2C transfer, synthetic one-byte registers with optional read mismatch",
+    "GPIO set, with synthetic runtime descriptor",
+    "RTOS lock/time and bus setup",
+    "resource mapping and GPIO setup for initializer",
+    "downstream RAM notification08024988",
+    "region6 memcpy, event signal, and memory backing for TIM2 ARR"
+  ],
+  "findings": {
+    "condition": "Only a changed region1 invoking its callback, and transition of field+117 into/out of5, reaches this I2C programming path.",
+    "address": "Driver takes addressD6, consistent with 7-bit I2C6B. Chip identity is not established.",
+    "into5": "Writes registers0,1,2,3,4,5,7,6; register0=00 and register1=C0. Other values depend on existing register shadow and descriptor fields.",
+    "outof5": "Writes registers6,0,1,2,3,4,5,7; register0=A0 and register1=C0. It also preserves descriptor fields from prior state.",
+    "readback": "Registers0/1/3 are read back; masks FF/3F/1F and upper bounds A0/18/19. Three mismatches trigger a register1=C0 fallback, which can return transport success despite mismatched values.",
+    "boot": "08024C70 obtains region1 and calls080294B0 with normalize=1; this invokes08029418 through the normalized branch, skipping service-time peripheral programming. Initializer0802B170, called at08027256 and from bus-error cleanup0802ACD4, rewrites the ten-byte RAM register shadow to0080A000008D3300CD06. It does not itself send these bytes to the chip; complete startup and physical POR remain unverified.",
+    "region6": "0803C77C queues0x42 bytes, event2000 ->0803C5C4. If [2001887C+38] is zero,0803C79C copies settings and08035400 writes TIM2 ARR4000002C. Otherwise [+44]=1 defers applying settings. Original ARR arithmetic is floor(50M/floor(1M/rate))-1.",
+    "region6_init": "Resource index2 ->0804DA90[2]=81 ->descriptor2000E4FC ->TIM2 base40000000. 080353C6 copies base into200187E8. Init08035508 ->08035708 ->080353B4 ->080462CC ->080498F8 writes CR1/PSC/ARR/EGR. Static evidence, not full boot emulation.",
+    "power_loss": "No original flash writes in these emulated routines. TIM2 is resettable MCU peripheral state, while POR of the unidentified I2C/SPI devices remains unknown. Full supply removal, backup domains and real reset routing remain unverified."
+  }
+}

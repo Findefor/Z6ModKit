@@ -1,0 +1,625 @@
+{
+  "firmware_sha256": "bb83613121f843d65101da936d942acdc513d86dbd3abc26259d0d870d03f5d4",
+  "camera_io": false,
+  "scope": "Original exit and transition-wrapper instructions; synthetic RAM and injected backend outcomes",
+  "stubs": [
+    "cleanup callees listed individually in traces",
+    "RTOS event clear/request/wait",
+    "native setting 0x126 returns 0",
+    "preparatory transition returns 0x2001",
+    "memclear",
+    "PTP response transport"
+  ],
+  "transition_checks": [
+    {
+      "case": "acknowledged",
+      "mode": 0,
+      "return": 1,
+      "service_flag_after": 1,
+      "events": [
+        {
+          "request_accepted": 1
+        },
+        {
+          "wait_status": 0,
+          "timeout_argument": 2000,
+          "event": "0x3010003",
+          "result": 1
+        }
+      ]
+    },
+    {
+      "case": "request_rejected",
+      "mode": 0,
+      "return": 0,
+      "service_flag_after": 1,
+      "events": [
+        {
+          "request_accepted": 0
+        }
+      ]
+    },
+    {
+      "case": "wait_error_or_timeout",
+      "mode": 0,
+      "return": 0,
+      "service_flag_after": 1,
+      "events": [
+        {
+          "request_accepted": 1
+        },
+        {
+          "wait_status": 1,
+          "timeout_argument": 2000,
+          "event": "0x0",
+          "result": 0
+        }
+      ]
+    },
+    {
+      "case": "negative_acknowledgement",
+      "mode": 0,
+      "return": 0,
+      "service_flag_after": 1,
+      "events": [
+        {
+          "request_accepted": 1
+        },
+        {
+          "wait_status": 0,
+          "timeout_argument": 2000,
+          "event": "0x3010003",
+          "result": 0
+        }
+      ]
+    },
+    {
+      "case": "wrong_event",
+      "mode": 0,
+      "return": 0,
+      "service_flag_after": 1,
+      "events": [
+        {
+          "request_accepted": 1
+        },
+        {
+          "wait_status": 0,
+          "timeout_argument": 2000,
+          "event": "0x301000d",
+          "result": 1
+        }
+      ]
+    },
+    {
+      "case": "acknowledged",
+      "mode": 1,
+      "return": 1,
+      "service_flag_after": 1,
+      "events": [
+        {
+          "request_accepted": 1
+        },
+        {
+          "wait_status": 0,
+          "timeout_argument": 2000,
+          "event": "0x3010004",
+          "result": 1
+        }
+      ]
+    },
+    {
+      "case": "request_rejected",
+      "mode": 1,
+      "return": 0,
+      "service_flag_after": 1,
+      "events": [
+        {
+          "request_accepted": 0
+        }
+      ]
+    },
+    {
+      "case": "wait_error_or_timeout",
+      "mode": 1,
+      "return": 0,
+      "service_flag_after": 1,
+      "events": [
+        {
+          "request_accepted": 1
+        },
+        {
+          "wait_status": 1,
+          "timeout_argument": 2000,
+          "event": "0x0",
+          "result": 0
+        }
+      ]
+    },
+    {
+      "case": "negative_acknowledgement",
+      "mode": 1,
+      "return": 0,
+      "service_flag_after": 1,
+      "events": [
+        {
+          "request_accepted": 1
+        },
+        {
+          "wait_status": 0,
+          "timeout_argument": 2000,
+          "event": "0x3010004",
+          "result": 0
+        }
+      ]
+    },
+    {
+      "case": "wrong_event",
+      "mode": 1,
+      "return": 0,
+      "service_flag_after": 1,
+      "events": [
+        {
+          "request_accepted": 1
+        },
+        {
+          "wait_status": 0,
+          "timeout_argument": 2000,
+          "event": "0x301000e",
+          "result": 1
+        }
+      ]
+    }
+  ],
+  "exit_checks": [
+    {
+      "case": "acknowledged",
+      "return": 1,
+      "service_flag_after": 0,
+      "events": [
+        {
+          "cleanup_stub": "0x104939ca"
+        },
+        {
+          "cleanup_stub": "0x1049385e"
+        },
+        {
+          "cleanup_stub": "0x104b7e6a"
+        },
+        {
+          "cleanup_stub": "0x104942b0"
+        },
+        {
+          "cleanup_stub": "0x10494468"
+        },
+        {
+          "cleanup_stub": "0x10494f5e"
+        },
+        {
+          "cleanup_stub": "0x104b7adc"
+        },
+        {
+          "cleanup_stub": "0x104c988e"
+        },
+        {
+          "cleanup_stub": "0x104b77c0"
+        },
+        {
+          "native_setting_stub": "0x126",
+          "value": 0
+        },
+        {
+          "preparatory_transition_stub": "0x2001"
+        },
+        {
+          "cleanup_stub": "0x104b81de"
+        },
+        {
+          "request_accepted": 1
+        },
+        {
+          "wait_status": 0,
+          "timeout_argument": 2000,
+          "event": "0x3010004",
+          "result": 1
+        },
+        {
+          "original_transition_return": 1
+        },
+        {
+          "cleanup_stub": "0x104b6f6e"
+        },
+        {
+          "cleanup_stub": "0x104b6e34"
+        },
+        {
+          "cleanup_stub": "0x104b70ee"
+        },
+        {
+          "response": "0x2001",
+          "parameters": [
+            8193,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "case": "request_rejected",
+      "return": 1,
+      "service_flag_after": 0,
+      "events": [
+        {
+          "cleanup_stub": "0x104939ca"
+        },
+        {
+          "cleanup_stub": "0x1049385e"
+        },
+        {
+          "cleanup_stub": "0x104b7e6a"
+        },
+        {
+          "cleanup_stub": "0x104942b0"
+        },
+        {
+          "cleanup_stub": "0x10494468"
+        },
+        {
+          "cleanup_stub": "0x10494f5e"
+        },
+        {
+          "cleanup_stub": "0x104b7adc"
+        },
+        {
+          "cleanup_stub": "0x104c988e"
+        },
+        {
+          "cleanup_stub": "0x104b77c0"
+        },
+        {
+          "native_setting_stub": "0x126",
+          "value": 0
+        },
+        {
+          "preparatory_transition_stub": "0x2001"
+        },
+        {
+          "cleanup_stub": "0x104b81de"
+        },
+        {
+          "request_accepted": 0
+        },
+        {
+          "original_transition_return": 0
+        },
+        {
+          "cleanup_stub": "0x104b6f6e"
+        },
+        {
+          "cleanup_stub": "0x104b6e34"
+        },
+        {
+          "cleanup_stub": "0x104b70ee"
+        },
+        {
+          "response": "0x2001",
+          "parameters": [
+            8193,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "case": "wait_error_or_timeout",
+      "return": 1,
+      "service_flag_after": 0,
+      "events": [
+        {
+          "cleanup_stub": "0x104939ca"
+        },
+        {
+          "cleanup_stub": "0x1049385e"
+        },
+        {
+          "cleanup_stub": "0x104b7e6a"
+        },
+        {
+          "cleanup_stub": "0x104942b0"
+        },
+        {
+          "cleanup_stub": "0x10494468"
+        },
+        {
+          "cleanup_stub": "0x10494f5e"
+        },
+        {
+          "cleanup_stub": "0x104b7adc"
+        },
+        {
+          "cleanup_stub": "0x104c988e"
+        },
+        {
+          "cleanup_stub": "0x104b77c0"
+        },
+        {
+          "native_setting_stub": "0x126",
+          "value": 0
+        },
+        {
+          "preparatory_transition_stub": "0x2001"
+        },
+        {
+          "cleanup_stub": "0x104b81de"
+        },
+        {
+          "request_accepted": 1
+        },
+        {
+          "wait_status": 1,
+          "timeout_argument": 2000,
+          "event": "0x0",
+          "result": 0
+        },
+        {
+          "original_transition_return": 0
+        },
+        {
+          "cleanup_stub": "0x104b6f6e"
+        },
+        {
+          "cleanup_stub": "0x104b6e34"
+        },
+        {
+          "cleanup_stub": "0x104b70ee"
+        },
+        {
+          "response": "0x2001",
+          "parameters": [
+            8193,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "case": "negative_acknowledgement",
+      "return": 1,
+      "service_flag_after": 0,
+      "events": [
+        {
+          "cleanup_stub": "0x104939ca"
+        },
+        {
+          "cleanup_stub": "0x1049385e"
+        },
+        {
+          "cleanup_stub": "0x104b7e6a"
+        },
+        {
+          "cleanup_stub": "0x104942b0"
+        },
+        {
+          "cleanup_stub": "0x10494468"
+        },
+        {
+          "cleanup_stub": "0x10494f5e"
+        },
+        {
+          "cleanup_stub": "0x104b7adc"
+        },
+        {
+          "cleanup_stub": "0x104c988e"
+        },
+        {
+          "cleanup_stub": "0x104b77c0"
+        },
+        {
+          "native_setting_stub": "0x126",
+          "value": 0
+        },
+        {
+          "preparatory_transition_stub": "0x2001"
+        },
+        {
+          "cleanup_stub": "0x104b81de"
+        },
+        {
+          "request_accepted": 1
+        },
+        {
+          "wait_status": 0,
+          "timeout_argument": 2000,
+          "event": "0x3010004",
+          "result": 0
+        },
+        {
+          "original_transition_return": 0
+        },
+        {
+          "cleanup_stub": "0x104b6f6e"
+        },
+        {
+          "cleanup_stub": "0x104b6e34"
+        },
+        {
+          "cleanup_stub": "0x104b70ee"
+        },
+        {
+          "response": "0x2001",
+          "parameters": [
+            8193,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "case": "wrong_event",
+      "return": 1,
+      "service_flag_after": 0,
+      "events": [
+        {
+          "cleanup_stub": "0x104939ca"
+        },
+        {
+          "cleanup_stub": "0x1049385e"
+        },
+        {
+          "cleanup_stub": "0x104b7e6a"
+        },
+        {
+          "cleanup_stub": "0x104942b0"
+        },
+        {
+          "cleanup_stub": "0x10494468"
+        },
+        {
+          "cleanup_stub": "0x10494f5e"
+        },
+        {
+          "cleanup_stub": "0x104b7adc"
+        },
+        {
+          "cleanup_stub": "0x104c988e"
+        },
+        {
+          "cleanup_stub": "0x104b77c0"
+        },
+        {
+          "native_setting_stub": "0x126",
+          "value": 0
+        },
+        {
+          "preparatory_transition_stub": "0x2001"
+        },
+        {
+          "cleanup_stub": "0x104b81de"
+        },
+        {
+          "request_accepted": 1
+        },
+        {
+          "wait_status": 0,
+          "timeout_argument": 2000,
+          "event": "0x301000e",
+          "result": 1
+        },
+        {
+          "original_transition_return": 0
+        },
+        {
+          "cleanup_stub": "0x104b6f6e"
+        },
+        {
+          "cleanup_stub": "0x104b6e34"
+        },
+        {
+          "cleanup_stub": "0x104b70ee"
+        },
+        {
+          "response": "0x2001",
+          "parameters": [
+            8193,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "case": "already_inactive",
+      "return": 1,
+      "service_flag_after": 0,
+      "events": [
+        {
+          "cleanup_stub": "0x104939ca"
+        },
+        {
+          "cleanup_stub": "0x1049385e"
+        },
+        {
+          "cleanup_stub": "0x104b7e6a"
+        },
+        {
+          "cleanup_stub": "0x104942b0"
+        },
+        {
+          "cleanup_stub": "0x10494468"
+        },
+        {
+          "cleanup_stub": "0x10494f5e"
+        },
+        {
+          "cleanup_stub": "0x104b7adc"
+        },
+        {
+          "cleanup_stub": "0x104c988e"
+        },
+        {
+          "cleanup_stub": "0x104b77c0"
+        },
+        {
+          "response": "0x2001",
+          "parameters": [
+            8193,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "findings": {
+    "exit_result": "F002 reports outer and nested 0x2001 and clears local service flag even when original transition wrapper returns 0",
+    "limitation": "Injected backend faults do not show that a real camera will fail; cleanup callees may provide other recovery effects and were not emulated",
+    "timeout": "0x7d0 is the original wait argument; time unit has not been established",
+    "cleanup_callers": [
+      "0x1047b5ae",
+      "0x1047c3a0"
+    ],
+    "cleanup_pointer_references": [],
+    "close_session": "PTP 0x1003 table row 0x119f1dc8 -> executor 0x1047c1bc -> call 0x1047c1dc to 0x1047b51e -> state check 0x1047c0d6 -> cleanup call 0x1047b5ae to 0x1047c322; same cleanup as F002, not an independent recovery mechanism",
+    "disconnect": "Other callers in 0x104665a4/0x10466640/0x10466666/0x1046667c reach shared cleanup; exact physical-disconnect event mapping is unresolved",
+    "power_cycle": "Initial RAM flag is zero (verified in scatter-load data); persistent side effects of downstream service transition remain unresolved",
+    "retry_after_failed_transition": "Guard rejects F002 when local service flag is zero; after cleanup clears it, simply retrying F002 is not established as recovery"
+  },
+  "research_sources": [
+    {
+      "url": "https://onlinemanual.nikonimglib.com/z7II_z6II/en/14_troubleshooting_01.html",
+      "finding": "Nikon documents battery removal/reinsertion for ordinary troubleshooting, not service-mode recovery"
+    },
+    {
+      "url": "https://www.reddit.com/r/Cameras/comments/13uzilb/nikon_service_menu/",
+      "finding": "D3100 service-menu discussion; no verified Z6 II recovery procedure"
+    },
+    {
+      "url": "https://forum-monitor.net.ru/threads/640354/page-2",
+      "finding": "Developer discusses Tornado EOS and mixed-model Shutter Counter; does not establish Z6 II service recovery"
+    },
+    {
+      "url": "https://nikonhacker.com/",
+      "finding": "At this check, domain displays Virtualmin welcome page rather than the historic forum"
+    },
+    {
+      "url": "https://github.com/simeonpilgrim/nikon-firmware-tools/blob/main/PTP%20Tools/CameraModels/Base.cs",
+      "finding": "Legacy model-specific service implementation; not validation of Z6 II C1.70"
+    }
+  ],
+  "research_conclusion": "No reproducible first-hand Z6 II C1.70 service-mode fault recovery was found in the reviewed public sources. Absence of a found report is not proof that recovery is impossible."
+}

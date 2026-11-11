@@ -1,0 +1,471 @@
+{
+  "camera_io": false,
+  "ex_sha256": "9c65cad554ed02f83d37fbc825a8eb9efe79e3f32f98894dd5dd73edee416983",
+  "initial_ram_sha256": "9ce2057c6f44fd87c6b1aa6ee700ee4ebf209f8d121ae18d6fe0619015b0c497",
+  "scope": "Original EX scatter-load, receive dispatcher, handler, callback dispatcher and reply formatter; original master reply decoder and worker",
+  "ex_stubs": [
+    "memcpy/memclear with RAM-only destination bounds",
+    "event scheduler",
+    "six configuration callbacks (side effects reviewed separately)",
+    "reply queue insertion and sleep"
+  ],
+  "checks": [
+    {
+      "case": "entry_unchanged",
+      "mode": 0,
+      "refreshed_slices": [],
+      "affected_overlapping_regions": [],
+      "callback_regions": [],
+      "events": [
+        {
+          "schedule_event": 32
+        },
+        {
+          "reply_queue_stub": 0,
+          "payload": "0a00000000000000"
+        }
+      ],
+      "flash_unchanged": true
+    },
+    {
+      "case": "entry_all_RAM_regions_differ",
+      "mode": 0,
+      "refreshed_slices": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "affected_overlapping_regions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "callback_regions": [
+        6,
+        5,
+        1,
+        4,
+        3,
+        1
+      ],
+      "events": [
+        {
+          "schedule_event": 32
+        },
+        {
+          "callback_stub": "0x8036730",
+          "region": 6,
+          "data": "0x2003916c"
+        },
+        {
+          "callback_stub": "0x8030e20",
+          "region": 5,
+          "data": "0x2003912c"
+        },
+        {
+          "callback_stub": "0x8024bb2",
+          "region": 1,
+          "data": "0x20038010"
+        },
+        {
+          "callback_stub": "0x8024bb2",
+          "region": 4,
+          "data": "0x20038f2c"
+        },
+        {
+          "callback_stub": "0x802bbc0",
+          "region": 3,
+          "data": "0x20038e3c"
+        },
+        {
+          "callback_stub": "0x803671c",
+          "region": 1,
+          "data": "0x20038010"
+        },
+        {
+          "reply_queue_stub": 0,
+          "payload": "0a00000000000000"
+        }
+      ],
+      "flash_unchanged": true
+    },
+    {
+      "case": "repeat_entry_after_reply_not_delivered",
+      "callback_regions": [],
+      "events": [
+        {
+          "schedule_event": 32
+        },
+        {
+          "reply_queue_stub": 0,
+          "payload": "0a00000000000000"
+        }
+      ],
+      "limitation": "Only this MCU branch is repeated; host may reject retry while its callback is pending."
+    },
+    {
+      "case": "exit_all_RAM_regions_differ",
+      "mode": 1,
+      "refreshed_slices": [],
+      "affected_overlapping_regions": [],
+      "callback_regions": [],
+      "events": [
+        {
+          "schedule_event": 32
+        },
+        {
+          "reply_queue_stub": 0,
+          "payload": "0a00000000000000"
+        }
+      ],
+      "flash_unchanged": true
+    },
+    {
+      "case": "entry_reply_queue_full_twice",
+      "mode": 0,
+      "refreshed_slices": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "affected_overlapping_regions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "callback_regions": [
+        6,
+        5,
+        1,
+        4,
+        3,
+        1
+      ],
+      "events": [
+        {
+          "schedule_event": 32
+        },
+        {
+          "callback_stub": "0x8036730",
+          "region": 6,
+          "data": "0x2003916c"
+        },
+        {
+          "callback_stub": "0x8030e20",
+          "region": 5,
+          "data": "0x2003912c"
+        },
+        {
+          "callback_stub": "0x8024bb2",
+          "region": 1,
+          "data": "0x20038010"
+        },
+        {
+          "callback_stub": "0x8024bb2",
+          "region": 4,
+          "data": "0x20038f2c"
+        },
+        {
+          "callback_stub": "0x802bbc0",
+          "region": 3,
+          "data": "0x20038e3c"
+        },
+        {
+          "callback_stub": "0x803671c",
+          "region": 1,
+          "data": "0x20038010"
+        },
+        {
+          "reply_queue_stub": 65535,
+          "payload": "0a00000000000000"
+        },
+        {
+          "sleep_stub": 1
+        },
+        {
+          "reply_queue_stub": 65535,
+          "payload": "0a00000000000000"
+        },
+        {
+          "sleep_stub": 1
+        },
+        {
+          "reply_queue_stub": 0,
+          "payload": "0a00000000000000"
+        }
+      ],
+      "flash_unchanged": true
+    },
+    {
+      "case": "exit_reply_queue_full_twice",
+      "mode": 1,
+      "refreshed_slices": [],
+      "affected_overlapping_regions": [],
+      "callback_regions": [],
+      "events": [
+        {
+          "schedule_event": 32
+        },
+        {
+          "reply_queue_stub": 65535,
+          "payload": "0a00000000000000"
+        },
+        {
+          "sleep_stub": 1
+        },
+        {
+          "reply_queue_stub": 65535,
+          "payload": "0a00000000000000"
+        },
+        {
+          "sleep_stub": 1
+        },
+        {
+          "reply_queue_stub": 0,
+          "payload": "0a00000000000000"
+        }
+      ],
+      "flash_unchanged": true
+    },
+    {
+      "case": "master_reply",
+      "mode": 0,
+      "status": 0,
+      "events": [
+        {
+          "event_signal": 128
+        },
+        {
+          "transition_event": "0x3010003",
+          "success": 1
+        }
+      ],
+      "pending_callback_cleared": true
+    },
+    {
+      "case": "master_reply",
+      "mode": 0,
+      "status": 1,
+      "events": [
+        {
+          "event_signal": 128
+        },
+        {
+          "transition_event": "0x3010003",
+          "success": 0
+        }
+      ],
+      "pending_callback_cleared": true
+    },
+    {
+      "case": "master_reply",
+      "mode": 1,
+      "status": 0,
+      "events": [
+        {
+          "event_signal": 128
+        },
+        {
+          "transition_event": "0x3010004",
+          "success": 1
+        }
+      ],
+      "pending_callback_cleared": true
+    },
+    {
+      "case": "master_reply",
+      "mode": 1,
+      "status": 1,
+      "events": [
+        {
+          "event_signal": 128
+        },
+        {
+          "transition_event": "0x3010004",
+          "success": 0
+        }
+      ],
+      "pending_callback_cleared": true
+    },
+    {
+      "case": "retry_with_reply_missing",
+      "mode": 0,
+      "request_accepted": false,
+      "pending_callback": "unchanged"
+    },
+    {
+      "case": "late_reply_then_new_request",
+      "mode": 0,
+      "request_accepted": true,
+      "events": [
+        {
+          "event_signal": 128
+        },
+        {
+          "transition_event": "0x3010003",
+          "success": 1
+        },
+        {
+          "event_signal": 64
+        }
+      ],
+      "limitation": "This low-level request only; whole PTP service state and other cleanup effects are outside the test."
+    },
+    {
+      "case": "retry_with_reply_missing",
+      "mode": 1,
+      "request_accepted": false,
+      "pending_callback": "unchanged"
+    },
+    {
+      "case": "late_reply_then_new_request",
+      "mode": 1,
+      "request_accepted": true,
+      "events": [
+        {
+          "event_signal": 128
+        },
+        {
+          "transition_event": "0x3010004",
+          "success": 1
+        },
+        {
+          "event_signal": 64
+        }
+      ],
+      "limitation": "This low-level request only; whole PTP service state and other cleanup effects are outside the test."
+    }
+  ],
+  "region_table": [
+    {
+      "id": 0,
+      "flash_source": "0x8004000",
+      "ram_destination": "0x20038000",
+      "length": 3628,
+      "refresh_on_entry": false
+    },
+    {
+      "id": 1,
+      "flash_source": "0x8004010",
+      "ram_destination": "0x20038010",
+      "length": 3608,
+      "refresh_on_entry": true
+    },
+    {
+      "id": 2,
+      "flash_source": "0x8008000",
+      "ram_destination": "0x20038e2c",
+      "length": 4540,
+      "refresh_on_entry": false
+    },
+    {
+      "id": 3,
+      "flash_source": "0x8008010",
+      "ram_destination": "0x20038e3c",
+      "length": 240,
+      "refresh_on_entry": true
+    },
+    {
+      "id": 4,
+      "flash_source": "0x8008100",
+      "ram_destination": "0x20038f2c",
+      "length": 512,
+      "refresh_on_entry": true
+    },
+    {
+      "id": 5,
+      "flash_source": "0x8008300",
+      "ram_destination": "0x2003912c",
+      "length": 64,
+      "refresh_on_entry": true
+    },
+    {
+      "id": 6,
+      "flash_source": "0x8008340",
+      "ram_destination": "0x2003916c",
+      "length": 3704,
+      "refresh_on_entry": true
+    },
+    {
+      "id": 7,
+      "flash_source": "0x800c000",
+      "ram_destination": "0x20039fe8",
+      "length": 24,
+      "refresh_on_entry": false
+    },
+    {
+      "id": 8,
+      "flash_source": "0x800c010",
+      "ram_destination": "0x20039ff8",
+      "length": 4,
+      "refresh_on_entry": true
+    }
+  ],
+  "callback_table": [
+    {
+      "function": "0x8036730",
+      "region": 6
+    },
+    {
+      "function": "0x8030e20",
+      "region": 5
+    },
+    {
+      "function": "0x8024bb2",
+      "region": 1
+    },
+    {
+      "function": "0x8024bb2",
+      "region": 4
+    },
+    {
+      "function": "0x802bbc0",
+      "region": 3
+    },
+    {
+      "function": "0x803671c",
+      "region": 1
+    }
+  ],
+  "findings": {
+    "receiver": "EX/MCU, registration RAM 2000D32C row15 -> 0802F96C; message9 -> event20 -> 0802EC0C",
+    "entry": "Mode0 refreshes differing eligible flash-backed configuration slices into working RAM, then invokes their registered callbacks.",
+    "exit": "Mode1 skips the refresh and callbacks in this handler and formats reply0A/status0. No persistent service-mode bit appears in this branch.",
+    "reply_retry": "0802FB80 retries queue insertion while it returns FFFF, sleeping1 between attempts; no iteration limit is present in this loop. This is not proof of delivery.",
+    "missing_reply": "Master pending callback remains until reply handling; 1038602E rejects another transition while pending. A late reply clears this callback and permits a new low-level request. Complete PTP recovery and cleanup side effects remain unverified.",
+    "reset_limit": "Master initialized pending callback is zero; EX scatter-load restores defaults. This is software initialization evidence, not proof of physical reset routing, battery-removal recovery or a complete boot.",
+    "persistence_limit": "No direct flash write in the emulated message9 path. Configuration callbacks are stubbed; some original callbacks control peripheral buses. No claim of a side-effect-free whole service session."
+  },
+  "master_stubs": [
+    "event queue signal",
+    "transition completion callback; registration pointers supplied explicitly"
+  ],
+  "static_callback_review": {
+    "method": "Static review, not additional emulation checks; callbacks run only for changed regions.",
+    "region1": "08024BB2 -> 08029418 compares 2001F737 with region+117. Crossing into/out of value5 reaches 0802B40C/0802B234 -> 0802AE98 -> 080449B0, sends one-byte values to peripheral address D6, registers0..7. Hardware identity and persistence are unverified.",
+    "region1_second_callback": "0803671C -> event80000 -> worker08036744 -> 0803616C; reviewed isolated-event branch updates RAM from region offsets11C/11E/392.",
+    "region4": "08024BB2 -> 080294F4(r1=0) updates RAM and copies0x48 bytes through 08024998; normalization branch is skipped.",
+    "region5": "08030E20 -> event200 -> worker08030E34 -> 08030D08 -> 08031CB4 -> worker08031A8C; isolated branch copies200189C0 to200189BC.",
+    "region3": "0802BBC0 -> 0802E1B4 -> worker0802E1C4 -> 0802DB1C -> 0802D824 -> 0802DCE8; queue0802D7F4 -> 0802D91C -> 0802D8E4 -> 08045894 sends commands04/0F/10/1C/1D/1E over SPI2 base40003800, GPIO PE8/PA4 and PE14. Init0802E168 ->0802DA40 rebuilds commands. Device identity and NVM/POR behavior remain unverified.",
+    "region6": "08036730 -> event40000 -> worker08036744 -> 080361B6. 080350CC copies0x42 bytes and signals worker08034DE0; 08035FC0 ->0803C77C signals event2000 ->0803C5C4. Idle branch0803C79C ->08035400 writes TIM2 ARR4000002C; busy branch defers with RAM flag. See ex_peripherals.json for isolated worker checks and static timer-init mapping.",
+    "separate_save": "Command7 -> event10 -> 0802F57C -> 08032120 is a separate save path. No direct call to08032120 found in the reviewed callback chains; this does not prove absence of all persistent peripheral effects."
+  }
+}

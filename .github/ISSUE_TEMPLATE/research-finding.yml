@@ -1,0 +1,85 @@
+name: Research finding
+description: Share reproducible evidence, a counterexample, or a bounded interpretation.
+title: "[Research] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read CONTRIBUTING.md before posting. Separate offline results from physical-device observations.
+        Do not attach firmware, keys, full dumps, credentials, or identifying device data.
+        Reporting existing evidence does not require a new camera experiment.
+  - type: textarea
+    id: finding
+    attributes:
+      label: Finding and significance
+      description: State the specific observation, its interpretation, and what question it addresses.
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence_kind
+    attributes:
+      label: Evidence type
+      description: Select all that apply; define the boundary between them in the method below.
+      multiple: true
+      options:
+        - static
+        - emulated
+        - hardware-reported
+        - inferred
+        - unverified
+    validations:
+      required: true
+  - type: textarea
+    id: target
+    attributes:
+      label: Target and address basis
+      description: Exact model/firmware, module name/SHA-256, architecture, load base, and runtime addresses or file offsets. Mark unknown fields explicitly. No serial numbers.
+      placeholder: |
+        Model / firmware:
+        Module / SHA-256:
+        Architecture / load base:
+        Addresses and their meaning:
+    validations:
+      required: true
+  - type: textarea
+    id: provenance
+    attributes:
+      label: Source and provenance
+      description: Public source URL, pinned commit, document edition/page, or origin of the observation. Identify third-party hardware reports and access limits.
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Method and reproduction
+      description: Include the repository commit, environment, commands, input state, and relevant script/function. For existing hardware observations, state what was actually done and observed; do not propose untested commands as a verified procedure.
+      placeholder: |
+        Repository commit / environment:
+        Offline reproduction or existing hardware observation:
+        Input state and assumptions:
+        Stubs, modeled peripherals, and omitted behavior:
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Expected and observed results
+      description: Supply minimal sanitized output or public evidence links. Distinguish original-code output from stub output and inference.
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: Limitations and alternative explanations
+      description: What does this establish, what remains unverified, and what evidence would change the interpretation?
+    validations:
+      required: true
+  - type: checkboxes
+    id: sharing
+    attributes:
+      label: Sharing check
+      options:
+        - label: I checked the text and attachments for firmware, keys, full dumps, credentials, and personal or device identifiers, and excluded them.
+          required: true
+        - label: I distinguished static analysis, emulation, physical observations, and inference, and stated the relevant verification limits.
+          required: true

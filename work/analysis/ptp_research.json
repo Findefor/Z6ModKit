@@ -1,0 +1,4517 @@
+{
+  "firmware_sha256": "bb83613121f843d65101da936d942acdc513d86dbd3abc26259d0d870d03f5d4",
+  "camera_io": false,
+  "scope": "Original ARM/Thumb routines in Unicorn; synthetic RAM and capability inputs; no hardware validation",
+  "stubs": [
+    "memclear/memcpy",
+    "USB buffers/transfers/responses",
+    "capability backend",
+    "memory region 8 unavailable",
+    "memory-class selection for transfer"
+  ],
+  "tables": {
+    "0": {
+      "address": "0x119f1d90",
+      "entries": [
+        {
+          "address": "0x119f1d90",
+          "code": "0x1001",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10466d03",
+            "0x10466d2b",
+            "0x10466c89"
+          ]
+        },
+        {
+          "address": "0x119f1dac",
+          "code": "0x1002",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x1047c0e5",
+            "0x1047c165",
+            "0x1047c0d5"
+          ]
+        },
+        {
+          "address": "0x119f1dc8",
+          "code": "0x1003",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x1047c0e5",
+            "0x1047c1bd",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f1de4",
+          "code": "0x1004",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x107768ab",
+            "0x1077692d",
+            "0x107768a9"
+          ]
+        },
+        {
+          "address": "0x119f1e00",
+          "code": "0x1005",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x107768d3",
+            "0x107769e9",
+            "0x107768a9"
+          ]
+        },
+        {
+          "address": "0x119f1e1c",
+          "code": "0x1006",
+          "direction_field": 1,
+          "context": "0xc2a373dc",
+          "callbacks": [
+            "0x0",
+            "0x10775b89",
+            "0x10775c6b",
+            "0x10775b63"
+          ]
+        },
+        {
+          "address": "0x119f1e38",
+          "code": "0x1007",
+          "direction_field": 1,
+          "context": "0xc2a373f8",
+          "callbacks": [
+            "0x0",
+            "0x10775b89",
+            "0x10775c6b",
+            "0x10775b63"
+          ]
+        },
+        {
+          "address": "0x119f1e54",
+          "code": "0x1008",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10504587",
+            "0x1050460d",
+            "0x10504585"
+          ]
+        },
+        {
+          "address": "0x119f1e70",
+          "code": "0x1009",
+          "direction_field": 1,
+          "context": "0xc2a37418",
+          "callbacks": [
+            "0x0",
+            "0x104b3b61",
+            "0x104b3d1b",
+            "0x104b3a53"
+          ]
+        },
+        {
+          "address": "0x119f1e8c",
+          "code": "0x100a",
+          "direction_field": 1,
+          "context": "0xc2a37458",
+          "callbacks": [
+            "0x0",
+            "0x104b402f",
+            "0x104b413d",
+            "0x104b3a53"
+          ]
+        },
+        {
+          "address": "0x119f1ea8",
+          "code": "0x100b",
+          "direction_field": 0,
+          "context": "0xc2a374f8",
+          "callbacks": [
+            "0x0",
+            "0x104c4745",
+            "0x104c485d",
+            "0x104c4717"
+          ]
+        },
+        {
+          "address": "0x119f1ec4",
+          "code": "0x100c",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x107766e3",
+            "0x1077670b",
+            "0x107766e1"
+          ]
+        },
+        {
+          "address": "0x119f1ee0",
+          "code": "0x100d",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x107766e3",
+            "0x1077670b",
+            "0x107766e1"
+          ]
+        },
+        {
+          "address": "0x119f1efc",
+          "code": "0x100e",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10492fb5",
+            "0x10493323",
+            "0x10492f5f"
+          ]
+        },
+        {
+          "address": "0x119f1f18",
+          "code": "0x100f",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10773c81",
+            "0x10773d79",
+            "0x10773c79"
+          ]
+        },
+        {
+          "address": "0x119f1f34",
+          "code": "0x1014",
+          "direction_field": 1,
+          "context": "0xc188b76c",
+          "callbacks": [
+            "0x0",
+            "0x1050436f",
+            "0x105043bf",
+            "0x10504359"
+          ]
+        },
+        {
+          "address": "0x119f1f50",
+          "code": "0x1015",
+          "direction_field": 1,
+          "context": "0xc188b770",
+          "callbacks": [
+            "0x0",
+            "0x10504397",
+            "0x105043bf",
+            "0x10504359"
+          ]
+        },
+        {
+          "address": "0x119f1f6c",
+          "code": "0x1016",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10504433",
+            "0x10504495",
+            "0x10504359"
+          ]
+        },
+        {
+          "address": "0x119f1f88",
+          "code": "0x101b",
+          "direction_field": 1,
+          "context": "0xc2a37438",
+          "callbacks": [
+            "0x0",
+            "0x104b3b97",
+            "0x104b3d1b",
+            "0x104b3a53"
+          ]
+        }
+      ]
+    },
+    "1": {
+      "address": "0x119f1fc0",
+      "entries": [
+        {
+          "address": "0x119f1fc0",
+          "code": "0x90c0",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x1049339b",
+            "0x104933e9",
+            "0x10492f5f"
+          ]
+        },
+        {
+          "address": "0x119f1fdc",
+          "code": "0x90c1",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104b365d",
+            "0x104b36c1",
+            "0x104b365b"
+          ]
+        },
+        {
+          "address": "0x119f1ff8",
+          "code": "0x90c2",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c4481",
+            "0x104c4509",
+            "0x104c4439"
+          ]
+        },
+        {
+          "address": "0x119f2014",
+          "code": "0x90c3",
+          "direction_field": 0,
+          "context": "0xc2a37504",
+          "callbacks": [
+            "0x0",
+            "0x104c4a0f",
+            "0x104c4a7b",
+            "0x104c4717"
+          ]
+        },
+        {
+          "address": "0x119f2030",
+          "code": "0x90c4",
+          "direction_field": 1,
+          "context": "0xc2a37478",
+          "callbacks": [
+            "0x0",
+            "0x104b402f",
+            "0x104b41f5",
+            "0x104b3a53"
+          ]
+        },
+        {
+          "address": "0x119f204c",
+          "code": "0x90c7",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10774077",
+            "0x1077409f",
+            "0x10774075"
+          ]
+        },
+        {
+          "address": "0x119f2068",
+          "code": "0x90c8",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10773bdb",
+            "0x10773c03",
+            "0x10773bd9"
+          ]
+        },
+        {
+          "address": "0x119f2084",
+          "code": "0x90c9",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x107767df",
+            "0x10776713",
+            "0x10776805",
+            "0x10776711"
+          ]
+        },
+        {
+          "address": "0x119f20a0",
+          "code": "0x90ca",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x105044fd",
+            "0x10504525",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f20bc",
+          "code": "0x90cb",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10493455",
+            "0x10493497",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f20d8",
+          "code": "0x90cc",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c59a5",
+            "0x104c5d8f",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f20f4",
+          "code": "0x90cd",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x104c5e23",
+            "0x104c6769",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2110",
+          "code": "0x90ce",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c68fb",
+            "0x104c69cd",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f212c",
+          "code": "0x90cf",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c6a21",
+            "0x104c6a71",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2148",
+          "code": "0x9201",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c4bdd",
+            "0x104c4c59",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2164",
+          "code": "0x9202",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c4d13",
+            "0x104c4d4f",
+            "0x104c4d11"
+          ]
+        },
+        {
+          "address": "0x119f2180",
+          "code": "0x9203",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c4d89",
+            "0x104c5285",
+            "0x104c4d6f"
+          ]
+        },
+        {
+          "address": "0x119f219c",
+          "code": "0x9204",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104b376b",
+            "0x104b37d9",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f21b8",
+          "code": "0x9205",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c578d",
+            "0x104c57e3",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f21d4",
+          "code": "0x9206",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104b3717",
+            "0x104b373d",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f21f0",
+          "code": "0x9207",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104933ef",
+            "0x1049344f",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f220c",
+          "code": "0x9209",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x107768ab",
+            "0x1077692d",
+            "0x107768a9"
+          ]
+        },
+        {
+          "address": "0x119f2228",
+          "code": "0x920a",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c58af",
+            "0x104c5903",
+            "0x104c58ad"
+          ]
+        },
+        {
+          "address": "0x119f2244",
+          "code": "0x920b",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c5949",
+            "0x104c5971",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2260",
+          "code": "0x920c",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104934bf",
+            "0x104934fb",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f227c",
+          "code": "0x920f",
+          "direction_field": 1,
+          "context": "0xc2a374b8",
+          "callbacks": [
+            "0x0",
+            "0x104b4365",
+            "0x104b43e9",
+            "0x104b3a53"
+          ]
+        },
+        {
+          "address": "0x119f2298",
+          "code": "0x9400",
+          "direction_field": 1,
+          "context": "0xc2a37498",
+          "callbacks": [
+            "0x0",
+            "0x104b3d4f",
+            "0x104b3e15",
+            "0x104b3a53"
+          ]
+        },
+        {
+          "address": "0x119f22b4",
+          "code": "0x9402",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x105054a5",
+            "0x1050559d",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f22d0",
+          "code": "0x9403",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x1050562b",
+            "0x10505683",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f22ec",
+          "code": "0x9404",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x105056bd",
+            "0x105056ff",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2308",
+          "code": "0x9405",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10505729",
+            "0x1050576b",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2324",
+          "code": "0x9406",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10505791",
+            "0x105057d1",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2340",
+          "code": "0x940c",
+          "direction_field": 0,
+          "context": "0xc2a37510",
+          "callbacks": [
+            "0x0",
+            "0x104c4b11",
+            "0x104c4b7b",
+            "0x104c4717"
+          ]
+        },
+        {
+          "address": "0x119f235c",
+          "code": "0x9414",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x1077602b",
+            "0x1077606b",
+            "0x10776029"
+          ]
+        },
+        {
+          "address": "0x119f2378",
+          "code": "0x9415",
+          "direction_field": 1,
+          "context": "0xc188b774",
+          "callbacks": [
+            "0x0",
+            "0x10776113",
+            "0x1077624f",
+            "0x107760bd"
+          ]
+        },
+        {
+          "address": "0x119f2394",
+          "code": "0x9416",
+          "direction_field": 1,
+          "context": "0xc188b778",
+          "callbacks": [
+            "0x0",
+            "0x10776257",
+            "0x10776259",
+            "0x10776251"
+          ]
+        },
+        {
+          "address": "0x119f23b0",
+          "code": "0x9417",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x1077625d",
+            "0x107762bd",
+            "0x1077625b"
+          ]
+        },
+        {
+          "address": "0x119f23cc",
+          "code": "0x9418",
+          "direction_field": 1,
+          "context": "0xc188b77c",
+          "callbacks": [
+            "0x0",
+            "0x107763d3",
+            "0x10776523",
+            "0x1077637f"
+          ]
+        },
+        {
+          "address": "0x119f23e8",
+          "code": "0x9419",
+          "direction_field": 1,
+          "context": "0xc188b780",
+          "callbacks": [
+            "0x0",
+            "0x1077652b",
+            "0x1077652d",
+            "0x10776525"
+          ]
+        },
+        {
+          "address": "0x119f2404",
+          "code": "0x941a",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10776531",
+            "0x10776587",
+            "0x1077652f"
+          ]
+        },
+        {
+          "address": "0x119f2420",
+          "code": "0x941b",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10776649",
+            "0x107766b5",
+            "0x10776647"
+          ]
+        },
+        {
+          "address": "0x119f243c",
+          "code": "0x941c",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10774077",
+            "0x1077417b",
+            "0x10774075"
+          ]
+        },
+        {
+          "address": "0x119f2458",
+          "code": "0x9420",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c438f",
+            "0x104c43f3",
+            "0x104c438d"
+          ]
+        },
+        {
+          "address": "0x119f2474",
+          "code": "0x9421",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104b447d",
+            "0x104b4481",
+            "0x104b447b"
+          ]
+        },
+        {
+          "address": "0x119f2490",
+          "code": "0x9422",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10493537",
+            "0x104935f5",
+            "0x10493535"
+          ]
+        },
+        {
+          "address": "0x119f24ac",
+          "code": "0x9423",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c5815",
+            "0x104c583d",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f24c8",
+          "code": "0x9424",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10776b4d",
+            "0x10776baf",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f24e4",
+          "code": "0x9425",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10776c25",
+            "0x10776c73",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2500",
+          "code": "0x9426",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10492baf",
+            "0x10492c7f",
+            "0x10492bad"
+          ]
+        },
+        {
+          "address": "0x119f251c",
+          "code": "0x9428",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c5325",
+            "0x104c570d",
+            "0x104c5309"
+          ]
+        },
+        {
+          "address": "0x119f2538",
+          "code": "0x942b",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10776ca3",
+            "0x10776ccd",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2554",
+          "code": "0x9431",
+          "direction_field": 1,
+          "context": "0xc2a374d8",
+          "callbacks": [
+            "0x0",
+            "0x104b3bf9",
+            "0x104b3d1b",
+            "0x104b3a53"
+          ]
+        },
+        {
+          "address": "0x119f2570",
+          "code": "0x9432",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10774de9",
+            "0x10774e2b",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f258c",
+          "code": "0x9433",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104c6fa5",
+            "0x104c700d",
+            "0x104c6fa3"
+          ]
+        },
+        {
+          "address": "0x119f25a8",
+          "code": "0x9434",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10504bd9",
+            "0x10504e9b",
+            "0x10504bd7"
+          ]
+        },
+        {
+          "address": "0x119f25c4",
+          "code": "0x9435",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10492e23",
+            "0x10492e73",
+            "0x10492e21"
+          ]
+        },
+        {
+          "address": "0x119f25e0",
+          "code": "0x9436",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10775e37",
+            "0x10775f99",
+            "0x10775e35"
+          ]
+        },
+        {
+          "address": "0x119f25fc",
+          "code": "0x944b",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10776d4f",
+            "0x10776d73",
+            "0x10776d4d"
+          ]
+        },
+        {
+          "address": "0x119f2618",
+          "code": "0x9464",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104b3829",
+            "0x104b389b",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2634",
+          "code": "0x9535",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10773b91",
+            "0x10773bb9",
+            "0x10773b8f"
+          ]
+        },
+        {
+          "address": "0x119f2650",
+          "code": "0x9455",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x1047bd0f",
+            "0x1047bd37",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f266c",
+          "code": "0x9456",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x1047b915",
+            "0x1047b989",
+            "0x1047b90d"
+          ]
+        },
+        {
+          "address": "0x119f2688",
+          "code": "0x9457",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x1047ba43",
+            "0x1047bc41",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f26a4",
+          "code": "0x9458",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x1047bdf3",
+            "0x1047be39",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f26c0",
+          "code": "0x9459",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x1047be8f",
+            "0x1047beb7",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f26dc",
+          "code": "0x945a",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x1047bf45",
+            "0x1047bf83",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f26f8",
+          "code": "0x9801",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10774ec1",
+            "0x10774eff",
+            "0x10774eb9"
+          ]
+        },
+        {
+          "address": "0x119f2714",
+          "code": "0x9802",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10774f5d",
+            "0x10774fb3",
+            "0x10774eb9"
+          ]
+        },
+        {
+          "address": "0x119f2730",
+          "code": "0x9803",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x1077502d",
+            "0x1077509d",
+            "0x10774eb9"
+          ]
+        },
+        {
+          "address": "0x119f274c",
+          "code": "0x9805",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10775103",
+            "0x10775a01",
+            "0x10774eb9"
+          ]
+        }
+      ]
+    },
+    "2": {
+      "address": "0x119f2784",
+      "entries": [
+        {
+          "address": "0x119f2784",
+          "code": "0x94fd",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10776d8d",
+            "0x10776d93",
+            "0x10776d8b"
+          ]
+        },
+        {
+          "address": "0x119f27a0",
+          "code": "0x94fe",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x10776d99",
+            "0x10776da9",
+            "0x10776daf",
+            "0x10776d8b"
+          ]
+        },
+        {
+          "address": "0x119f27bc",
+          "code": "0x94ff",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10776db5",
+            "0x10776dbb",
+            "0x10776d8b"
+          ]
+        }
+      ]
+    },
+    "3": {
+      "address": "0x119f27f4",
+      "entries": [
+        {
+          "address": "0x119f27f4",
+          "code": "0x90e8",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2810",
+          "code": "0x90e9",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f282c",
+          "code": "0x90ea",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2848",
+          "code": "0x90eb",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053088b",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2864",
+          "code": "0x90ec",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2880",
+          "code": "0x90ed",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053088b",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f289c",
+          "code": "0x90ee",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f28b8",
+          "code": "0x90ef",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f28d4",
+          "code": "0x90f0",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f28f0",
+          "code": "0x90f1",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f290c",
+          "code": "0x90f3",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2928",
+          "code": "0x90f4",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2944",
+          "code": "0x90f5",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053088b",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2960",
+          "code": "0x90f6",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f297c",
+          "code": "0x90f7",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2998",
+          "code": "0x90f8",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f29b4",
+          "code": "0x90f9",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f29d0",
+          "code": "0x90fa",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f29ec",
+          "code": "0x90fb",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2a08",
+          "code": "0x9350",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053088b",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2a24",
+          "code": "0x9351",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053088b",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2a40",
+          "code": "0x9352",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2a5c",
+          "code": "0x9353",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053088b",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2a78",
+          "code": "0x9354",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2a94",
+          "code": "0x9355",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2ab0",
+          "code": "0x9356",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2acc",
+          "code": "0x9357",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2ae8",
+          "code": "0x9358",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2b04",
+          "code": "0x9359",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2b20",
+          "code": "0x935a",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2b3c",
+          "code": "0x935b",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2b58",
+          "code": "0x935c",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053093b",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2b74",
+          "code": "0x935d",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2b90",
+          "code": "0x935e",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2bac",
+          "code": "0x935f",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2bc8",
+          "code": "0x9360",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2be4",
+          "code": "0x9361",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10504587",
+            "0x105049a5",
+            "0x10504585"
+          ]
+        },
+        {
+          "address": "0x119f2c00",
+          "code": "0x9411",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        }
+      ]
+    },
+    "4": {
+      "address": "0x119f2c38",
+      "entries": [
+        {
+          "address": "0x119f2c38",
+          "code": "0x9509",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2c54",
+          "code": "0x950a",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2c70",
+          "code": "0x950b",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053088b",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2c8c",
+          "code": "0x950c",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2ca8",
+          "code": "0x950d",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2cc4",
+          "code": "0x950e",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2ce0",
+          "code": "0x950f",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2cfc",
+          "code": "0x9407",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2d18",
+          "code": "0x9408",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053088b",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2d34",
+          "code": "0x9409",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2d50",
+          "code": "0x940a",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        }
+      ]
+    },
+    "5": {
+      "address": "0x119f2d88",
+      "entries": [
+        {
+          "address": "0x119f2d88",
+          "code": "0x9520",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2da4",
+          "code": "0x9521",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053088b",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2dc0",
+          "code": "0x9522",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x1077430f",
+            "0x10774435",
+            "0x1077430b"
+          ]
+        },
+        {
+          "address": "0x119f2ddc",
+          "code": "0x9523",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2df8",
+          "code": "0x9527",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10773f0b",
+            "0x10773f33",
+            "0x10773de1"
+          ]
+        },
+        {
+          "address": "0x119f2e14",
+          "code": "0x9528",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10773fe5",
+            "0x1077400d",
+            "0x10773de1"
+          ]
+        },
+        {
+          "address": "0x119f2e30",
+          "code": "0x9529",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10773de3",
+            "0x10773ed1",
+            "0x10773de1"
+          ]
+        },
+        {
+          "address": "0x119f2e4c",
+          "code": "0x952a",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x10530737",
+            "0x105307f3",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2e68",
+          "code": "0x9530",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x107744c3",
+            "0x107744f3",
+            "0x107744bf"
+          ]
+        },
+        {
+          "address": "0x119f2e84",
+          "code": "0x9531",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2ea0",
+          "code": "0x9532",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053088b",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2ebc",
+          "code": "0x9533",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x10530765",
+            "0x10530735"
+          ]
+        }
+      ]
+    },
+    "6": {
+      "address": "0x119f2ef4",
+      "entries": [
+        {
+          "address": "0x119f2ef4",
+          "code": "0x9010",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053088b",
+            "0x10530735"
+          ]
+        },
+        {
+          "address": "0x119f2f10",
+          "code": "0x952b",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x10530737",
+            "0x1053088b",
+            "0x10530735"
+          ]
+        }
+      ]
+    },
+    "8": {
+      "address": "0x119f2f48",
+      "entries": [
+        {
+          "address": "0x119f2f48",
+          "code": "0x92f0",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x1044678b",
+            "0x104467b7",
+            "0x10446789"
+          ]
+        },
+        {
+          "address": "0x119f2f64",
+          "code": "0x92f3",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104469e9",
+            "0x10446c47",
+            "0x104469db"
+          ]
+        },
+        {
+          "address": "0x119f2f80",
+          "code": "0x92f4",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104469e9",
+            "0x10446cad",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2f9c",
+          "code": "0x92f5",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104469e9",
+            "0x10446a0d",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2fb8",
+          "code": "0x92f6",
+          "direction_field": 1,
+          "context": "0x0",
+          "callbacks": [
+            "0x0",
+            "0x104469e9",
+            "0x10446a7b",
+            "0x0"
+          ]
+        },
+        {
+          "address": "0x119f2fd4",
+          "code": "0x92f7",
+          "direction_field": 0,
+          "context": "0x0",
+          "callbacks": [
+            "0x1047b8df",
+            "0x104469e9",
+            "0x10446b6b",
+            "0x0"
+          ]
+        }
+      ]
+    }
+  },
+  "service_gate_checks": [
+    {
+      "active": 0,
+      "subcommand": "0xf003",
+      "passed": false,
+      "events": [
+        {
+          "kind": "response",
+          "status": "0xa004",
+          "parameters": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "global_writes": [
+        {
+          "address": "0xc188bc38",
+          "size": 4,
+          "value": "0x119f49a4"
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "subcommand": "0xf032",
+      "passed": false,
+      "events": [
+        {
+          "kind": "response",
+          "status": "0xa004",
+          "parameters": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "global_writes": [
+        {
+          "address": "0xc188bc38",
+          "size": 4,
+          "value": "0x119f4bb8"
+        }
+      ]
+    },
+    {
+      "active": 1,
+      "subcommand": "0xf003",
+      "passed": true,
+      "events": [],
+      "global_writes": [
+        {
+          "address": "0xc188bc38",
+          "size": 4,
+          "value": "0x119f49a4"
+        }
+      ]
+    },
+    {
+      "active": 1,
+      "subcommand": "0xf032",
+      "passed": true,
+      "events": [
+        {
+          "kind": "dynamic_region_query",
+          "region": 8,
+          "available": false
+        }
+      ],
+      "global_writes": [
+        {
+          "address": "0xc188bc38",
+          "size": 4,
+          "value": "0x119f4bb8"
+        }
+      ]
+    }
+  ],
+  "address_filter_checks": [
+    {
+      "start": "0x10020000",
+      "length": 16,
+      "accepted": false,
+      "events": []
+    },
+    {
+      "start": "0xc1000000",
+      "length": 16,
+      "accepted": false,
+      "events": []
+    },
+    {
+      "start": "0xc2b90000",
+      "length": 16,
+      "accepted": false,
+      "events": []
+    },
+    {
+      "start": "0xcc200000",
+      "length": 16,
+      "accepted": false,
+      "events": []
+    },
+    {
+      "start": "0x0",
+      "length": 16,
+      "accepted": false,
+      "events": []
+    },
+    {
+      "start": "0xc188c060",
+      "length": 8,
+      "accepted": true,
+      "events": [
+        {
+          "kind": "dynamic_region_query",
+          "region": 8,
+          "available": false
+        }
+      ]
+    },
+    {
+      "start": "0xc17ffffc",
+      "length": 8,
+      "accepted": false,
+      "events": []
+    },
+    {
+      "start": "0xc2b8fffc",
+      "length": 8,
+      "accepted": false,
+      "events": []
+    }
+  ],
+  "memory_transfer_checks": [
+    {
+      "events": [
+        {
+          "kind": "memory_class_stub",
+          "address": "0xc188c060",
+          "special": false
+        },
+        {
+          "kind": "transfer",
+          "via": "0x1063f682",
+          "source": "0xc188c060",
+          "length": 8,
+          "data_hex": "a501000100010001"
+        },
+        {
+          "kind": "response",
+          "status": "0x2001",
+          "parameters": [
+            8193,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "events": [
+        {
+          "kind": "memory_class_stub",
+          "address": "0xc188c060",
+          "special": true
+        },
+        {
+          "kind": "transfer",
+          "via": "0x104b53c6",
+          "source": "0xc188c060",
+          "length": 8,
+          "data_hex": "a501000100010001"
+        },
+        {
+          "kind": "response",
+          "status": "0x2001",
+          "parameters": [
+            8193,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "video_getter_checks": [
+    {
+      "property": "0xd0bf",
+      "inputs": {
+        "4718": 0,
+        "4772": 0
+      },
+      "output": 0,
+      "events": [
+        {
+          "kind": "capability_read",
+          "id": "0x126e",
+          "value": 0
+        },
+        {
+          "kind": "capability_read",
+          "id": "0x12a4",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "property": "0xd0bf",
+      "inputs": {
+        "4718": 1,
+        "4772": 0
+      },
+      "output": 1,
+      "events": [
+        {
+          "kind": "capability_read",
+          "id": "0x126e",
+          "value": 1
+        },
+        {
+          "kind": "capability_read",
+          "id": "0x12a4",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "property": "0xd0bf",
+      "inputs": {
+        "4718": 0,
+        "4772": 1
+      },
+      "output": 2,
+      "events": [
+        {
+          "kind": "capability_read",
+          "id": "0x126e",
+          "value": 0
+        },
+        {
+          "kind": "capability_read",
+          "id": "0x12a4",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "property": "0xd0bf",
+      "inputs": {
+        "4718": 1,
+        "4772": 1
+      },
+      "output": 0,
+      "events": [
+        {
+          "kind": "capability_read",
+          "id": "0x126e",
+          "value": 1
+        },
+        {
+          "kind": "capability_read",
+          "id": "0x12a4",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "property": "0xd0cc",
+      "inputs": {
+        "4717": 0
+      },
+      "output": 1,
+      "events": [
+        {
+          "kind": "capability_read",
+          "id": "0x126d",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "property": "0xd0cc",
+      "inputs": {
+        "4717": 1
+      },
+      "output": 0,
+      "events": [
+        {
+          "kind": "capability_read",
+          "id": "0x126d",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "property": "0xd0bb",
+      "inputs": {
+        "5768": 0,
+        "5823": 0
+      },
+      "output": 0,
+      "events": [
+        {
+          "kind": "capability_read",
+          "id": "0x1688",
+          "value": 0
+        },
+        {
+          "kind": "capability_read",
+          "id": "0x16bf",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "property": "0xd0bb",
+      "inputs": {
+        "5768": 1,
+        "5823": 0
+      },
+      "output": 1,
+      "events": [
+        {
+          "kind": "capability_read",
+          "id": "0x1688",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "property": "0xd0bb",
+      "inputs": {
+        "5768": 0,
+        "5823": 1
+      },
+      "output": 1,
+      "events": [
+        {
+          "kind": "capability_read",
+          "id": "0x1688",
+          "value": 0
+        },
+        {
+          "kind": "capability_read",
+          "id": "0x16bf",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "property": "0xd0bb",
+      "inputs": {
+        "5768": 1,
+        "5823": 1
+      },
+      "output": 1,
+      "events": [
+        {
+          "kind": "capability_read",
+          "id": "0x1688",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "service_subcommands": {
+    "address": "0x119f496c",
+    "entries": [
+      {
+        "address": "0x119f496c",
+        "code": "0xf001",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x0",
+          "0x1047c279",
+          "0x1047c20b"
+        ]
+      },
+      {
+        "address": "0x119f4988",
+        "code": "0xf002",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x0",
+          "0x1047c393",
+          "0x1047c20b"
+        ]
+      },
+      {
+        "address": "0x119f49a4",
+        "code": "0xf003",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1047c3dd",
+          "0x1047c413",
+          "0x1047c3db"
+        ]
+      },
+      {
+        "address": "0x119f49c0",
+        "code": "0xf004",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x1047c611",
+          "0x1047c651",
+          "0x1047c60f"
+        ]
+      },
+      {
+        "address": "0x119f49dc",
+        "code": "0xf005",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x1047c759",
+          "0x1047c75d",
+          "0x1047c757"
+        ]
+      },
+      {
+        "address": "0x119f49f8",
+        "code": "0xf006",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1047c7ad",
+          "0x1047c7b1",
+          "0x1047c7ab"
+        ]
+      },
+      {
+        "address": "0x119f4a14",
+        "code": "0xf007",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1047c807",
+          "0x1047c845",
+          "0x1047c805"
+        ]
+      },
+      {
+        "address": "0x119f4a30",
+        "code": "0xf021",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b463f",
+          "0x104b4693",
+          "0x104b463d"
+        ]
+      },
+      {
+        "address": "0x119f4a4c",
+        "code": "0xf022",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b4701",
+          "0x104b47f5",
+          "0x104b463d"
+        ]
+      },
+      {
+        "address": "0x119f4a68",
+        "code": "0xf024",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b487d",
+          "0x104b4919",
+          "0x104b487b"
+        ]
+      },
+      {
+        "address": "0x119f4a84",
+        "code": "0xf025",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b4973",
+          "0x104b49c5",
+          "0x104b4971"
+        ]
+      },
+      {
+        "address": "0x119f4aa0",
+        "code": "0xf026",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b4a2f",
+          "0x104b4a81",
+          "0x104b4971"
+        ]
+      },
+      {
+        "address": "0x119f4abc",
+        "code": "0xf028",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b4b01",
+          "0x104b4b05",
+          "0x104b4aff"
+        ]
+      },
+      {
+        "address": "0x119f4ad8",
+        "code": "0xf029",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b4b6f",
+          "0x104b4c05",
+          "0x104b4b6d"
+        ]
+      },
+      {
+        "address": "0x119f4af4",
+        "code": "0xf02a",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b4cad",
+          "0x104b4d43",
+          "0x104b4b6d"
+        ]
+      },
+      {
+        "address": "0x119f4b10",
+        "code": "0xf02c",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b4deb",
+          "0x104b4e23",
+          "0x104b4de9"
+        ]
+      },
+      {
+        "address": "0x119f4b2c",
+        "code": "0xf02d",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b4ec9",
+          "0x104b4f1b",
+          "0x104b4ec7"
+        ]
+      },
+      {
+        "address": "0x119f4b48",
+        "code": "0xf02e",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b4fc7",
+          "0x104b5019",
+          "0x104b4ec7"
+        ]
+      },
+      {
+        "address": "0x119f4b64",
+        "code": "0xf02f",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b50c3",
+          "0x104b50f9",
+          "0x104b50c1"
+        ]
+      },
+      {
+        "address": "0x119f4b80",
+        "code": "0xf030",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b5177",
+          "0x104b517b",
+          "0x104b5175"
+        ]
+      },
+      {
+        "address": "0x119f4b9c",
+        "code": "0xf031",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b51b7",
+          "0x104b5211",
+          "0x104b51b5"
+        ]
+      },
+      {
+        "address": "0x119f4bb8",
+        "code": "0xf032",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b5387",
+          "0x104b5489",
+          "0x104b5313"
+        ]
+      },
+      {
+        "address": "0x119f4bd4",
+        "code": "0xf033",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104b54e7",
+          "0x104b54fd",
+          "0x104b5545",
+          "0x104b5313"
+        ]
+      },
+      {
+        "address": "0x119f4bf0",
+        "code": "0xf036",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b57a1",
+          "0x104b58d9",
+          "0x104b579f"
+        ]
+      },
+      {
+        "address": "0x119f4c0c",
+        "code": "0xf037",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b5937",
+          "0x104b5977",
+          "0x104b579f"
+        ]
+      },
+      {
+        "address": "0x119f4c28",
+        "code": "0xf038",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b59df",
+          "0x104b5a15",
+          "0x104b59dd"
+        ]
+      },
+      {
+        "address": "0x119f4c44",
+        "code": "0xf039",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b5a59",
+          "0x104b5a8f",
+          "0x104b5a57"
+        ]
+      },
+      {
+        "address": "0x119f4c60",
+        "code": "0xf03a",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b5add",
+          "0x104b5b31",
+          "0x104b5adb"
+        ]
+      },
+      {
+        "address": "0x119f4c7c",
+        "code": "0xf03b",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b5b9f",
+          "0x104b5bf1",
+          "0x104b5adb"
+        ]
+      },
+      {
+        "address": "0x119f4c98",
+        "code": "0xf03c",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b5c5d",
+          "0x104b5c61",
+          "0x104b5c5b"
+        ]
+      },
+      {
+        "address": "0x119f4cb4",
+        "code": "0xf03d",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b5cab",
+          "0x104b5cfd",
+          "0x104b5ca9"
+        ]
+      },
+      {
+        "address": "0x119f4cd0",
+        "code": "0xf03e",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b5d67",
+          "0x104b5db9",
+          "0x104b5ca9"
+        ]
+      },
+      {
+        "address": "0x119f4cec",
+        "code": "0xf03f",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b5e23",
+          "0x104b5e27",
+          "0x104b5e21"
+        ]
+      },
+      {
+        "address": "0x119f4d08",
+        "code": "0xf040",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b5e71",
+          "0x104b5ea3",
+          "0x104b5e6f"
+        ]
+      },
+      {
+        "address": "0x119f4d24",
+        "code": "0xf041",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b5f3b",
+          "0x104b5f6d",
+          "0x104b5e6f"
+        ]
+      },
+      {
+        "address": "0x119f4d40",
+        "code": "0xf044",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b5fc9",
+          "0x104b5ffb",
+          "0x104b5fc7"
+        ]
+      },
+      {
+        "address": "0x119f4d5c",
+        "code": "0xf045",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b60bb",
+          "0x104b60ed",
+          "0x104b5fc7"
+        ]
+      },
+      {
+        "address": "0x119f4d78",
+        "code": "0xf046",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b61a3",
+          "0x104b61d5",
+          "0x104b61a1"
+        ]
+      },
+      {
+        "address": "0x119f4d94",
+        "code": "0xf047",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b6299",
+          "0x104b62cb",
+          "0x104b61a1"
+        ]
+      },
+      {
+        "address": "0x119f4db0",
+        "code": "0xf048",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b6387",
+          "0x104b63b9",
+          "0x104b6385"
+        ]
+      },
+      {
+        "address": "0x119f4dcc",
+        "code": "0xf049",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b6467",
+          "0x104b64b1",
+          "0x104b6465"
+        ]
+      },
+      {
+        "address": "0x119f4de8",
+        "code": "0xf04a",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b653f",
+          "0x104b6543",
+          "0x104b653d"
+        ]
+      },
+      {
+        "address": "0x119f4e04",
+        "code": "0xf04b",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b65d1",
+          "0x104b65d5",
+          "0x104b65cf"
+        ]
+      },
+      {
+        "address": "0x119f4e20",
+        "code": "0xf04c",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b667b",
+          "0x104b667f",
+          "0x104b6679"
+        ]
+      },
+      {
+        "address": "0x119f4e3c",
+        "code": "0xf04d",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b66ff",
+          "0x104b6703",
+          "0x104b66fd"
+        ]
+      },
+      {
+        "address": "0x119f4e58",
+        "code": "0xf04e",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b557f",
+          "0x104b55c5",
+          "0x104b557d"
+        ]
+      },
+      {
+        "address": "0x119f4e74",
+        "code": "0xf04f",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b5695",
+          "0x104b56d7",
+          "0x104b557d"
+        ]
+      },
+      {
+        "address": "0x119f4e90",
+        "code": "0xf050",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778e77",
+          "0x10778ebb",
+          "0x10778e75"
+        ]
+      },
+      {
+        "address": "0x119f4eac",
+        "code": "0xf051",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778f7d",
+          "0x10778f81",
+          "0x10778f7b"
+        ]
+      },
+      {
+        "address": "0x119f4ec8",
+        "code": "0xf052",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10779043",
+          "0x10779047",
+          "0x10779041"
+        ]
+      },
+      {
+        "address": "0x119f4ee4",
+        "code": "0xf059",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b6b85",
+          "0x104b6bb7",
+          "0x104b6b83"
+        ]
+      },
+      {
+        "address": "0x119f4f00",
+        "code": "0xf061",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b765f",
+          "0x104b7695",
+          "0x104b765d"
+        ]
+      },
+      {
+        "address": "0x119f4f1c",
+        "code": "0xf063",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b76dd",
+          "0x104b7713",
+          "0x104b76db"
+        ]
+      },
+      {
+        "address": "0x119f4f38",
+        "code": "0xf064",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b7745",
+          "0x104b778b",
+          "0x104b7743"
+        ]
+      },
+      {
+        "address": "0x119f4f54",
+        "code": "0xf065",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b77cf",
+          "0x104b7803",
+          "0x104b77cd"
+        ]
+      },
+      {
+        "address": "0x119f4f70",
+        "code": "0xf066",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b7835",
+          "0x104b7869",
+          "0x104b7833"
+        ]
+      },
+      {
+        "address": "0x119f4f8c",
+        "code": "0xf067",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b789b",
+          "0x104b78cf",
+          "0x104b7899"
+        ]
+      },
+      {
+        "address": "0x119f4fa8",
+        "code": "0xf068",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b7981",
+          "0x104b79c3",
+          "0x104b797f"
+        ]
+      },
+      {
+        "address": "0x119f4fc4",
+        "code": "0xf069",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b7a8b",
+          "0x104b7ae7",
+          "0x104b7a89"
+        ]
+      },
+      {
+        "address": "0x119f4fe0",
+        "code": "0xf06b",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b7b5d",
+          "0x104b7b65",
+          "0x104b7b5b"
+        ]
+      },
+      {
+        "address": "0x119f4ffc",
+        "code": "0xf06c",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b7c69",
+          "0x104b7f27",
+          "0x104b7c67"
+        ]
+      },
+      {
+        "address": "0x119f5018",
+        "code": "0xf06d",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x10493edb",
+          "0x10494509",
+          "0x10493ed9"
+        ]
+      },
+      {
+        "address": "0x119f5034",
+        "code": "0xf06e",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104945d9",
+          "0x10494cb3",
+          "0x104945d7"
+        ]
+      },
+      {
+        "address": "0x119f5050",
+        "code": "0xf070",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10494e05",
+          "0x10494e43",
+          "0x10494e03"
+        ]
+      },
+      {
+        "address": "0x119f506c",
+        "code": "0xf071",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10494ee5",
+          "0x10494f1b",
+          "0x10494ee3"
+        ]
+      },
+      {
+        "address": "0x119f5088",
+        "code": "0xf072",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b78fd",
+          "0x104b7933",
+          "0x104b78fb"
+        ]
+      },
+      {
+        "address": "0x119f50a4",
+        "code": "0xf073",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b7f7d",
+          "0x104b7fdd",
+          "0x104b7f7b"
+        ]
+      },
+      {
+        "address": "0x119f50c0",
+        "code": "0xf074",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104b8073",
+          "0x104b80a9",
+          "0x104b80db",
+          "0x104b8071"
+        ]
+      },
+      {
+        "address": "0x119f50dc",
+        "code": "0xf075",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b8147",
+          "0x104b817f",
+          "0x104b8145"
+        ]
+      },
+      {
+        "address": "0x119f50f8",
+        "code": "0xf076",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b82bd",
+          "0x104b82f1",
+          "0x104b82bb"
+        ]
+      },
+      {
+        "address": "0x119f5114",
+        "code": "0xf077",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b8323",
+          "0x104b8363",
+          "0x104b8321"
+        ]
+      },
+      {
+        "address": "0x119f5130",
+        "code": "0xf079",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b81db",
+          "0x104b81ed",
+          "0x104b81d9"
+        ]
+      },
+      {
+        "address": "0x119f514c",
+        "code": "0xf091",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x105057fb",
+          "0x1050585b",
+          "0x105057f9"
+        ]
+      },
+      {
+        "address": "0x119f5168",
+        "code": "0xf092",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x105058d3",
+          "0x10505909",
+          "0x105058d1"
+        ]
+      },
+      {
+        "address": "0x119f5184",
+        "code": "0xf093",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10505963",
+          "0x10505a61",
+          "0x10505961"
+        ]
+      },
+      {
+        "address": "0x119f51a0",
+        "code": "0xf094",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10505abf",
+          "0x10505b73",
+          "0x10505abd"
+        ]
+      },
+      {
+        "address": "0x119f51bc",
+        "code": "0xf095",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10505bff",
+          "0x10505c3f",
+          "0x10505bfd"
+        ]
+      },
+      {
+        "address": "0x119f51d8",
+        "code": "0xf096",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104c9853",
+          "0x104c98bf",
+          "0x104c9841"
+        ]
+      },
+      {
+        "address": "0x119f51f4",
+        "code": "0xf097",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104c9933",
+          "0x104c9985",
+          "0x104c9931"
+        ]
+      },
+      {
+        "address": "0x119f5210",
+        "code": "0xf111",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778557",
+          "0x1077858d",
+          "0x10778555"
+        ]
+      },
+      {
+        "address": "0x119f522c",
+        "code": "0xf112",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x107785f1",
+          "0x107785f5",
+          "0x107785ef"
+        ]
+      },
+      {
+        "address": "0x119f5248",
+        "code": "0xf113",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1077867f",
+          "0x10778683",
+          "0x1077867d"
+        ]
+      },
+      {
+        "address": "0x119f5264",
+        "code": "0xf114",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1077870f",
+          "0x10778713",
+          "0x1077870d"
+        ]
+      },
+      {
+        "address": "0x119f5280",
+        "code": "0xf131",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x107780ff",
+          "0x10778103",
+          "0x107780fd"
+        ]
+      },
+      {
+        "address": "0x119f529c",
+        "code": "0xf132",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778145",
+          "0x10778149",
+          "0x10778143"
+        ]
+      },
+      {
+        "address": "0x119f52b8",
+        "code": "0xf133",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778187",
+          "0x1077818b",
+          "0x10778185"
+        ]
+      },
+      {
+        "address": "0x119f52d4",
+        "code": "0xf134",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x107781c9",
+          "0x107781cd",
+          "0x107781c7"
+        ]
+      },
+      {
+        "address": "0x119f52f0",
+        "code": "0xf135",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1077820b",
+          "0x1077820f",
+          "0x10778209"
+        ]
+      },
+      {
+        "address": "0x119f530c",
+        "code": "0xf136",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1077824b",
+          "0x1077824f",
+          "0x10778249"
+        ]
+      },
+      {
+        "address": "0x119f5328",
+        "code": "0xf137",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778291",
+          "0x10778295",
+          "0x1077828f"
+        ]
+      },
+      {
+        "address": "0x119f5344",
+        "code": "0xf138",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x107782d3",
+          "0x107782d7",
+          "0x107782d1"
+        ]
+      },
+      {
+        "address": "0x119f5360",
+        "code": "0xf139",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778315",
+          "0x10778319",
+          "0x10778313"
+        ]
+      },
+      {
+        "address": "0x119f537c",
+        "code": "0xf13a",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778359",
+          "0x1077835d",
+          "0x10778357"
+        ]
+      },
+      {
+        "address": "0x119f5398",
+        "code": "0xf13b",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1077839f",
+          "0x107783a3",
+          "0x1077839d"
+        ]
+      },
+      {
+        "address": "0x119f53b4",
+        "code": "0xf13c",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x107783e3",
+          "0x107783e7",
+          "0x107783e1"
+        ]
+      },
+      {
+        "address": "0x119f53d0",
+        "code": "0xf13d",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778481",
+          "0x10778485",
+          "0x1077847f"
+        ]
+      },
+      {
+        "address": "0x119f53ec",
+        "code": "0xf13e",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x107784c5",
+          "0x107784c9",
+          "0x107784c3"
+        ]
+      },
+      {
+        "address": "0x119f5408",
+        "code": "0xf13f",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1077850f",
+          "0x10778513",
+          "0x1077850d"
+        ]
+      },
+      {
+        "address": "0x119f5424",
+        "code": "0xf162",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x107787a1",
+          "0x107787a5",
+          "0x1077879f"
+        ]
+      },
+      {
+        "address": "0x119f5440",
+        "code": "0xf163",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778859",
+          "0x1077885d",
+          "0x10778857"
+        ]
+      },
+      {
+        "address": "0x119f545c",
+        "code": "0xf164",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x107788f9",
+          "0x107788fd",
+          "0x107788f7"
+        ]
+      },
+      {
+        "address": "0x119f5478",
+        "code": "0xf165",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778947",
+          "0x1077897d",
+          "0x10778945"
+        ]
+      },
+      {
+        "address": "0x119f5494",
+        "code": "0xf166",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x107789cb",
+          "0x10778a01",
+          "0x107789c9"
+        ]
+      },
+      {
+        "address": "0x119f54b0",
+        "code": "0xf181",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778adf",
+          "0x10778b17",
+          "0x10778add"
+        ]
+      },
+      {
+        "address": "0x119f54cc",
+        "code": "0xf182",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778b5d",
+          "0x10778b61",
+          "0x10778b5b"
+        ]
+      },
+      {
+        "address": "0x119f54e8",
+        "code": "0xf183",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778ba5",
+          "0x10778bf9",
+          "0x10778ba3"
+        ]
+      },
+      {
+        "address": "0x119f5504",
+        "code": "0xf184",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778c93",
+          "0x10778c97",
+          "0x10778c91"
+        ]
+      },
+      {
+        "address": "0x119f5520",
+        "code": "0xf1a1",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1077778f",
+          "0x10777793",
+          "0x1077778d"
+        ]
+      },
+      {
+        "address": "0x119f553c",
+        "code": "0xf1a2",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x107777d7",
+          "0x10777821",
+          "0x107777d5"
+        ]
+      },
+      {
+        "address": "0x119f5558",
+        "code": "0xf1a3",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1077789f",
+          "0x107778a3",
+          "0x1077789d"
+        ]
+      },
+      {
+        "address": "0x119f5574",
+        "code": "0xf1a4",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x107778e5",
+          "0x1077792f",
+          "0x107778e3"
+        ]
+      },
+      {
+        "address": "0x119f5590",
+        "code": "0xf1a5",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x107779c1",
+          "0x107779c5",
+          "0x107779bf"
+        ]
+      },
+      {
+        "address": "0x119f55ac",
+        "code": "0xf1a6",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777a07",
+          "0x10777a51",
+          "0x10777a05"
+        ]
+      },
+      {
+        "address": "0x119f55c8",
+        "code": "0xf1a7",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777adf",
+          "0x10777b17",
+          "0x10777add"
+        ]
+      },
+      {
+        "address": "0x119f55e4",
+        "code": "0xf1a8",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777b53",
+          "0x10777b87",
+          "0x10777b51"
+        ]
+      },
+      {
+        "address": "0x119f5600",
+        "code": "0xf1a9",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777bd1",
+          "0x10777c05",
+          "0x10777bcf"
+        ]
+      },
+      {
+        "address": "0x119f561c",
+        "code": "0xf1aa",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777c4f",
+          "0x10777c53",
+          "0x10777c4d"
+        ]
+      },
+      {
+        "address": "0x119f5638",
+        "code": "0xf1ab",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777ca3",
+          "0x10777ca7",
+          "0x10777ca1"
+        ]
+      },
+      {
+        "address": "0x119f5654",
+        "code": "0xf1ac",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777cf5",
+          "0x10777cf9",
+          "0x10777cf3"
+        ]
+      },
+      {
+        "address": "0x119f5670",
+        "code": "0xf1ad",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777d47",
+          "0x10777d91",
+          "0x10777d45"
+        ]
+      },
+      {
+        "address": "0x119f568c",
+        "code": "0xf1ae",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777e75",
+          "0x10777e79",
+          "0x10777e73"
+        ]
+      },
+      {
+        "address": "0x119f56a8",
+        "code": "0xf1af",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777ebb",
+          "0x10777f05",
+          "0x10777eb9"
+        ]
+      },
+      {
+        "address": "0x119f56c4",
+        "code": "0xf1b0",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777f81",
+          "0x10777f85",
+          "0x10777f7f"
+        ]
+      },
+      {
+        "address": "0x119f56e0",
+        "code": "0xf1b1",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777fc7",
+          "0x10778011",
+          "0x10777fc5"
+        ]
+      },
+      {
+        "address": "0x119f56fc",
+        "code": "0xf1b2",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777e1f",
+          "0x10777e23",
+          "0x10777e1d"
+        ]
+      },
+      {
+        "address": "0x119f5718",
+        "code": "0xf1b3",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1077808d",
+          "0x107780c3",
+          "0x1077808b"
+        ]
+      },
+      {
+        "address": "0x119f5734",
+        "code": "0xf1f1",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104c9a6d",
+          "0x104c9bad",
+          "0x104c9a6b"
+        ]
+      },
+      {
+        "address": "0x119f5750",
+        "code": "0xf1f2",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104c9c1b",
+          "0x104c9c1f",
+          "0x104c9c19"
+        ]
+      },
+      {
+        "address": "0x119f576c",
+        "code": "0xf1f3",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104c9cb9",
+          "0x104c9cbd",
+          "0x104c9cb7"
+        ]
+      },
+      {
+        "address": "0x119f5788",
+        "code": "0xf1f4",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104c9d55",
+          "0x104c9d8b",
+          "0x104c9d53"
+        ]
+      },
+      {
+        "address": "0x119f57a4",
+        "code": "0xf1f5",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104c9e23",
+          "0x104c9e55",
+          "0x104c9e21"
+        ]
+      },
+      {
+        "address": "0x119f57c0",
+        "code": "0xf1f8",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104c9ecb",
+          "0x104c9f01",
+          "0x104c9ec9"
+        ]
+      },
+      {
+        "address": "0x119f57dc",
+        "code": "0xf1f9",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104c9f8b",
+          "0x104c9fbf",
+          "0x104c9f89"
+        ]
+      },
+      {
+        "address": "0x119f57f8",
+        "code": "0xf221",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b75df",
+          "0x104b7623",
+          "0x104b75dd"
+        ]
+      },
+      {
+        "address": "0x119f5814",
+        "code": "0xf251",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104936d3",
+          "0x104936d7",
+          "0x104936d1"
+        ]
+      },
+      {
+        "address": "0x119f5830",
+        "code": "0xf253",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x10493757",
+          "0x10493773",
+          "0x1049379b",
+          "0x10493755"
+        ]
+      },
+      {
+        "address": "0x119f584c",
+        "code": "0xf254",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1049385b",
+          "0x10493871",
+          "0x10493859"
+        ]
+      },
+      {
+        "address": "0x119f5868",
+        "code": "0xf255",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104938e3",
+          "0x1049392b",
+          "0x104938e1"
+        ]
+      },
+      {
+        "address": "0x119f5884",
+        "code": "0xf271",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10776dc3",
+          "0x10776df9",
+          "0x10776dc1"
+        ]
+      },
+      {
+        "address": "0x119f58a0",
+        "code": "0xf272",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10776ecf",
+          "0x10776ed3",
+          "0x10776ecd"
+        ]
+      },
+      {
+        "address": "0x119f58bc",
+        "code": "0xf273",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10776f01",
+          "0x10776f05",
+          "0x10776eff"
+        ]
+      },
+      {
+        "address": "0x119f58d8",
+        "code": "0xf274",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10776f33",
+          "0x10776f67",
+          "0x10776f31"
+        ]
+      },
+      {
+        "address": "0x119f58f4",
+        "code": "0xf275",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10776f95",
+          "0x10776fcb",
+          "0x10776f93"
+        ]
+      },
+      {
+        "address": "0x119f5910",
+        "code": "0xf276",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777009",
+          "0x1077705f",
+          "0x10777007"
+        ]
+      },
+      {
+        "address": "0x119f592c",
+        "code": "0xf278",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777119",
+          "0x10777161",
+          "0x10777117"
+        ]
+      },
+      {
+        "address": "0x119f5948",
+        "code": "0xf279",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1077721b",
+          "0x107774af",
+          "0x10777219"
+        ]
+      },
+      {
+        "address": "0x119f5964",
+        "code": "0xf27a",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10777585",
+          "0x10777589",
+          "0x10777583"
+        ]
+      },
+      {
+        "address": "0x119f5980",
+        "code": "0xf27b",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x107775e9",
+          "0x107775ed",
+          "0x107775e7"
+        ]
+      },
+      {
+        "address": "0x119f599c",
+        "code": "0xf27c",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x1077764d",
+          "0x10777651",
+          "0x1077764b"
+        ]
+      },
+      {
+        "address": "0x119f59b8",
+        "code": "0xf27d",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x107776d1",
+          "0x10777709",
+          "0x107776cf"
+        ]
+      },
+      {
+        "address": "0x119f59d4",
+        "code": "0xf2b1",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104b6cdf",
+          "0x104b6d03",
+          "0x104b6d93",
+          "0x104b6cdd"
+        ]
+      },
+      {
+        "address": "0x119f59f0",
+        "code": "0xf2b3",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b6e99",
+          "0x104b6ed1",
+          "0x104b6e97"
+        ]
+      },
+      {
+        "address": "0x119f5a0c",
+        "code": "0xf2b4",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104b6fcb",
+          "0x104b6fef",
+          "0x104b704f",
+          "0x104b6fc9"
+        ]
+      },
+      {
+        "address": "0x119f5a28",
+        "code": "0xf2b5",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b715d",
+          "0x104b7161",
+          "0x104b715b"
+        ]
+      },
+      {
+        "address": "0x119f5a44",
+        "code": "0xf2b6",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b71df",
+          "0x104b71e3",
+          "0x104b71dd"
+        ]
+      },
+      {
+        "address": "0x119f5a60",
+        "code": "0xf2b8",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b7261",
+          "0x104b7269",
+          "0x104b725f"
+        ]
+      },
+      {
+        "address": "0x119f5a7c",
+        "code": "0xf2b9",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b72a3",
+          "0x104b72a7",
+          "0x104b72a1"
+        ]
+      },
+      {
+        "address": "0x119f5a98",
+        "code": "0xf2ba",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x104b7353",
+          "0x104b7395",
+          "0x104b7351"
+        ]
+      },
+      {
+        "address": "0x119f5ab4",
+        "code": "0xf2bb",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104c95f3",
+          "0x104b7479",
+          "0x104b747d",
+          "0x104b7477"
+        ]
+      },
+      {
+        "address": "0x119f5ad0",
+        "code": "0xa001",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x104939d3",
+          "0x104939cf",
+          "0x10493a6b",
+          "0x104939c5"
+        ]
+      },
+      {
+        "address": "0x119f5aec",
+        "code": "0xa002",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104939d3",
+          "0x104939cf",
+          "0x10493b49",
+          "0x104939c5"
+        ]
+      },
+      {
+        "address": "0x119f5b08",
+        "code": "0xa003",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104939d3",
+          "0x104939cf",
+          "0x10493b8d",
+          "0x104939c5"
+        ]
+      },
+      {
+        "address": "0x119f5b24",
+        "code": "0xa004",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104939d3",
+          "0x104939cf",
+          "0x10493bcb",
+          "0x104939c5"
+        ]
+      },
+      {
+        "address": "0x119f5b40",
+        "code": "0xa005",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104939d3",
+          "0x104939cf",
+          "0x10493c5f",
+          "0x104939c5"
+        ]
+      },
+      {
+        "address": "0x119f5b5c",
+        "code": "0xa006",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104939d3",
+          "0x104939cf",
+          "0x10493d29",
+          "0x104939c5"
+        ]
+      },
+      {
+        "address": "0x119f5b78",
+        "code": "0xa101",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x104939d3",
+          "0x104939cf",
+          "0x10493e29",
+          "0x104939c5"
+        ]
+      },
+      {
+        "address": "0x119f5b94",
+        "code": "0xa102",
+        "direction_field": 1,
+        "context": "0x0",
+        "callbacks": [
+          "0x104939d3",
+          "0x104939cf",
+          "0x10493e6b",
+          "0x104939c5"
+        ]
+      },
+      {
+        "address": "0x119f5bb0",
+        "code": "0xb002",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778cd1",
+          "0x10778ce3",
+          "0x10778ccf"
+        ]
+      },
+      {
+        "address": "0x119f5bcc",
+        "code": "0xb003",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778d59",
+          "0x10778d5d",
+          "0x10778d57"
+        ]
+      },
+      {
+        "address": "0x119f5be8",
+        "code": "0xb004",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10778d97",
+          "0x10778dd1",
+          "0x10778d95"
+        ]
+      },
+      {
+        "address": "0x119f5c04",
+        "code": "0xc001",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10779121",
+          "0x10779125",
+          "0x1077911f"
+        ]
+      },
+      {
+        "address": "0x119f5c20",
+        "code": "0xc051",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10779167",
+          "0x10779227",
+          "0x10779155"
+        ]
+      },
+      {
+        "address": "0x119f5c3c",
+        "code": "0xc052",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10779259",
+          "0x10779319",
+          "0x10779257"
+        ]
+      },
+      {
+        "address": "0x119f5c58",
+        "code": "0xc101",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10779363",
+          "0x10779423",
+          "0x10779351"
+        ]
+      },
+      {
+        "address": "0x119f5c74",
+        "code": "0xc102",
+        "direction_field": 0,
+        "context": "0x0",
+        "callbacks": [
+          "0x0",
+          "0x10779455",
+          "0x10779519",
+          "0x10779453"
+        ]
+      }
+    ]
+  },
+  "advertised_operation_coverage": {
+    "checked": false,
+    "unique_outer_codes": 161
+  },
+  "identity_branch_check": {
+    "events": [
+      {
+        "kind": "transfer",
+        "via": "0x1063f7b6",
+        "source": "0x20001000",
+        "length": 128,
+        "data_hex": "5a20365f32000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      {
+        "kind": "response",
+        "status": "0x2001",
+        "parameters": [
+          8193,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "global_writes": [
+      {
+        "address": "0xc188bc38",
+        "size": 4,
+        "value": "0x119f49a4"
+      }
+    ]
+  },
+  "findings": {
+    "service_transport": "0x94fd/0x94fe/0x94ff select a subcommand from PTP parameter 1",
+    "guard": "0x104c966c checks callback 0x1047c205 reading state at 0xc188bc40; inactive returns 0xa004 except F001",
+    "read_memory": "F032 uses PTP parameter 2 as source address and parameter 3 as length; preflight 0x104b5386, executor 0x104b5488",
+    "candidate_ram": "0xc188c060 is the PTP cache for video properties, not the encoder pixel buffer",
+    "service_entry": "F001 executor 0x1047c278 calls 0x10505a4a, 0x104b6c10, 0x104939c6 and 0x1047c238; sets state only after asynchronous transition succeeds",
+    "service_exit": "F002 executor 0x1047c392 calls 0x1047c322; extensive cleanup and state transition, not just clearing one bit",
+    "entry_review": "0x1047c238 calls 0x1038602e, signals an RTOS event and waits for completion. Downstream effects not fully reviewed; do not execute entry/exit yet",
+    "dynamic_region_8": "Descriptor at 0xc185ec88; getter 0x103a6c64 -> 0x102484aa / 0x103c1d62. Initial RAM image has zero source/length; live initialized values are required",
+    "limitations": [
+      "No live service state or RAM read established",
+      "F001 entry side effects not fully traced",
+      "Dynamic protected region 8 is unresolved",
+      "Memory reads can have side effects outside ordinary RAM",
+      "The existence of a memory reader does not establish internal 10-bit AVC support"
+    ]
+  }
+}
