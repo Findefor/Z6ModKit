@@ -460,7 +460,7 @@
   ],
   "static_callback_review": {
     "method": "Static review, not additional emulation checks; callbacks run only for changed regions.",
-    "region1": "08024BB2 -> 08029418 compares 2001F737 with region+117. Crossing into/out of value5 reaches 0802B40C/0802B234 -> 0802AE98 -> 080449B0, sends one-byte values to peripheral address D6, registers0..7. Hardware identity and persistence are unverified.",
+    "region1": "08024BB2 -> 08029418 compares 2001F737 with region+117. Crossing into/out of value5 reaches 0802B40C/0802B234 -> 0802AE98 -> 080449B0, sends one-byte values to peripheral address D6, registers0..7. Separate ex_peripherals analysis favors BQ25882; physical identity and board-level POR remain unverified.",
     "region1_second_callback": "0803671C -> event80000 -> worker08036744 -> 0803616C; reviewed isolated-event branch updates RAM from region offsets11C/11E/392.",
     "region4": "08024BB2 -> 080294F4(r1=0) updates RAM and copies0x48 bytes through 08024998; normalization branch is skipped.",
     "region5": "08030E20 -> event200 -> worker08030E34 -> 08030D08 -> 08031CB4 -> worker08031A8C; isolated branch copies200189C0 to200189BC.",

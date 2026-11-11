@@ -25,7 +25,7 @@ N-Log 10 бит на карту пока не доказана; готовой �
 | Service exit, `F002` | An outer success response can coexist with a failed lower-level transition. The response alone does not establish recovery. |
 | Configuration read, `F02D` | The analyzed path transfers a copy with two bytes masked and has nested error paths. Its output is not a complete recovery image. |
 | EX service receiver | Entry refreshes differing eligible configuration regions from flash into working RAM and invokes callbacks. The examined exit handler formats an acknowledgment without performing that refresh. A pending master callback can reject another transition until a reply arrives. |
-| Region1 peripheral callback | A transition of field `+0x117` into or out of value `5` reaches writes to registers `0–7` at I²C address `0xD6` (consistent with 7-bit `0x6B`). Synthetic register and readback experiments reproduce the sequences. Chip identity and power-on-reset behavior are unknown. |
+| Region1 peripheral callback | A transition of field `+0x117` into or out of value `5` programs I²C1 address `0x6B`. Register layout and a distinguishing fault-bit test strongly favor the TI BQ25882 charger. TI documents reset on genuine POR; physical part identity and board-level loss of both BAT/VBUS supplies remain unverified. |
 | Region3 peripheral path | Static tracing identifies SPI2 commands `04/0F/10/1C/1D/1E` and software reinitialization. A top-display interpretation is an inference, not an established device identification. |
 | Region6 timing path | Isolated execution of the original event worker confirms immediate or deferred settings application and a write to TIM2's auto-reload register. Static tracing finds timer reinitialization. Complete boot and physical recovery remain untested. |
 
@@ -37,7 +37,7 @@ performed by the published scripts.
 
 The current recorded coverage is 264 bitrate checks, 16 service-exit checks,
 18 configuration-access/serialization checks, 14 EX service checks, and
-10 EX peripheral checks (7 region1 and 3 region6). These counts describe the
+20 EX peripheral checks (9 region1, 8 charger fault-predicate, 3 region6). These counts describe the
 included cases, not hardware validation or exhaustive coverage. Region3's
 peripheral findings are static analysis.
 
@@ -127,8 +127,9 @@ keys, and extracted binaries remain local and are excluded from version control.
 
 ## Research directions and contributions
 
-Useful next work includes identifying the device at I²C `0x6B`, documenting
-reset and power-domain wiring from attributable sources, checking callback
+Useful next work includes confirming the BQ25882 inference at I²C `0x6B`
+from Z6 II board markings, documenting reset and power-domain wiring from
+attributable repair/parts sources, checking callback
 dependencies beyond the isolated paths, and tracing the ISP-to-internal-encoder
 path for bit depth and N-Log handling. The current evidence does not establish
 whether internal 10-bit N-Log is technically achievable.
@@ -148,6 +149,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) before sharing files or traces.
 - [NikonUnlock PR #1](https://github.com/summershrimp/NikonUnlock/pull/1): an external report of a normal service cycle does not test interrupted-session recovery.
 - [Z6 II QEMU research, pinned revision](https://github.com/Fly-beep-256/z62_qemu/tree/1a79b9dbdc7bef89f942baf0335b80cb6ba47e71).
 - [ST RM0402](https://www.st.com/resource/en/reference_manual/rm0402-stm32f412-advanced-armbased-32bit-mcus-stmicroelectronics.pdf): MCU reset behavior does not establish reset behavior of unidentified external Nikon peripherals.
+- [TI BQ25882](https://www.ti.com/lit/ds/symlink/bq25882.pdf) and [BQ25883](https://www.ti.com/lit/ds/symlink/bq25883.pdf): register fingerprint, distinguishing fault bit, and conditions for charger POR; see the detailed report for the inference boundary.
 
 See the [detailed report](docs/RESEARCH.md) for source-specific reasoning and
 remaining gaps. This is independent research and is not affiliated with Nikon.

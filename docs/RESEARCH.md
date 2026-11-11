@@ -1,6 +1,6 @@
 # Nikon Z6 II C1.70 research notes
 
-Current evidence: 2026-11-11. This document describes offline analysis of a
+Current evidence: 2026-11-12. This document describes offline analysis of a
 specific firmware build. It is not an installation guide or a recovery procedure.
 The research objective is internal N-Log 10-bit recording; that capability has
 **not** been demonstrated. Higher bitrate, HDMI output depth, HDMI RAW activation
@@ -56,7 +56,7 @@ recorded by the EX scripts. The inspection helpers enforce input hashes.
 | [analyze_service_recovery.py](../scripts/analyze_service_recovery.py) | Ten transition cases + six F002 cases | Low-level cleanup hardware and physical recovery |
 | [analyze_config_read.py](../scripts/analyze_config_read.py) | Nine preflight, five read, two commit-dispatch, two packet cases | Real region descriptor, USB and physical NVRAM commit |
 | [analyze_ex_service.py](../scripts/analyze_ex_service.py) | 14 EX/master exchange cases | Callback side effects, scheduler and actual transport |
-| [analyze_ex_peripherals.py](../scripts/analyze_ex_peripherals.py) | Seven region1 cases + three isolated region6 cases | Real I²C, GPIO, timer clocks, device power-on reset |
+| [analyze_ex_peripherals.py](../scripts/analyze_ex_peripherals.py) | Nine region1 cases, eight charger fault-predicate cases, three isolated region6 cases | Real I²C, GPIO, timer clocks, device power-on reset |
 
 JSON outputs are under [work/analysis](../work/analysis). Counts describe cases,
 not independent proofs of whole-camera safety. Some cases deliberately inject
@@ -262,8 +262,9 @@ accurately described as a read-only operation.
 A transition into5 calls builder `08028ED8` and programmer `0802B40C`;
 out of5 uses `08028CF0` and `0802B234`. Writes use
 `0802AE98 → 080449B0`, address `D6`, one-byte register addresses/data.
-The corresponding 7-bit address is consistent with `6B`; neither address
-identifies the chip. There is also a GPIO-level operation through `0802B218`.
+The corresponding 7-bit address is `6B`. The combined register fingerprint
+strongly favors TI BQ25882, as detailed below; the address alone is insufficient.
+There is also a GPIO-level operation through `0802B218`.
 
 | Transition | Register order | Fixed bytes |
 | --- | --- | --- |
@@ -287,6 +288,89 @@ Initializer `0802B170`, called at `08027256` and from error cleanup
 `08024C70 → 080294B0` loads region1 with normalize=1; original callback
 execution on that branch skips service-time peripheral programming.
 These are software-initialization findings, not a complete boot proof.
+
+### I²C0x6B identification: BQ25882 is the leading candidate
+
+**Inferred identity, not a board-marking or live part-ID confirmation.** The
+driver's register layout matches the TI BQ25882/BQ25883 charger family. A
+variant-specific fault-bit test favors BQ25882. A shared driver or undocumented
+compatible variant remains possible.
+
+The following firmware evidence is independently reproducible from the EX hash
+above. Field names are compared against TI's
+[BQ25882 SLVSE40C](https://www.ti.com/lit/ds/symlink/bq25882.pdf)
+([TI mirror](https://www.tij.co.jp/jp/lit/ds/symlink/bq25882.pdf)), §8.5:
+
+| Firmware observation | Matching charger field |
+| --- | --- |
+| Register00, mask `FF`, bound `A0` | VREG[7:0] |
+| Register01, mask `3F`, bound `18`; upper bits separately controlled | ICHG[5:0], EN_ILIM, EN_HIZ |
+| Register03, mask `1F`, bound `19` | IINDPM[4:0] |
+| Register04, two nibbles | IPRECHG / ITERM |
+| Register06 bits 2/3 | BATLOWV / EN_CHG |
+| Register07 bit 7 and low nibble | PFM_DIS / SYS_MIN |
+| Read0B at `0802AD76`, result `&7` | CHRG_STAT |
+| Read10 at `0802AE16`, result `>>7` | PG_FLAG (power-good event flag) |
+
+The firmware limits are software policy, not necessarily chip maxima.
+This is a multi-register match, reinforced by the driver living in task
+`BatCmSvc` (`10010`, worker`08027E58`) and using object `BatCmFg3`.
+Initialization runs through `08026620 → 080271F4 → 08027256 → 0802B170`.
+
+The strongest discriminator is `0802AFA4` reading01 and `0802AFD4` reading11.
+The tail `0802AFFA..0802B00C` tests bit7 of01, then bit3 of11 before storing
+through its output pointer. Eight synthetic combinations execute these original
+instructions, including adjacent-bit counterexamples. BQ25882 §8.5.18, printed
+p54, calls REG11[3] `SYS_SHORT_FLAG`;
+[BQ25883 SLUSDL3A](https://www.ti.com/lit/ds/symlink/bq25883.pdf), same section
+and page, reserves it as zero. This favors BQ25882 without proving the exact
+populated component.
+
+The bounded driver search found five direct calls to read wrapper`0802AE48`:
+registers0B/10/01/11 and dynamic readback. All six callers of readback helper
+`0802B014` select00/01/03. No register25 read was found in that set; this does
+not exclude every indirect path in EX. TI's REG25[6:3] identifies82 as`0010`
+and83 as`0011` (§8.5.38, printed p67 in both reviewed revisions). No part-ID
+read was sent to a camera.
+
+**Board connections from static code:** index0 maps via`0804D998[0]=A0` to
+descriptor`2000E45C`, I²C1 base`40005400`. Setup`08044ADC..08044B18` selects
+PB8/PB9, AF4. GPIO resource40 maps to PE0 input;29 maps to PC9 output, set by
+`0802B218`. Which charger pins these reach is unverified; naming them CE/PG
+from functional resemblance would overstate the evidence.
+
+**Interpretation of the transition:** under the BQ25882 map, `01=C0` sets
+EN_HIZ/EN_ILIM; it is not a nonvolatile-save or register-reset command.
+`00=00/A0` corresponds to 6.80/8.40V limits, with charging separately gated.
+These are register interpretations, not measured battery voltages.
+
+Two additional cases execute the real RAM-shadow initializer before the
+transition. Into5 produces `00:00 01:C0 02:A0 03:00 04:00 05:8D 07:80 06:33`.
+The isolated out-of5 case produces
+`06:33 00:A0 01:C0 02:A0 03:00 04:00 05:8D 07:00`. They start descriptor fields
+at scatter-load defaults; the second is **not** an enter-then-exit session.
+Other descriptor histories can change preserved fields. The earlier synthetic
+shadow remains useful for testing bit preservation, but its bytes are not
+camera defaults. Even the real initializer's shadow is a software policy:
+for example its register00 shadow is00 while TI's reset value isA0.
+
+### Charger power-on reset: documented condition, conditional board conclusion
+
+TI documents register defaults after genuine POR, with internal bias supplied
+from either BAT or VBUS. Thus loss of both sustaining supplies followed by
+power restoration is the relevant condition. Disconnecting just one source
+while the other sustains the IC does not establish POR. Watchdog expiry resets
+selected fields; REG25's register-reset command is separate. See
+[BQ25883 §8.3.1, §8.4.1 and §8.5.38](https://www.ti.com/lit/ds/symlink/bq25883.pdf);
+the BQ25882 datasheet documents the same distinction.
+
+The published experiments do not model power loss. For the leading candidate,
+the inspected writes configure resettable control registers; there is no
+EEPROM-program command in this sequence. Applying the datasheet conclusion to
+Z6 II remains conditional on component identity and actual BAT/VBUS rail loss.
+Camera OFF, cable removal and battery removal are user actions, not measurements
+of those rails. No discharge time, complete-camera reset, or fault-recovery
+guarantee has been established. Firmware may also reprogram the chip after POR.
 
 ### Region3: SPI2 commands and GPIO
 
@@ -371,7 +455,7 @@ The second region1 callback signals `0x80000` to `08036744`, whose
 | Master pending callback/service flag | Initial data initializes them to zero | All real reset paths execute that initialization successfully |
 | EX RAM shadows/queues | Scatter-load and subsystem initializers rebuild/reset them | Real startup reaches all required states after a failed transaction |
 | TIM2 ARR/PSC/control | MCU register state; explicit setup rewrites it | A particular user power action resets the intended physical domains |
-| External I²C0xD6 | Exact command sequences and RAM-shadow init | Chip identity, register persistence, POR defaults, power rails |
+| External I²C0xD6 | Exact sequences; BQ25882 favored by register/fault-bit match; TI documents POR for candidate family | Physical part identity, rail wiring and actual removal of sustaining power |
 | External SPI2 target | Commands, control lines, startup/shutdown sequence | Chip identity, NVM effects, behavior of interrupted commands |
 | Whole camera | No demonstrated persistent change in the inspected narrow paths | Guaranteed recovery by OFF/ON, unplugging USB, or battery removal |
 
@@ -384,12 +468,43 @@ documents an independent rechargeable clock battery. Its existence does not
 prove it powers the inspected I²C/SPI devices. It does mean removing the main
 battery is not proof that every supply inside the camera has disappeared.
 
-If all supplies actually disappear, ordinary volatile state cannot retain
-the previous register/RAM contents. The unresolved point is which state in
-the unidentified peripherals is volatile, and whether normal user actions
-remove the relevant rails. No assertion of guaranteed recovery follows yet.
+The charger-family evidence narrows one uncertainty: its inspected settings
+are resettable according to TI. The SPI target remains unidentified, and the
+board's rail/reset routing remains unresolved. No assertion of guaranteed
+whole-camera recovery follows.
 
 ## External reports and documentation
+
+### Spare boards and repair photographs
+
+Checked 2026-11-12. Photos can establish a populated part only when both the
+camera/board attribution and the marking are readable. A seller's compatibility
+title alone is weaker evidence. No published photo reviewed here confirms the
+charger marking or its BAT/VBUS wiring.
+
+| Source | Observed evidence and limits |
+| --- | --- |
+| [Z6 II mainboard listing](https://www.ebay.com/itm/318114192387), [side A](https://i.ebayimg.com/images/g/TAwAAeSwvlZp0-6~/s-l1600.webp), [side B](https://i.ebayimg.com/images/g/TtUAAeSwPHhp0-7A/s-l1600.webp) | Both sides at 1200×1600; Nikon EI-223 and STM32F412 markings are visible, with USB-C/HDMI connectors. No readable BQ25882/83 marking. Attribution is the seller's, not a documented extraction from a camera. A possible silk sequence `2136 14-01 A7` is not established as a service part number. |
+| [Z6 II/Z7 II power-board listing](https://shopee.ph/Original-Z6-II-Power-Board-Z7II-Powerboard-Repair-Replacement-Parts-For-Nikon-Z6ii-Z7ii-Camera-i.751331072.19500323775), [image](https://down-ph.img.susercontent.com/file/7898912ce642c03220ffe7a4597e806a) | The board occupies only a small portion of the 800×800 image. IC markings and rail labels cannot be read reliably; model compatibility is seller-claimed. |
+| [Photo-parts Nikon component catalog](https://photo-parts.com.ua/parts/dbphp.php?part=nikon), [Z6 II photo folder](https://www.photo-parts.com.ua/parts/imgbrowse.php?folder=IMG_STORE/Nikon%20Z6%20mark%20II%20PCB) | The model-specific text row includes BD9867, CQ0, MAX77711B and STM32F412. These are database claims, not verified markings; the model's photo folder reported no uploaded photos. |
+| [RepairMan listing titled Z6II power board](https://repairmanstore.com/products/z6ii-power-board-z7ii-powerboard-z6-mark-ii-z7-mark-ii-power-board-camera-repair-accessories-for-nikon-z62-z72-z6-ii-z7-ii), [conflicting image](https://cdn.shopify.com/s/files/1/0795/3114/7478/files/Sca334b31b29d46dfa834ff274e9e150a4.webp?v=1785318662) | Image explicitly says “For Nikon D500”. Excluded as Z6 II component evidence despite the listing title. |
+
+Repair-video leads, **frames not inspected in this review**:
+
+- [DIGI SERVICE: Z6II defective LCD cable repair](https://www.youtube.com/watch?v=P4SrwxqTUu8),
+  2022-09-04; public page retrieval timed out.
+- [Samamg: Z6 II water-damage disassembly/repair](https://www.bilibili.com/video/BV1694y1c7Xv/),
+  2023-12-21; page retrieval returned HTTP412.
+
+These links are a research index, not evidence of markings inside those videos.
+For future photos, the candidates have different packages: BQ25882 is 25-ball
+DSBGA about 2.1×2.1 mm, BQ25883 is 24-pin QFN 4×4 mm
+([TI comparison, §5](https://www.ti.com/lit/ds/symlink/bq25883.pdf)). Size alone
+is insufficient. Useful contributions are existing sharp photos of both sides,
+model/board revision, component location and a readable marking. No new camera
+disassembly or live measurement was performed for this report.
+
+### Service and firmware references
 
 - [Nikon Z6 II download center](https://downloadcenter.nikonimglib.com/en/products/556/Z_6II.html)
   provides user and RAW/N-Log technical guides, not the needed service-recovery
@@ -417,9 +532,9 @@ was found in EX. This is a useful negative result for future searches.
 
 ## Most useful contributions
 
-1. Identify I²C0x6B and the SPI2 target using attributable board/component
-   evidence and a matching register/command map; an address-only guess is
-   insufficient.
+1. Confirm the BQ25882 inference at I²C0x6B using attributable Z6 II board
+   markings or existing part-ID evidence; identify the SPI2 target. Share clear
+   repair/spare-board photographs with board revision and component location.
 2. Trace reset/rail dependencies and exact power-on defaults, including
    whether any inspected external commands can modify NVM.
 3. Complete outer F001/F002 preparation/cleanup and asynchronous consumer
