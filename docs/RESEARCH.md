@@ -339,6 +339,13 @@ PB8/PB9, AF4. GPIO resource40 maps to PE0 input;29 maps to PC9 output, set by
 `0802B218`. Which charger pins these reach is unverified; naming them CE/PG
 from functional resemblance would overstate the evidence.
 
+The [board-photo comparison](BOARD_MAP.md) adds scale and surrounding-component
+checks, plus an annotated viewer. It does **not** establish a physical BQ25882
+location. In particular, PC9's observed polarity does not establish a direct
+active-low CE connection, and PE0's three-state sample classifier does not
+identify a charger pin. BQ25882 has no STAT pin. These are important limits on
+using the firmware signals to label a photograph.
+
 **Interpretation of the transition:** under the BQ25882 map, `01=C0` sets
 EN_HIZ/EN_ILIM; it is not a nonvolatile-save or register-reset command.
 `00=00/A0` corresponds to 6.80/8.40V limits, with charging separately gated.

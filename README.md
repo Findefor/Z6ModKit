@@ -14,6 +14,8 @@ N-Log 10 бит на карту пока не доказана; готовой �
 - [Detailed research report](docs/RESEARCH.md): methods, addresses, findings,
   limitations, and open questions.
 - [Contributing](CONTRIBUTING.md): how to reproduce results and submit evidence.
+- [Board-photo comparison](docs/BOARD_MAP.md): package scale, inspection targets,
+  and firmware-to-pin constraints; no physical charger identification yet.
 - [Recorded results](work/analysis): JSON reports and source-image hashes.
 
 ## What the evidence currently shows

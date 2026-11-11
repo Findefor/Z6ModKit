@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Z6ModKit · board inspection map</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101820;color:#eaf0f6;font:16px/1.5 system-ui,sans-serif}main{max-width:1200px;margin:auto;padding:24px}h1{font-size:28px;margin:0 0 8px}p{max-width:1000px}a{color:#84d7ff}button,select,input{font:inherit}button,select{background:#263541;color:inherit;padding:8px 12px;border:1px solid #69808c;border-radius:6px}button{cursor:pointer}button[aria-pressed=true]{background:#456175}.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:18px 0}.frame{background:#fff;border:1px solid #60727e;border-radius:8px;overflow:hidden}svg{display:block;width:100%;max-height:72vh}.region rect{fill:none;stroke-width:2;vector-effect:non-scaling-stroke}.region text{font:bold 18px system-ui;paint-order:stroke;stroke:#101820;stroke-width:4;stroke-linejoin:round}.ref{color:#00ddff}.target{color:#ffbd45}.excluded{color:#ff657a}.region rect{stroke:currentColor}.region text{fill:currentColor}code{overflow-wrap:anywhere}small{color:#b9cbd7}#status{min-height:24px;color:#ffce73}.legend{display:flex;gap:18px;flex-wrap:wrap}.file-label{display:block;margin:14px 0}details{margin-top:16px}li{margin:6px 0}
+</style>
+<main>
+<h1>Z6 II · BQ25882 inspection map</h1>
+<p><strong>No chip identified as BQ25882.</strong> P1 is a weak, size-compatible inspection target. Coordinates mark areas to compare; they do not establish electrical connections. <a href="BOARD_MAP.md">Evidence and limitations</a>.</p>
+<div class="controls"><label>Photograph <select id="source"></select></label><button id="overview" aria-pressed="true">Whole board</button><button id="detail" aria-pressed="false">Inspection area</button><button id="toggle" aria-pressed="true">Annotations</button></div>
+<div class="legend"><span class="ref">M — STM32 scale reference</span><span class="target">P1/P2/D — unresolved</span><span class="excluded">X1 — too large for BQ25882</span></div>
+<p id="status" role="status"></p>
+<div class="frame"><svg id="canvas" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Seller board photograph with independent inspection rectangles"><image id="photo"/><g id="regions"></g></svg></div>
+<p><a id="original" target="_blank" rel="noreferrer">Original photograph</a> · <a id="listing" target="_blank" rel="noreferrer">Seller listing</a><br><small id="dimensions"></small></p>
+<label class="file-label">For offline viewing, choose this source's saved original: <input id="local" type="file" accept="image/*"></label>
+<small>The file stays in this browser. Its SHA-256 must match the selected source. Remote images load directly from the seller CDN; no image processing, tracking, or camera access is used.</small>
+<details><summary>Source fingerprint and inspection coordinates</summary><p><code id="fingerprint"></code></p><ul id="coordinates"></ul></details>
+<p><small>Reviewed 2026-11-12. Original photographs belong to their respective owners. Model attribution comes from the sellers. Marking legibility varies between views; position correspondence does not establish identical board revisions. Annotation labels are not Nikon reference designators.</small></p>
+</main>
+<script id="source-data" type="application/json">[
+  {
+    "file": "new_usb.webp",
+    "url": "https://i.ebayimg.com/images/g/t5cAAeSwdDVo9fJw/s-l1600.webp",
+    "bytes": 154548,
+    "sha256": "dd747b9ff0cd98be900f1eeaefbe5e2f2b0fc4ae5c163739ce9e4e88c7687a86",
+    "title": "New mainboard \u2014 USB side",
+    "width": 1600,
+    "height": 1024,
+    "listing": "https://www.ebay.com/itm/287100787170",
+    "zoom": [
+      1010,
+      520,
+      450,
+      320
+    ],
+    "regions": [
+      {
+        "label": "M",
+        "box": [
+          632,
+          378,
+          125,
+          127
+        ],
+        "kind": "ref"
+      },
+      {
+        "label": "P1",
+        "box": [
+          1246,
+          668,
+          29,
+          30
+        ],
+        "kind": "target"
+      },
+      {
+        "label": "P2",
+        "box": [
+          1153,
+          642,
+          45,
+          43
+        ],
+        "kind": "target"
+      },
+      {
+        "label": "X1",
+        "box": [
+          1141,
+          737,
+          67,
+          65
+        ],
+        "kind": "excluded"
+      }
+    ]
+  },
+  {
+    "file": "old_usb.webp",
+    "url": "https://i.ebayimg.com/images/g/TtUAAeSwPHhp0-7A/s-l1600.webp",
+    "bytes": 348592,
+    "sha256": "100f69c9592dd7281fb937d38fce7eb398dc4b72bf1bf1990c41e146f0e36c5f",
+    "title": "Older mainboard \u2014 USB side",
+    "width": 1200,
+    "height": 1600,
+    "listing": "https://www.ebay.com/itm/318114192387",
+    "zoom": [
+      300,
+      1050,
+      650,
+      450
+    ],
+    "regions": [
+      {
+        "label": "M",
+        "box": [
+          633,
+          667,
+          123,
+          126
+        ],
+        "kind": "ref"
+      },
+      {
+        "label": "P1",
+        "box": [
+          445,
+          1321,
+          33,
+          34
+        ],
+        "kind": "target"
+      },
+      {
+        "label": "P2",
+        "box": [
+          451,
+          1218,
+          49,
+          49
+        ],
+        "kind": "target"
+      },
+      {
+        "label": "X1",
+        "box": [
+          328,
+          1209,
+          72,
+          81
+        ],
+        "kind": "excluded"
+      }
+    ]
+  },
+  {
+    "file": "new_sd.webp",
+    "url": "https://i.ebayimg.com/images/g/hsgAAeSw2zNo9fJx/s-l1600.webp",
+    "bytes": 181084,
+    "sha256": "f6b8e72f529021821fb794c8efdf4d10726c4897503aa5771f01d30d14872055",
+    "title": "New mainboard \u2014 SD side",
+    "width": 1600,
+    "height": 1147,
+    "listing": "https://www.ebay.com/itm/287100787170",
+    "zoom": [
+      620,
+      250,
+      860,
+      340
+    ],
+    "regions": []
+  },
+  {
+    "file": "dc_front.jpg",
+    "url": "https://i.ebayimg.com/images/g/RSwAAOSwtUFkebIS/s-l1600.jpg",
+    "bytes": 178394,
+    "sha256": "9cf20bd4b41fa94f800d817a9a7f7f4c89d88103db8a8d1120379996f3120186",
+    "title": "DC board \u2014 component side",
+    "width": 1000,
+    "height": 1000,
+    "listing": "https://www.ebay.com/itm/394657347050",
+    "zoom": [
+      280,
+      310,
+      420,
+      370
+    ],
+    "regions": []
+  },
+  {
+    "file": "dc_back.webp",
+    "url": "https://i.ebayimg.com/images/g/OpkAAOSwfRBkebIV/s-l1600.webp",
+    "bytes": 169246,
+    "sha256": "d689c8f97a9666d391a277a5cd3657d5a0156c9610ca329c292aff90a9c95e0d",
+    "title": "DC board \u2014 contact side",
+    "width": 1000,
+    "height": 1000,
+    "listing": "https://www.ebay.com/itm/394657347050",
+    "zoom": [
+      300,
+      310,
+      390,
+      390
+    ],
+    "regions": [
+      {
+        "label": "D",
+        "box": [
+          428,
+          445,
+          212,
+          161
+        ],
+        "kind": "target"
+      }
+    ]
+  }
+]</script>
+<script>
+'use strict';
+const sources=JSON.parse(document.getElementById('source-data').textContent);
+const el=id=>document.getElementById(id),ns='http://www.w3.org/2000/svg';
+let zoomed=false,annotations=true,localUrl=null;
+for(const [i,s] of sources.entries()){const o=document.createElement('option');o.value=i;o.textContent=s.title;el('source').append(o)}
+function current(){return sources[Number(el('source').value)]}
+function viewport(){const s=current();el('canvas').setAttribute('viewBox',(zoomed?s.zoom:[0,0,s.width,s.height]).join(' '));el('canvas').style.aspectRatio=zoomed?s.zoom[2]+'/'+s.zoom[3]:s.width+'/'+s.height;el('overview').setAttribute('aria-pressed',!zoomed);el('detail').setAttribute('aria-pressed',zoomed)}
+function render(){const s=current();if(localUrl){URL.revokeObjectURL(localUrl);localUrl=null}el('local').value='';el('status').textContent='';el('photo').setAttribute('width',s.width);el('photo').setAttribute('height',s.height);el('photo').setAttribute('href',s.url);el('original').href=s.url;el('listing').href=s.listing;el('dimensions').textContent=s.width+' × '+s.height+' source pixels · '+s.bytes+' bytes at review';el('fingerprint').textContent='SHA-256 '+s.sha256;el('regions').replaceChildren();el('coordinates').replaceChildren();for(const r of s.regions){const g=document.createElementNS(ns,'g');g.setAttribute('class','region '+r.kind);const box=document.createElementNS(ns,'rect');['x','y','width','height'].forEach((k,i)=>box.setAttribute(k,r.box[i]));const t=document.createElementNS(ns,'text');t.setAttribute('x',r.box[0]);t.setAttribute('y',r.box[1]-7);t.textContent=r.label;g.append(box,t);el('regions').append(g);const li=document.createElement('li');li.textContent=r.label+': ('+r.box.join(', ')+')';el('coordinates').append(li)}if(!s.regions.length){const li=document.createElement('li');li.textContent='Context view; no uniquely identified charger candidate.';el('coordinates').append(li)}viewport()}
+el('source').addEventListener('change',render);
+el('overview').onclick=()=>{zoomed=false;viewport()};el('detail').onclick=()=>{zoomed=true;viewport()};
+el('toggle').onclick=()=>{annotations=!annotations;el('regions').style.display=annotations?'':'none';el('toggle').setAttribute('aria-pressed',annotations)};
+el('photo').addEventListener('error',()=>el('status').textContent='Original unavailable from CDN. Select a matching saved source below for offline viewing.');
+el('local').addEventListener('change',async()=>{const f=el('local').files[0],s=current();if(!f)return;try{const digest=await crypto.subtle.digest('SHA-256',await f.arrayBuffer());const hash=Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('');if(s!==current())return;if(hash!==s.sha256){el('status').textContent='Fingerprint mismatch. Photograph not replaced; choose the original for this view.';return}if(localUrl)URL.revokeObjectURL(localUrl);localUrl=URL.createObjectURL(f);el('photo').setAttribute('href',localUrl);el('status').textContent='Matching original verified locally; no upload.'}catch(e){el('status').textContent='Local verification unavailable in this browser context.'}});
+render();
+</script></html>
