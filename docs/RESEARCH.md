@@ -485,9 +485,33 @@ charger marking or its BAT/VBUS wiring.
 | Source | Observed evidence and limits |
 | --- | --- |
 | [Z6 II mainboard listing](https://www.ebay.com/itm/318114192387), [side A](https://i.ebayimg.com/images/g/TAwAAeSwvlZp0-6~/s-l1600.webp), [side B](https://i.ebayimg.com/images/g/TtUAAeSwPHhp0-7A/s-l1600.webp) | Both sides at 1200×1600; Nikon EI-223 and STM32F412 markings are visible, with USB-C/HDMI connectors. No readable BQ25882/83 marking. Attribution is the seller's, not a documented extraction from a camera. A possible silk sequence `2136 14-01 A7` is not established as a service part number. |
+| [Additional Z6 II mainboard, ended listing](https://www.ebay.com/itm/287100787170), [SD side](https://i.ebayimg.com/images/g/hsgAAeSw2zNo9fJx/s-l1600.webp), [USB-C side](https://i.ebayimg.com/images/g/t5cAAeSwdDVo9fJw/s-l1600.webp) | Additional unobstructed views, 1600×1147 and 1600×1024. The board occupies most of the image width. Inspected the USB-C-side small ICs at native resolution using an unenhanced crop; no reliable BQ25882/83 transcription. A request for the USB-C image as `s-l9600.jpg` returned an 80×80 placeholder, not a higher-resolution original. |
+| [Z6 II/Z7 II DC board, deda-6067](https://www.ebay.com/itm/394657347050), [component side](https://i.ebayimg.com/images/g/RSwAAOSwtUFkebIS/s-l1600.jpg), [contact side](https://i.ebayimg.com/images/g/OpkAAOSwfRBkebIV/s-l1600.webp) | Both actual images are 1000×1000 despite the URL size. The board occupies roughly 400 pixels, with a HAGEZA watermark and a label covering components on the contact side. Useful layout views, insufficient for the charger marking. The photos themselves are labeled Z6 II / DC PCB; compatibility remains seller-attributed. |
+| [Alibaba Z6 II motherboard](https://www.alibaba.com/product-detail/New-Original-for-Z6-II-Motherboard_1600237296306.html), [CDN original](https://s.alicdn.com/@sc04/kf/H2b5d045066ea4b58b336f86af63ea91cf.jpg) | 1000×1000 view of the SD side. Additional seller-attributed source; no readable BQ25882/83 marking. |
+| [Uquid Z6 II mainboard](https://uquid.com/shop/product/new-repair-parts-main-board-motherboard-for-nikon-z6-ii-z-6ii-igyDTZQWGWWfY), [AliCDN original](https://ae01.alicdn.com/kf/H6cefe56617da401db1bc85f103df8e60s.jpg) | 1082×1080 view of the SD side. The original image host is AliCDN; another storefront is not automatically an independent board photograph. No charger identification from this image. |
+| [Sunsky Z6 II motherboard](https://www.sunsky-online.com/de/p/EDA005697801/For-Nikon-Z6-II-Original-Camera-Motherboard.htm), [CDN image](https://img.myipadbox.com/upload/store/product_l/EDA005697801.jpg), [Fruugo mirror](https://www.fruugo.co.za/compatible-camera-motherboard/p-354593494-903281650) | 750×750 SD-side image; no readable charger marking. Model attribution comes from the indexed title and matching reseller SKU, since the direct product page returned 403. EDA005697801 is a shop SKU, not a Nikon PCB number. Requested gallery/original variants returned 403; the smaller catalog version was 150×150. |
 | [Z6 II/Z7 II power-board listing](https://shopee.ph/Original-Z6-II-Power-Board-Z7II-Powerboard-Repair-Replacement-Parts-For-Nikon-Z6ii-Z7ii-Camera-i.751331072.19500323775), [image](https://down-ph.img.susercontent.com/file/7898912ce642c03220ffe7a4597e806a) | The board occupies only a small portion of the 800×800 image. IC markings and rail labels cannot be read reliably; model compatibility is seller-claimed. |
 | [Photo-parts Nikon component catalog](https://photo-parts.com.ua/parts/dbphp.php?part=nikon), [Z6 II photo folder](https://www.photo-parts.com.ua/parts/imgbrowse.php?folder=IMG_STORE/Nikon%20Z6%20mark%20II%20PCB) | The model-specific text row includes BD9867, CQ0, MAX77711B and STM32F412. These are database claims, not verified markings; the model's photo folder reported no uploaded photos. |
 | [RepairMan listing titled Z6II power board](https://repairmanstore.com/products/z6ii-power-board-z7ii-powerboard-z6-mark-ii-z7-mark-ii-power-board-camera-repair-accessories-for-nikon-z62-z72-z6-ii-z7-ii), [conflicting image](https://cdn.shopify.com/s/files/1/0795/3114/7478/files/Sca334b31b29d46dfa834ff274e9e150a4.webp?v=1785318662) | Image explicitly says “For Nikon D500”. Excluded as Z6 II component evidence despite the listing title. |
+
+The expanded marketplace pass inspected source images, rather than treating
+search-result image descriptions as observations. Those descriptions can invent
+ports or misidentify a board. CDN size suffixes likewise do not prove native
+resolution. No generative sharpening, reconstructed lettering, or photograph
+was used to promote the BQ25882 inference to confirmed identity.
+
+Further source boundaries: [Photo-parts' Z6 II category](https://www.photo-parts.com.ua/shop/Nikon_Z6_2)
+also lists a mainboard explicitly described as first-generation Z6, P/N 12U4U;
+the category does not establish that it is a Z6 II board. The checked
+[Spares2Repair Z6II page](https://spares2repair.co.uk/search-results?aid=2765983&model=Nikon_Z6II)
+contains accessories, not a useful mainboard photograph. Some eBay catalog and
+store searches failed or no longer exposed the items indexed by search engines;
+such snippets were not treated as inspected photos. No seller was contacted.
+The [AliExpress 1005012838351134 lead](https://www.aliexpress.com/item/1005012838351134.html)
+was indexed as Z6II/Z62, but neither its inaccessible product page nor the checked
+Pricearchive pages yielded another usable original. No additional useful original
+was obtained from the Taobao/1688/Lazada searches. This is a bounded search result,
+not a claim that sharper photos do not exist.
 
 Repair-video leads, **frames not inspected in this review**:
 
