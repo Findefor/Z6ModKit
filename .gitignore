@@ -4,6 +4,7 @@
 !/README.md
 !/requirements.txt
 !/CONTRIBUTING.md
+!/LICENSE
 !/docs/
 /docs/*
 !/docs/RESEARCH.md
@@ -16,6 +17,9 @@
 !/.github/ISSUE_TEMPLATE/research-finding.yml
 !/.github/ISSUE_TEMPLATE/correction.yml
 !/.github/ISSUE_TEMPLATE/config.yml
+!/.github/workflows/
+/.github/workflows/*
+!/.github/workflows/checks.yml
 !/scripts/
 /scripts/*
 !/scripts/fw_inspect.py
@@ -28,6 +32,7 @@
 !/scripts/analyze_ex_peripherals.py
 !/scripts/recover_and_extract.py
 !/scripts/compare_versions.py
+!/scripts/check_repository.py
 !/work/
 /work/*
 !/work/vendor/

@@ -1,5 +1,8 @@
 # Z6ModKit
 
+[![Repository checks](https://github.com/Findefor/Z6ModKit/actions/workflows/checks.yml/badge.svg)](https://github.com/Findefor/Z6ModKit/actions/workflows/checks.yml)
+[MIT license](LICENSE)
+
 Offline research into Nikon Z6 II C1.70 firmware, internal video parameters,
 the service protocol, and the limits of service-session recovery.
 
@@ -17,6 +20,34 @@ N-Log 10 бит на карту пока не доказана; готовой �
 - [Board-photo comparison](docs/BOARD_MAP.md): package scale, inspection targets,
   and firmware-to-pin constraints; no physical charger identification yet.
 - [Recorded results](work/analysis): JSON reports and source-image hashes.
+
+## Quick start
+
+To read the findings, start with the [research report](docs/RESEARCH.md).
+You can inspect all published reports and join
+[Discussions](https://github.com/Findefor/Z6ModKit/discussions) without a camera
+or firmware files.
+
+To download the project and check its public files, you need Git and Python
+3.9 or 3.12. On macOS or Linux:
+
+```sh
+git clone https://github.com/Findefor/Z6ModKit.git
+cd Z6ModKit
+python3 scripts/check_repository.py
+```
+
+To install the pinned analysis libraries and check that they work:
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python scripts/check_repository.py --with-dependencies
+```
+
+These checks need no firmware and do not connect to a camera. To reproduce the
+firmware experiments, continue with [Reproduce the offline experiments](#reproduce-the-offline-experiments).
+For corrections, use [Issues](https://github.com/Findefor/Z6ModKit/issues/new/choose).
 
 ## What the evidence currently shows
 
@@ -50,9 +81,11 @@ loss of power, or battery removal has not been established on a physical board.
 
 ## Reproduce the offline experiments
 
-The recorded environment is macOS arm64, Python 3.9, and the pinned packages in
-[`requirements.txt`](requirements.txt). Other environments have not been
-validated here. Run commands from the repository root:
+The recorded research environment is macOS arm64, Python 3.9, and the pinned
+packages in [`requirements.txt`](requirements.txt). CI separately checks public
+files and library execution on Linux with Python 3.9/3.12 and macOS with Python
+3.12; it does not rerun the firmware experiments. Run commands from the
+repository root (skip installation if you completed the quick start):
 
 ```sh
 python3 -m venv .venv
@@ -155,3 +188,15 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) before sharing files or traces.
 
 See the [detailed report](docs/RESEARCH.md) for source-specific reasoning and
 remaining gaps. This is independent research and is not affiliated with Nikon.
+
+## License
+
+Original code, documentation, and analysis reports in this repository are
+available under the [MIT License](LICENSE). You may use, modify, and redistribute
+them, including commercially, while preserving the copyright and license notice.
+They are provided without warranty.
+
+The license does not grant rights to Nikon firmware, third-party photographs,
+or other third-party materials referenced by the research. Those materials
+remain subject to their respective terms; links and hashes are provided for
+attribution and reproducibility.

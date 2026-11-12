@@ -55,6 +55,24 @@ not an instruction to try service commands on a camera.
 
 ## Code and report changes
 
+Run the same public checks as GitHub Actions from the repository root:
+
+```sh
+.venv/bin/python -m pip check
+.venv/bin/python scripts/check_repository.py --with-dependencies
+.venv/bin/python scripts/fw_inspect.py --help
+.venv/bin/python scripts/analyze_ptp.py --help
+```
+
+See the [quick start](README.md#quick-start) to install dependencies. The file
+checker uses Git's tracked-file list, so stage intended new public files with
+`git add` before checking them locally. It checks Python syntax, JSON parsing,
+local document link destinations, and prohibited input/generated filenames.
+The dependency check decodes and executes one synthetic Thumb instruction.
+CI does not contain firmware or rerun firmware-dependent research; affected
+experiments still need the documented local inputs and report review below.
+These checks do not replace reviewing content and attachments for private data.
+
 - Keep changes focused and preserve offline execution. Do not add automatic
   device discovery, USB/PTP access, firmware flashing, or hidden network calls
   to an analysis script.
@@ -91,3 +109,7 @@ an attachment, a pasted log, or an already tracked file.
 When source material cannot be shared, provide its hash, provenance, a precise
 description of the method, and the smallest non-sensitive result that supports
 the claim. State the resulting verification limit.
+
+Original contributions are submitted under the repository's [MIT License](LICENSE).
+Only contribute material you have the right to share under those terms; preserve
+third-party attribution and license notices.
