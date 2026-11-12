@@ -162,6 +162,21 @@ keys, and extracted binaries remain local and are excluded from version control.
 
 ## Research directions and contributions
 
+The goals extend beyond recording bit depth. Planned work includes:
+
+- **Color and custom looks:** investigate Picture Control formats, tone curves,
+  and color-processing stages to understand how more flexible user-created
+  looks could be applied in the camera.
+- **User-supplied LUTs:** investigate whether custom 3D LUTs, including looks
+  supplied as `.cube` files, could be loaded and applied in the camera. Establish
+  the format, processing, and hardware limits; do not equate Picture Controls
+  with arbitrary 3D LUT support.
+- **Internal video:** continue studying bitrate, recording bit depth, and
+  internal N-Log as separate capabilities.
+
+These are research plans. Expanded color controls and custom 3D LUT loading
+have not been implemented or validated by this project.
+
 Useful next work includes confirming the BQ25882 inference at I²C `0x6B`
 from Z6 II board markings, documenting reset and power-domain wiring from
 attributable repair/parts sources, checking callback

@@ -2,9 +2,12 @@
 
 Current evidence: 2026-11-12. This document describes offline analysis of a
 specific firmware build. It is not an installation guide or a recovery procedure.
-The research objective is internal N-Log 10-bit recording; that capability has
-**not** been demonstrated. Higher bitrate, HDMI output depth, HDMI RAW activation
-and internal 10-bit encoding are separate questions.
+The research goals include more flexible in-camera color and custom looks,
+investigating user-supplied 3D LUTs, and internal N-Log 10-bit recording. Color
+and LUT work remains planned; internal N-Log 10-bit recording has **not** been
+demonstrated. See the [research plans](../README.md#research-directions-and-contributions).
+Higher bitrate, HDMI output depth, HDMI RAW activation and internal 10-bit
+encoding are separate questions.
 
 ## Evidence conventions
 
