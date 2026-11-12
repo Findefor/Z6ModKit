@@ -58,6 +58,36 @@ The SD-side image was also reviewed; its other power clusters do not provide
 a unique BQ25882 match. This is a bounded photo review, not an exhaustive
 inventory of every component.
 
+## AliExpress gallery originals
+
+The supplied [listing 1005010161490916](https://aliexpress.ru/item/1005010161490916.html)
+was examined on 2026-11-12. The Russian page presented an access check. A public
+international page response, redirected to `ar.aliexpress.com`, exposed five
+original JPEG URLs in `imagePathList`. All five unsuffixed files decoded as
+**800 × 800**, with no larger gallery source found in that response. This is
+not proof that the seller has no larger photographs elsewhere.
+
+| Gallery position | Direct original | Observed view |
+| --- | --- | --- |
+| 1 | [S5db425…](https://ae-pic-a1.aliexpress-media.com/kf/S5db425e62d4842d48e12aa8ecf2a6013g.jpg) | SD side with Z6 II cover label |
+| 2 | [S51199d…](https://ae-pic-a1.aliexpress-media.com/kf/S51199d32321d4f448ca1cfc7d1b96c1aj.jpg) | Straight-on USB side, matching the user's first USB-side attachment |
+| 3 | [Sd14148…](https://ae-pic-a1.aliexpress-media.com/kf/Sd141487f49c04840a5216e9dd0918003u.jpg) | Additional straight-on USB view; separate source, not an enlarged copy of position2 |
+| 4 | [S641122…](https://ae-pic-a1.aliexpress-media.com/kf/S64112284d4284a3fbf99888fe04bd0bbC.jpg) | Oblique USB view, matching the user's second USB-side attachment |
+| 5 | [S4af158…](https://ae-pic-a1.aliexpress-media.com/kf/S4af1586f3a06498a8b0399004cb3b8d6Z.jpg) | Oblique SD view |
+
+The gallery watermark reads **Camera Parts Global Store**. The card and cover
+describe Z6 II; this is seller attribution. Apparent silk suffixes in positions2
+and3 are `13-01 A7` and `12-01 A7`; their meaning is not established. These views
+must not be assumed to show one physical specimen or an identical revision.
+
+The [viewer](board-map.html) now includes these five originals and their SHA-256
+fingerprints. P1/P2/M/X1 are mapped onto the two straight-on USB views by
+surrounding component arrangement. P1 is only roughly a dozen pixels across:
+neither the BQ25882 marking nor its ball pattern can be established. The new
+angle does not establish inductor or I²C continuity. The chip-location and POR
+conclusions remain unchanged. No larger image was synthesized or inferred
+from a requested display size; no firmware code or hardware was changed.
+
 ## Firmware constraints on a future physical identification
 
 The existing EX trace fixes I²C1 on **PB8/PB9 AF4**, addressing 7-bit `0x6B`.
