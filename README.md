@@ -55,6 +55,7 @@ For corrections, use [Issues](https://github.com/Findefor/Z6ModKit/issues/new/ch
 | --- | --- |
 | 4K 24/25/30p bitrate | Matching master/slave tables contain stock maximum/average values of 144/120 Mbps. A 156/140 Mbps candidate was examined in the firmware model; physical encoding, recording reliability, and image quality remain untested. |
 | H.264 level selection | At a maximum bitrate of 160 Mbps or above, the examined code selects a parameter corresponding to Level 6.1. Copying the Z30's 200/168 Mbps settings is therefore not a validated Z6 II modification. |
+| AVC format path | Master/slave constructor fragments retain a profile-like value 100 independently of bitrate. Register packing and three active special-FHD SPS templates were examined; those templates describe High-profile 8-bit 4:2:0. General encoder input format, ISP routing and hardware 10-bit capability remain unresolved. |
 | Service exit, `F002` | An outer success response can coexist with a failed lower-level transition. The response alone does not establish recovery. |
 | Configuration read, `F02D` | The analyzed path transfers a copy with two bytes masked and has nested error paths. Its output is not a complete recovery image. |
 | EX service receiver | Entry refreshes differing eligible configuration regions from flash into working RAM and invokes callbacks. The examined exit handler formats an acknowledgment without performing that refresh. A pending master callback can reject another transition until a reply arrives. |
@@ -73,6 +74,11 @@ The current recorded coverage is 264 bitrate checks, 16 service-exit checks,
 20 EX peripheral checks (9 region1, 8 charger fault-predicate, 3 region6). These counts describe the
 included cases, not hardware validation or exhaustive coverage. Region3's
 peripheral findings are static analysis.
+
+The video-path pass adds 12 configuration cases, 10 register-packing cases,
+30 derived-state callback cases, and 4 SPS-selector cases (three parsed
+templates and one invalid index). See the
+[scope and findings](docs/RESEARCH.md#avc-configuration-sps-templates-and-derived-video-state).
 
 **Service entry is not established to be free of hardware side effects.**
 Neither successful replies nor the absence of flash writes in selected paths
@@ -111,6 +117,7 @@ them over to another model or firmware version without re-establishing them.
 
 ```sh
 .venv/bin/python scripts/analyze_bitrate.py
+.venv/bin/python scripts/analyze_video_path.py
 .venv/bin/python scripts/analyze_service_recovery.py
 .venv/bin/python scripts/analyze_config_read.py
 .venv/bin/python scripts/analyze_ex_service.py

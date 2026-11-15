@@ -1,0 +1,2211 @@
+{
+  "scope": "Offline fragments and SPS templates; no hardware capability or pixel validation",
+  "firmware": "Nikon Z6 II C1.70",
+  "modules": [
+    {
+      "name": "master",
+      "sha256": "bb83613121f843d65101da936d942acdc513d86dbd3abc26259d0d870d03f5d4",
+      "constructor_range": [
+        "0x104be3b8",
+        "0x104be5c0"
+      ],
+      "writer_range": [
+        "0x104be748",
+        "0x104be976"
+      ],
+      "register_write_stub": "0x104d9ae8",
+      "configurations": [
+        {
+          "name": "4k_144_120",
+          "width": 3840,
+          "height": 2160,
+          "fps_code": 29,
+          "maximum_mbps": 144,
+          "average_mbps": 120,
+          "profile_like_field": 100,
+          "level_field": 51,
+          "fields_70_74": [
+            0,
+            1
+          ],
+          "fields_78_79": [
+            0,
+            0
+          ],
+          "writes": [
+            {
+              "offset": "0xe00",
+              "value": 36608
+            },
+            {
+              "offset": "0xe04",
+              "value": 2160
+            },
+            {
+              "offset": "0xe0c",
+              "value": 29
+            },
+            {
+              "offset": "0xe10",
+              "value": 1
+            },
+            {
+              "offset": "0xe14",
+              "value": 1
+            },
+            {
+              "offset": "0xe18",
+              "value": 0
+            },
+            {
+              "offset": "0xe1c",
+              "value": 1024
+            },
+            {
+              "offset": "0xe20",
+              "value": 17578
+            },
+            {
+              "offset": "0xe30",
+              "value": 100
+            },
+            {
+              "offset": "0xe34",
+              "value": 51
+            },
+            {
+              "offset": "0xe38",
+              "value": 0
+            },
+            {
+              "offset": "0xe3c",
+              "value": 0
+            },
+            {
+              "offset": "0xe40",
+              "value": 0
+            },
+            {
+              "offset": "0xe44",
+              "value": 0
+            },
+            {
+              "offset": "0xe48",
+              "value": 1024
+            },
+            {
+              "offset": "0xe4c",
+              "value": 0
+            },
+            {
+              "offset": "0xe50",
+              "value": 0
+            },
+            {
+              "offset": "0xe54",
+              "value": 0
+            },
+            {
+              "offset": "0xe58",
+              "value": 1
+            },
+            {
+              "offset": "0xe5c",
+              "value": 0
+            },
+            {
+              "offset": "0xe60",
+              "value": 0
+            },
+            {
+              "offset": "0xe64",
+              "value": 0
+            },
+            {
+              "offset": "0xe68",
+              "value": 14081
+            },
+            {
+              "offset": "0xe6c",
+              "value": 257
+            }
+          ]
+        },
+        {
+          "name": "4k_156_140",
+          "width": 3840,
+          "height": 2160,
+          "fps_code": 29,
+          "maximum_mbps": 156,
+          "average_mbps": 140,
+          "profile_like_field": 100,
+          "level_field": 51,
+          "fields_70_74": [
+            0,
+            1
+          ],
+          "fields_78_79": [
+            0,
+            0
+          ],
+          "writes": [
+            {
+              "offset": "0xe00",
+              "value": 36608
+            },
+            {
+              "offset": "0xe04",
+              "value": 2160
+            },
+            {
+              "offset": "0xe0c",
+              "value": 29
+            },
+            {
+              "offset": "0xe10",
+              "value": 1
+            },
+            {
+              "offset": "0xe14",
+              "value": 1
+            },
+            {
+              "offset": "0xe18",
+              "value": 0
+            },
+            {
+              "offset": "0xe1c",
+              "value": 1024
+            },
+            {
+              "offset": "0xe20",
+              "value": 19042
+            },
+            {
+              "offset": "0xe30",
+              "value": 100
+            },
+            {
+              "offset": "0xe34",
+              "value": 51
+            },
+            {
+              "offset": "0xe38",
+              "value": 0
+            },
+            {
+              "offset": "0xe3c",
+              "value": 0
+            },
+            {
+              "offset": "0xe40",
+              "value": 0
+            },
+            {
+              "offset": "0xe44",
+              "value": 0
+            },
+            {
+              "offset": "0xe48",
+              "value": 1024
+            },
+            {
+              "offset": "0xe4c",
+              "value": 0
+            },
+            {
+              "offset": "0xe50",
+              "value": 0
+            },
+            {
+              "offset": "0xe54",
+              "value": 0
+            },
+            {
+              "offset": "0xe58",
+              "value": 1
+            },
+            {
+              "offset": "0xe5c",
+              "value": 0
+            },
+            {
+              "offset": "0xe60",
+              "value": 0
+            },
+            {
+              "offset": "0xe64",
+              "value": 0
+            },
+            {
+              "offset": "0xe68",
+              "value": 14081
+            },
+            {
+              "offset": "0xe6c",
+              "value": 257
+            }
+          ]
+        },
+        {
+          "name": "4k_200_168",
+          "width": 3840,
+          "height": 2160,
+          "fps_code": 29,
+          "maximum_mbps": 200,
+          "average_mbps": 168,
+          "profile_like_field": 100,
+          "level_field": 61,
+          "fields_70_74": [
+            0,
+            1
+          ],
+          "fields_78_79": [
+            0,
+            0
+          ],
+          "writes": [
+            {
+              "offset": "0xe00",
+              "value": 36608
+            },
+            {
+              "offset": "0xe04",
+              "value": 2160
+            },
+            {
+              "offset": "0xe0c",
+              "value": 29
+            },
+            {
+              "offset": "0xe10",
+              "value": 1
+            },
+            {
+              "offset": "0xe14",
+              "value": 1
+            },
+            {
+              "offset": "0xe18",
+              "value": 0
+            },
+            {
+              "offset": "0xe1c",
+              "value": 1024
+            },
+            {
+              "offset": "0xe20",
+              "value": 24414
+            },
+            {
+              "offset": "0xe30",
+              "value": 100
+            },
+            {
+              "offset": "0xe34",
+              "value": 61
+            },
+            {
+              "offset": "0xe38",
+              "value": 0
+            },
+            {
+              "offset": "0xe3c",
+              "value": 0
+            },
+            {
+              "offset": "0xe40",
+              "value": 0
+            },
+            {
+              "offset": "0xe44",
+              "value": 0
+            },
+            {
+              "offset": "0xe48",
+              "value": 1024
+            },
+            {
+              "offset": "0xe4c",
+              "value": 0
+            },
+            {
+              "offset": "0xe50",
+              "value": 0
+            },
+            {
+              "offset": "0xe54",
+              "value": 0
+            },
+            {
+              "offset": "0xe58",
+              "value": 1
+            },
+            {
+              "offset": "0xe5c",
+              "value": 0
+            },
+            {
+              "offset": "0xe60",
+              "value": 0
+            },
+            {
+              "offset": "0xe64",
+              "value": 0
+            },
+            {
+              "offset": "0xe68",
+              "value": 14081
+            },
+            {
+              "offset": "0xe6c",
+              "value": 257
+            }
+          ]
+        },
+        {
+          "name": "synthetic_fhd_29",
+          "width": 1920,
+          "height": 1080,
+          "fps_code": 29,
+          "maximum_mbps": 60,
+          "average_mbps": 50,
+          "profile_like_field": 100,
+          "level_field": 41,
+          "fields_70_74": [
+            0,
+            1
+          ],
+          "fields_78_79": [
+            0,
+            0
+          ],
+          "writes": [
+            {
+              "offset": "0xe00",
+              "value": 34688
+            },
+            {
+              "offset": "0xe04",
+              "value": 1080
+            },
+            {
+              "offset": "0xe0c",
+              "value": 29
+            },
+            {
+              "offset": "0xe10",
+              "value": 1
+            },
+            {
+              "offset": "0xe14",
+              "value": 1
+            },
+            {
+              "offset": "0xe18",
+              "value": 0
+            },
+            {
+              "offset": "0xe1c",
+              "value": 1024
+            },
+            {
+              "offset": "0xe20",
+              "value": 7324
+            },
+            {
+              "offset": "0xe30",
+              "value": 100
+            },
+            {
+              "offset": "0xe34",
+              "value": 41
+            },
+            {
+              "offset": "0xe38",
+              "value": 32768
+            },
+            {
+              "offset": "0xe3c",
+              "value": 0
+            },
+            {
+              "offset": "0xe40",
+              "value": 0
+            },
+            {
+              "offset": "0xe44",
+              "value": 4
+            },
+            {
+              "offset": "0xe48",
+              "value": 1024
+            },
+            {
+              "offset": "0xe4c",
+              "value": 0
+            },
+            {
+              "offset": "0xe50",
+              "value": 0
+            },
+            {
+              "offset": "0xe54",
+              "value": 0
+            },
+            {
+              "offset": "0xe58",
+              "value": 1
+            },
+            {
+              "offset": "0xe5c",
+              "value": 0
+            },
+            {
+              "offset": "0xe60",
+              "value": 0
+            },
+            {
+              "offset": "0xe64",
+              "value": 0
+            },
+            {
+              "offset": "0xe68",
+              "value": 14081
+            },
+            {
+              "offset": "0xe6c",
+              "value": 257
+            }
+          ]
+        },
+        {
+          "name": "synthetic_fhd_119",
+          "width": 1920,
+          "height": 1080,
+          "fps_code": 119,
+          "maximum_mbps": 144,
+          "average_mbps": 120,
+          "profile_like_field": 100,
+          "level_field": 51,
+          "fields_70_74": [
+            0,
+            1
+          ],
+          "fields_78_79": [
+            0,
+            0
+          ],
+          "writes": [
+            {
+              "offset": "0xe00",
+              "value": 34688
+            },
+            {
+              "offset": "0xe04",
+              "value": 1080
+            },
+            {
+              "offset": "0xe0c",
+              "value": 119
+            },
+            {
+              "offset": "0xe10",
+              "value": 1
+            },
+            {
+              "offset": "0xe14",
+              "value": 1
+            },
+            {
+              "offset": "0xe18",
+              "value": 0
+            },
+            {
+              "offset": "0xe1c",
+              "value": 1024
+            },
+            {
+              "offset": "0xe20",
+              "value": 17578
+            },
+            {
+              "offset": "0xe30",
+              "value": 100
+            },
+            {
+              "offset": "0xe34",
+              "value": 51
+            },
+            {
+              "offset": "0xe38",
+              "value": 32768
+            },
+            {
+              "offset": "0xe3c",
+              "value": 0
+            },
+            {
+              "offset": "0xe40",
+              "value": 0
+            },
+            {
+              "offset": "0xe44",
+              "value": 4
+            },
+            {
+              "offset": "0xe48",
+              "value": 1024
+            },
+            {
+              "offset": "0xe4c",
+              "value": 0
+            },
+            {
+              "offset": "0xe50",
+              "value": 0
+            },
+            {
+              "offset": "0xe54",
+              "value": 0
+            },
+            {
+              "offset": "0xe58",
+              "value": 1
+            },
+            {
+              "offset": "0xe5c",
+              "value": 0
+            },
+            {
+              "offset": "0xe60",
+              "value": 0
+            },
+            {
+              "offset": "0xe64",
+              "value": 0
+            },
+            {
+              "offset": "0xe68",
+              "value": 14081
+            },
+            {
+              "offset": "0xe6c",
+              "value": 257
+            }
+          ]
+        },
+        {
+          "name": "synthetic_hd_59",
+          "width": 1280,
+          "height": 720,
+          "fps_code": 59,
+          "maximum_mbps": 60,
+          "average_mbps": 50,
+          "profile_like_field": 100,
+          "level_field": 41,
+          "fields_70_74": [
+            0,
+            1
+          ],
+          "fields_78_79": [
+            0,
+            0
+          ],
+          "writes": [
+            {
+              "offset": "0xe00",
+              "value": 34048
+            },
+            {
+              "offset": "0xe04",
+              "value": 720
+            },
+            {
+              "offset": "0xe0c",
+              "value": 59
+            },
+            {
+              "offset": "0xe10",
+              "value": 1
+            },
+            {
+              "offset": "0xe14",
+              "value": 1
+            },
+            {
+              "offset": "0xe18",
+              "value": 0
+            },
+            {
+              "offset": "0xe1c",
+              "value": 1024
+            },
+            {
+              "offset": "0xe20",
+              "value": 7324
+            },
+            {
+              "offset": "0xe30",
+              "value": 100
+            },
+            {
+              "offset": "0xe34",
+              "value": 41
+            },
+            {
+              "offset": "0xe38",
+              "value": 0
+            },
+            {
+              "offset": "0xe3c",
+              "value": 0
+            },
+            {
+              "offset": "0xe40",
+              "value": 0
+            },
+            {
+              "offset": "0xe44",
+              "value": 0
+            },
+            {
+              "offset": "0xe48",
+              "value": 1024
+            },
+            {
+              "offset": "0xe4c",
+              "value": 0
+            },
+            {
+              "offset": "0xe50",
+              "value": 0
+            },
+            {
+              "offset": "0xe54",
+              "value": 0
+            },
+            {
+              "offset": "0xe58",
+              "value": 1
+            },
+            {
+              "offset": "0xe5c",
+              "value": 0
+            },
+            {
+              "offset": "0xe60",
+              "value": 0
+            },
+            {
+              "offset": "0xe64",
+              "value": 0
+            },
+            {
+              "offset": "0xe68",
+              "value": 14081
+            },
+            {
+              "offset": "0xe6c",
+              "value": 257
+            }
+          ]
+        }
+      ],
+      "packing_checks": [
+        {
+          "field": "0x60",
+          "marker": 90,
+          "register": "0xe30",
+          "packed": 90,
+          "hardware_support_tested": false
+        },
+        {
+          "field": "0x78",
+          "marker": 2,
+          "register": "0xe48",
+          "packed": 1088,
+          "hardware_support_tested": false
+        },
+        {
+          "field": "0x79",
+          "marker": 2,
+          "register": "0xe48",
+          "packed": 1026,
+          "hardware_support_tested": false
+        },
+        {
+          "field": "0x78",
+          "marker": 34,
+          "register": "0xe48",
+          "packed": 1088,
+          "hardware_support_tested": false
+        },
+        {
+          "field": "0x79",
+          "marker": 34,
+          "register": "0xe48",
+          "packed": 1026,
+          "hardware_support_tested": false
+        }
+      ]
+    },
+    {
+      "name": "slave",
+      "sha256": "3fd8c2cbdf57fadb03f6d69b596b58a8703efdd61ae82572d5afeea0241a9ed5",
+      "constructor_range": [
+        "0x100a2340",
+        "0x100a2548"
+      ],
+      "writer_range": [
+        "0x100a26d0",
+        "0x100a28fe"
+      ],
+      "register_write_stub": "0x100a02ba",
+      "configurations": [
+        {
+          "name": "4k_144_120",
+          "width": 3840,
+          "height": 2160,
+          "fps_code": 29,
+          "maximum_mbps": 144,
+          "average_mbps": 120,
+          "profile_like_field": 100,
+          "level_field": 51,
+          "fields_70_74": [
+            0,
+            1
+          ],
+          "fields_78_79": [
+            0,
+            0
+          ],
+          "writes": [
+            {
+              "offset": "0xe00",
+              "value": 36608
+            },
+            {
+              "offset": "0xe04",
+              "value": 2160
+            },
+            {
+              "offset": "0xe0c",
+              "value": 29
+            },
+            {
+              "offset": "0xe10",
+              "value": 1
+            },
+            {
+              "offset": "0xe14",
+              "value": 1
+            },
+            {
+              "offset": "0xe18",
+              "value": 0
+            },
+            {
+              "offset": "0xe1c",
+              "value": 1024
+            },
+            {
+              "offset": "0xe20",
+              "value": 17578
+            },
+            {
+              "offset": "0xe30",
+              "value": 100
+            },
+            {
+              "offset": "0xe34",
+              "value": 51
+            },
+            {
+              "offset": "0xe38",
+              "value": 0
+            },
+            {
+              "offset": "0xe3c",
+              "value": 0
+            },
+            {
+              "offset": "0xe40",
+              "value": 0
+            },
+            {
+              "offset": "0xe44",
+              "value": 0
+            },
+            {
+              "offset": "0xe48",
+              "value": 1024
+            },
+            {
+              "offset": "0xe4c",
+              "value": 0
+            },
+            {
+              "offset": "0xe50",
+              "value": 0
+            },
+            {
+              "offset": "0xe54",
+              "value": 0
+            },
+            {
+              "offset": "0xe58",
+              "value": 1
+            },
+            {
+              "offset": "0xe5c",
+              "value": 0
+            },
+            {
+              "offset": "0xe60",
+              "value": 0
+            },
+            {
+              "offset": "0xe64",
+              "value": 0
+            },
+            {
+              "offset": "0xe68",
+              "value": 14081
+            },
+            {
+              "offset": "0xe6c",
+              "value": 257
+            }
+          ]
+        },
+        {
+          "name": "4k_156_140",
+          "width": 3840,
+          "height": 2160,
+          "fps_code": 29,
+          "maximum_mbps": 156,
+          "average_mbps": 140,
+          "profile_like_field": 100,
+          "level_field": 51,
+          "fields_70_74": [
+            0,
+            1
+          ],
+          "fields_78_79": [
+            0,
+            0
+          ],
+          "writes": [
+            {
+              "offset": "0xe00",
+              "value": 36608
+            },
+            {
+              "offset": "0xe04",
+              "value": 2160
+            },
+            {
+              "offset": "0xe0c",
+              "value": 29
+            },
+            {
+              "offset": "0xe10",
+              "value": 1
+            },
+            {
+              "offset": "0xe14",
+              "value": 1
+            },
+            {
+              "offset": "0xe18",
+              "value": 0
+            },
+            {
+              "offset": "0xe1c",
+              "value": 1024
+            },
+            {
+              "offset": "0xe20",
+              "value": 19042
+            },
+            {
+              "offset": "0xe30",
+              "value": 100
+            },
+            {
+              "offset": "0xe34",
+              "value": 51
+            },
+            {
+              "offset": "0xe38",
+              "value": 0
+            },
+            {
+              "offset": "0xe3c",
+              "value": 0
+            },
+            {
+              "offset": "0xe40",
+              "value": 0
+            },
+            {
+              "offset": "0xe44",
+              "value": 0
+            },
+            {
+              "offset": "0xe48",
+              "value": 1024
+            },
+            {
+              "offset": "0xe4c",
+              "value": 0
+            },
+            {
+              "offset": "0xe50",
+              "value": 0
+            },
+            {
+              "offset": "0xe54",
+              "value": 0
+            },
+            {
+              "offset": "0xe58",
+              "value": 1
+            },
+            {
+              "offset": "0xe5c",
+              "value": 0
+            },
+            {
+              "offset": "0xe60",
+              "value": 0
+            },
+            {
+              "offset": "0xe64",
+              "value": 0
+            },
+            {
+              "offset": "0xe68",
+              "value": 14081
+            },
+            {
+              "offset": "0xe6c",
+              "value": 257
+            }
+          ]
+        },
+        {
+          "name": "4k_200_168",
+          "width": 3840,
+          "height": 2160,
+          "fps_code": 29,
+          "maximum_mbps": 200,
+          "average_mbps": 168,
+          "profile_like_field": 100,
+          "level_field": 61,
+          "fields_70_74": [
+            0,
+            1
+          ],
+          "fields_78_79": [
+            0,
+            0
+          ],
+          "writes": [
+            {
+              "offset": "0xe00",
+              "value": 36608
+            },
+            {
+              "offset": "0xe04",
+              "value": 2160
+            },
+            {
+              "offset": "0xe0c",
+              "value": 29
+            },
+            {
+              "offset": "0xe10",
+              "value": 1
+            },
+            {
+              "offset": "0xe14",
+              "value": 1
+            },
+            {
+              "offset": "0xe18",
+              "value": 0
+            },
+            {
+              "offset": "0xe1c",
+              "value": 1024
+            },
+            {
+              "offset": "0xe20",
+              "value": 24414
+            },
+            {
+              "offset": "0xe30",
+              "value": 100
+            },
+            {
+              "offset": "0xe34",
+              "value": 61
+            },
+            {
+              "offset": "0xe38",
+              "value": 0
+            },
+            {
+              "offset": "0xe3c",
+              "value": 0
+            },
+            {
+              "offset": "0xe40",
+              "value": 0
+            },
+            {
+              "offset": "0xe44",
+              "value": 0
+            },
+            {
+              "offset": "0xe48",
+              "value": 1024
+            },
+            {
+              "offset": "0xe4c",
+              "value": 0
+            },
+            {
+              "offset": "0xe50",
+              "value": 0
+            },
+            {
+              "offset": "0xe54",
+              "value": 0
+            },
+            {
+              "offset": "0xe58",
+              "value": 1
+            },
+            {
+              "offset": "0xe5c",
+              "value": 0
+            },
+            {
+              "offset": "0xe60",
+              "value": 0
+            },
+            {
+              "offset": "0xe64",
+              "value": 0
+            },
+            {
+              "offset": "0xe68",
+              "value": 14081
+            },
+            {
+              "offset": "0xe6c",
+              "value": 257
+            }
+          ]
+        },
+        {
+          "name": "synthetic_fhd_29",
+          "width": 1920,
+          "height": 1080,
+          "fps_code": 29,
+          "maximum_mbps": 60,
+          "average_mbps": 50,
+          "profile_like_field": 100,
+          "level_field": 41,
+          "fields_70_74": [
+            0,
+            1
+          ],
+          "fields_78_79": [
+            0,
+            0
+          ],
+          "writes": [
+            {
+              "offset": "0xe00",
+              "value": 34688
+            },
+            {
+              "offset": "0xe04",
+              "value": 1080
+            },
+            {
+              "offset": "0xe0c",
+              "value": 29
+            },
+            {
+              "offset": "0xe10",
+              "value": 1
+            },
+            {
+              "offset": "0xe14",
+              "value": 1
+            },
+            {
+              "offset": "0xe18",
+              "value": 0
+            },
+            {
+              "offset": "0xe1c",
+              "value": 1024
+            },
+            {
+              "offset": "0xe20",
+              "value": 7324
+            },
+            {
+              "offset": "0xe30",
+              "value": 100
+            },
+            {
+              "offset": "0xe34",
+              "value": 41
+            },
+            {
+              "offset": "0xe38",
+              "value": 32768
+            },
+            {
+              "offset": "0xe3c",
+              "value": 0
+            },
+            {
+              "offset": "0xe40",
+              "value": 0
+            },
+            {
+              "offset": "0xe44",
+              "value": 4
+            },
+            {
+              "offset": "0xe48",
+              "value": 1024
+            },
+            {
+              "offset": "0xe4c",
+              "value": 0
+            },
+            {
+              "offset": "0xe50",
+              "value": 0
+            },
+            {
+              "offset": "0xe54",
+              "value": 0
+            },
+            {
+              "offset": "0xe58",
+              "value": 1
+            },
+            {
+              "offset": "0xe5c",
+              "value": 0
+            },
+            {
+              "offset": "0xe60",
+              "value": 0
+            },
+            {
+              "offset": "0xe64",
+              "value": 0
+            },
+            {
+              "offset": "0xe68",
+              "value": 14081
+            },
+            {
+              "offset": "0xe6c",
+              "value": 257
+            }
+          ]
+        },
+        {
+          "name": "synthetic_fhd_119",
+          "width": 1920,
+          "height": 1080,
+          "fps_code": 119,
+          "maximum_mbps": 144,
+          "average_mbps": 120,
+          "profile_like_field": 100,
+          "level_field": 51,
+          "fields_70_74": [
+            0,
+            1
+          ],
+          "fields_78_79": [
+            0,
+            0
+          ],
+          "writes": [
+            {
+              "offset": "0xe00",
+              "value": 34688
+            },
+            {
+              "offset": "0xe04",
+              "value": 1080
+            },
+            {
+              "offset": "0xe0c",
+              "value": 119
+            },
+            {
+              "offset": "0xe10",
+              "value": 1
+            },
+            {
+              "offset": "0xe14",
+              "value": 1
+            },
+            {
+              "offset": "0xe18",
+              "value": 0
+            },
+            {
+              "offset": "0xe1c",
+              "value": 1024
+            },
+            {
+              "offset": "0xe20",
+              "value": 17578
+            },
+            {
+              "offset": "0xe30",
+              "value": 100
+            },
+            {
+              "offset": "0xe34",
+              "value": 51
+            },
+            {
+              "offset": "0xe38",
+              "value": 32768
+            },
+            {
+              "offset": "0xe3c",
+              "value": 0
+            },
+            {
+              "offset": "0xe40",
+              "value": 0
+            },
+            {
+              "offset": "0xe44",
+              "value": 4
+            },
+            {
+              "offset": "0xe48",
+              "value": 1024
+            },
+            {
+              "offset": "0xe4c",
+              "value": 0
+            },
+            {
+              "offset": "0xe50",
+              "value": 0
+            },
+            {
+              "offset": "0xe54",
+              "value": 0
+            },
+            {
+              "offset": "0xe58",
+              "value": 1
+            },
+            {
+              "offset": "0xe5c",
+              "value": 0
+            },
+            {
+              "offset": "0xe60",
+              "value": 0
+            },
+            {
+              "offset": "0xe64",
+              "value": 0
+            },
+            {
+              "offset": "0xe68",
+              "value": 14081
+            },
+            {
+              "offset": "0xe6c",
+              "value": 257
+            }
+          ]
+        },
+        {
+          "name": "synthetic_hd_59",
+          "width": 1280,
+          "height": 720,
+          "fps_code": 59,
+          "maximum_mbps": 60,
+          "average_mbps": 50,
+          "profile_like_field": 100,
+          "level_field": 41,
+          "fields_70_74": [
+            0,
+            1
+          ],
+          "fields_78_79": [
+            0,
+            0
+          ],
+          "writes": [
+            {
+              "offset": "0xe00",
+              "value": 34048
+            },
+            {
+              "offset": "0xe04",
+              "value": 720
+            },
+            {
+              "offset": "0xe0c",
+              "value": 59
+            },
+            {
+              "offset": "0xe10",
+              "value": 1
+            },
+            {
+              "offset": "0xe14",
+              "value": 1
+            },
+            {
+              "offset": "0xe18",
+              "value": 0
+            },
+            {
+              "offset": "0xe1c",
+              "value": 1024
+            },
+            {
+              "offset": "0xe20",
+              "value": 7324
+            },
+            {
+              "offset": "0xe30",
+              "value": 100
+            },
+            {
+              "offset": "0xe34",
+              "value": 41
+            },
+            {
+              "offset": "0xe38",
+              "value": 0
+            },
+            {
+              "offset": "0xe3c",
+              "value": 0
+            },
+            {
+              "offset": "0xe40",
+              "value": 0
+            },
+            {
+              "offset": "0xe44",
+              "value": 0
+            },
+            {
+              "offset": "0xe48",
+              "value": 1024
+            },
+            {
+              "offset": "0xe4c",
+              "value": 0
+            },
+            {
+              "offset": "0xe50",
+              "value": 0
+            },
+            {
+              "offset": "0xe54",
+              "value": 0
+            },
+            {
+              "offset": "0xe58",
+              "value": 1
+            },
+            {
+              "offset": "0xe5c",
+              "value": 0
+            },
+            {
+              "offset": "0xe60",
+              "value": 0
+            },
+            {
+              "offset": "0xe64",
+              "value": 0
+            },
+            {
+              "offset": "0xe68",
+              "value": 14081
+            },
+            {
+              "offset": "0xe6c",
+              "value": 257
+            }
+          ]
+        }
+      ],
+      "packing_checks": [
+        {
+          "field": "0x60",
+          "marker": 90,
+          "register": "0xe30",
+          "packed": 90,
+          "hardware_support_tested": false
+        },
+        {
+          "field": "0x78",
+          "marker": 2,
+          "register": "0xe48",
+          "packed": 1088,
+          "hardware_support_tested": false
+        },
+        {
+          "field": "0x79",
+          "marker": 2,
+          "register": "0xe48",
+          "packed": 1026,
+          "hardware_support_tested": false
+        },
+        {
+          "field": "0x78",
+          "marker": 34,
+          "register": "0xe48",
+          "packed": 1088,
+          "hardware_support_tested": false
+        },
+        {
+          "field": "0x79",
+          "marker": 34,
+          "register": "0xe48",
+          "packed": 1026,
+          "hardware_support_tested": false
+        }
+      ]
+    }
+  ],
+  "callbacks": [
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 1
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 1
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 1
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 1
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 1
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 1
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "queue": [],
+      "queue_stub_return": 1,
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 1
+        }
+      ],
+      "queue_stub_return": 1,
+      "return_value": 1
+    },
+    {
+      "kind": "flag_1688",
+      "address": "0x1033a8b6",
+      "words": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x1688",
+          "value": 1
+        }
+      ],
+      "queue_stub_return": 0,
+      "return_value": 0
+    },
+    {
+      "kind": "flag_16bf",
+      "address": "0x1033a98c",
+      "words": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x16bf",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_16bf",
+      "address": "0x1033a98c",
+      "words": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x16bf",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_16bf",
+      "address": "0x1033a98c",
+      "words": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x16bf",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_16bf",
+      "address": "0x1033a98c",
+      "words": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x16bf",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_16bf",
+      "address": "0x1033a98c",
+      "words": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x16bf",
+          "value": 1
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_16bf",
+      "address": "0x1033a98c",
+      "words": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x16bf",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_16bf",
+      "address": "0x1033a98c",
+      "words": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x16bf",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_16bf",
+      "address": "0x1033a98c",
+      "words": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x16bf",
+          "value": 0
+        }
+      ],
+      "return_value": 1
+    },
+    {
+      "kind": "flag_16bf",
+      "address": "0x1033a98c",
+      "words": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "queue": [],
+      "queue_stub_return": 1,
+      "return_value": 1
+    },
+    {
+      "kind": "flag_16bf",
+      "address": "0x1033a98c",
+      "words": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x16bf",
+          "value": 1
+        }
+      ],
+      "queue_stub_return": 1,
+      "return_value": 1
+    },
+    {
+      "kind": "flag_16bf",
+      "address": "0x1033a98c",
+      "words": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        {
+          "property": "0x16bf",
+          "value": 1
+        }
+      ],
+      "queue_stub_return": 0,
+      "return_value": 0
+    }
+  ],
+  "sps_templates": [
+    {
+      "selector": 0,
+      "settings_index": 7,
+      "address": "0x108abfe4",
+      "file_offset": "0x88bfe4",
+      "length": 24,
+      "pps_address": "0x108abfd8",
+      "pps_length": 4,
+      "decoded": {
+        "profile_idc": 100,
+        "constraint_byte": 0,
+        "level_idc": 51,
+        "seq_parameter_set_id": 0,
+        "chroma_format_idc": 1,
+        "bit_depth_luma_minus8": 0,
+        "bit_depth_chroma_minus8": 0,
+        "qpprime_y_zero_transform_bypass_flag": 0,
+        "log2_max_frame_num_minus4": 0,
+        "pic_order_cnt_type": 0,
+        "log2_max_pic_order_cnt_lsb_minus4": 1,
+        "max_num_ref_frames": 1,
+        "gaps_in_frame_num_value_allowed_flag": 0,
+        "direct_8x8_inference_flag": 1,
+        "coded_width": 1920,
+        "coded_height": 1088,
+        "crop_offsets": [
+          0,
+          0,
+          0,
+          4
+        ],
+        "width": 1920,
+        "height": 1080,
+        "video_format": 5,
+        "video_full_range_flag": 1,
+        "colour_primaries": 1,
+        "transfer_characteristics": 1,
+        "matrix_coefficients": 1,
+        "num_units_in_tick": 1001,
+        "time_scale": 60000,
+        "fixed_frame_rate_flag": 1
+      }
+    },
+    {
+      "selector": 1,
+      "settings_index": 8,
+      "address": "0x108abffc",
+      "file_offset": "0x88bffc",
+      "length": 25,
+      "pps_address": "0x108abfdc",
+      "pps_length": 4,
+      "decoded": {
+        "profile_idc": 100,
+        "constraint_byte": 0,
+        "level_idc": 51,
+        "seq_parameter_set_id": 0,
+        "chroma_format_idc": 1,
+        "bit_depth_luma_minus8": 0,
+        "bit_depth_chroma_minus8": 0,
+        "qpprime_y_zero_transform_bypass_flag": 0,
+        "log2_max_frame_num_minus4": 0,
+        "pic_order_cnt_type": 0,
+        "log2_max_pic_order_cnt_lsb_minus4": 1,
+        "max_num_ref_frames": 1,
+        "gaps_in_frame_num_value_allowed_flag": 0,
+        "direct_8x8_inference_flag": 1,
+        "coded_width": 1920,
+        "coded_height": 1088,
+        "crop_offsets": [
+          0,
+          0,
+          0,
+          4
+        ],
+        "width": 1920,
+        "height": 1080,
+        "video_format": 5,
+        "video_full_range_flag": 1,
+        "colour_primaries": 1,
+        "transfer_characteristics": 1,
+        "matrix_coefficients": 1,
+        "num_units_in_tick": 1,
+        "time_scale": 50,
+        "fixed_frame_rate_flag": 1
+      }
+    },
+    {
+      "selector": 2,
+      "settings_index": 9,
+      "address": "0x108ac015",
+      "file_offset": "0x88c015",
+      "length": 24,
+      "pps_address": "0x108abfe0",
+      "pps_length": 4,
+      "decoded": {
+        "profile_idc": 100,
+        "constraint_byte": 0,
+        "level_idc": 51,
+        "seq_parameter_set_id": 0,
+        "chroma_format_idc": 1,
+        "bit_depth_luma_minus8": 0,
+        "bit_depth_chroma_minus8": 0,
+        "qpprime_y_zero_transform_bypass_flag": 0,
+        "log2_max_frame_num_minus4": 0,
+        "pic_order_cnt_type": 0,
+        "log2_max_pic_order_cnt_lsb_minus4": 1,
+        "max_num_ref_frames": 1,
+        "gaps_in_frame_num_value_allowed_flag": 0,
+        "direct_8x8_inference_flag": 1,
+        "coded_width": 1920,
+        "coded_height": 1088,
+        "crop_offsets": [
+          0,
+          0,
+          0,
+          4
+        ],
+        "width": 1920,
+        "height": 1080,
+        "video_format": 5,
+        "video_full_range_flag": 1,
+        "colour_primaries": 1,
+        "transfer_characteristics": 1,
+        "matrix_coefficients": 1,
+        "num_units_in_tick": 1001,
+        "time_scale": 48000,
+        "fixed_frame_rate_flag": 1
+      }
+    }
+  ],
+  "sps_invalid_selector_no_write": true,
+  "paired_module_results_match": true,
+  "limits": [
+    "Constructor starts after allocation with synthetic configuration and specified registers/stack; reviewed fields start poisoned, other fields zero.",
+    "Register-writer calls are captured, not delivered to hardware; markers are not a firmware patch.",
+    "SPS templates are used only by the reviewed settings[66]==1, settings[67] in 7/8/9 branch, not every recording mode.",
+    "SPS parsing stops after VUI timing; full SPS conformance and actual produced video were not checked.",
+    "Property queue is stubbed; upstream callback arguments, ISP and asynchronous consumers are not modeled.",
+    "The meanings of hardware fields 74/78/79 remain inferred; hardware 10-bit support is unresolved."
+  ]
+}

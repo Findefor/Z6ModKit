@@ -25,6 +25,7 @@
 !/scripts/fw_inspect.py
 !/scripts/ex_inspect.py
 !/scripts/analyze_bitrate.py
+!/scripts/analyze_video_path.py
 !/scripts/analyze_ptp.py
 !/scripts/analyze_service_recovery.py
 !/scripts/analyze_config_read.py
@@ -41,6 +42,7 @@
 !/work/analysis/
 /work/analysis/*
 !/work/analysis/bitrate_analysis.json
+!/work/analysis/video_path.json
 !/work/analysis/ptp_research.json
 !/work/analysis/version_comparison.json
 !/work/analysis/modules.json

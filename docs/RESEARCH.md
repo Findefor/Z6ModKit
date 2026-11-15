@@ -1,6 +1,6 @@
 # Nikon Z6 II C1.70 research notes
 
-Current evidence: 2026-11-12. This document describes offline analysis of a
+Current evidence: 2026-11-15. This document describes offline analysis of a
 specific firmware build. It is not an installation guide or a recovery procedure.
 The research goals include more flexible in-camera color and custom looks,
 investigating user-supplied 3D LUTs, and internal N-Log 10-bit recording. Color
@@ -112,6 +112,84 @@ Original getter execution establishes these mappings:
 The unresolved video task is tracing these settings through ISP output format,
 encoder input/format negotiation and the internal recording pipeline. No
 internal 10-bit stream, N-Log card recording, or applicable codec patch is proven.
+
+### AVC configuration, SPS templates and derived video state
+
+The next offline pass is reproducible with
+[`analyze_video_path.py`](../scripts/analyze_video_path.py); its captured results
+are in [`video_path.json`](../work/analysis/video_path.json). The findings below
+separate instruction execution, bitstream syntax and hardware interpretation.
+
+**Configuration to register writer, emulated:** master constructor fragment
+`104BE3B8..104BE5C0` and slave `100A2340..100A2548` were run with six controlled
+input sets each: three 4K bitrate configurations and three synthetic FHD/HD
+cases. The profile-like byte at config `+60` remains **100**, while the already
+known Level byte at `+61` changes independently. The inspected profile and
+candidate depth fields therefore stay constant across these bitrate cases.
+
+The writer prefixes `104BE748..104BE976` / `100A26D0..100A28FE` forward the
+configuration to intercepted register-write calls. Static tracing of the
+master primitive `104D9AE8 → 1051F25A` fixes its hardware base at `24070000`.
+No writes were delivered to hardware. Reviewed constructor fields start with
+`A5` markers, so assertions about zero values check actual initialization;
+other synthetic configuration fields start zero. The two modules give identical
+captured results for all twelve input cases and ten packing-marker cases.
+
+| Configuration | Observed packing | Interpretation boundary |
+| --- | --- | --- |
+| `+60:u8=100`, six words `+48..5C=0` | register `E30`, low byte and bits 8–13 | Strong match to AVC profile_idc and constraint flags, supported by the SPS below; hardware register names are inferred. |
+| `+61:u8` | `E34` | Existing Level selection remains separate from profile/depth. |
+| `+70:u32=0`, `+74:u32=1`, `+78/+79:u8=0/0` | `E48 = (word70<<15) \| (word74<<10) \| ((byte78&31)<<5) \| (byte79&31)`; result `400` hex | The last three fields strongly resemble chroma format and luma/chroma depth-minus8. Actual hardware interpretation and accepted formats remain unproved. |
+| `+F=5`, `+10:u32=1`, `+14/15/16=1/1/1` | inspected writer produces `E68=3701`, `E6C=0101` hex | Consistent with VUI fields; stream metadata is not proof of a pixel transform or color accuracy. |
+
+Markers in bytes `78/79` confirm independent five-bit packing, including masking
+of higher bits. They do not test 10-bit encoding. Bytes `7A..7F` go to other
+registers and are **not** all labeled bit depth. Likewise config `+8`, which can
+be 0 or 2, is not established as an 8/10-bit input-format selector.
+
+**SPS templates, selected and parsed:** the real selector `104A441E` chooses
+three embedded SPS/PPS pairs. Parsing their AVC syntax establishes
+profile_idc 100 (High), chroma_format_idc 1 (4:2:0), and both depth-minus8 values 0
+(8-bit). Each describes coded 1920×1088 cropped to 1920×1080, with Level 51 (5.1).
+VUI signals full-range 1 and primaries/transfer/matrix values 1/1/1. Timing pairs
+are `(1001,60000)`, `(1,50)`, `(1001,48000)`.
+Syntax reference: [ITU-T H.264, §7.3.2.1.1 and Annexes A/E](https://www.itu.int/rec/dologin_pub.asp?id=T-REC-H.264-202408-I%21%21PDF-E&lang=e&type=items).
+
+| Settings index | SPS address / length | PPS address / length |
+| --- | --- | --- |
+| 7 | `108ABFE4` / 24 | `108ABFD8` / 4 |
+| 8 | `108ABFFC` / 25 | `108ABFDC` / 4 |
+| 9 | `108AC015` / 24 | `108ABFE0` / 4 |
+
+These are **not universal headers for every video mode**. Static tracing of
+`104A7C60` shows it first taking the supplied headers, then replacing them only
+in the examined branch with settings `[66]==1` and `[67]` in 7/8/9, through
+`104A7D02 → 104A5218 → 104A441E`. Copies occur at `104A7D0C/104A7D16`.
+The selector was emulated for all three entries plus an invalid-index no-write
+case; the enclosing recording pipeline and actual video output were not run.
+The bounded parser stops after VUI timing and is not a full conformance checker.
+
+**Derived video-state callbacks, emulated:** `1033A8B6` queues property `1688`;
+`1033A98C` queues `16BF`. These are the two flags read by the existing D0BB getter.
+Their records at `11906FA0/11906FB8` are associated with `126E/12A4`. Thirty synthetic
+callback cases exercise gate/override behavior, unchanged-value suppression,
+and a queue-failure result. A nonzero byte at argument offset `C` suppresses the
+ordinary value in both callbacks; the first has an override and the second a
+veto. The first argument word being 1 and the computed value equaling word 2
+suppresses queueing. Queue failure still leaves the inspected change marker
+set, so that marker alone does not establish successful application.
+
+Upstream argument construction and the asynchronous consumers are not modeled.
+The gate is deliberately **not** identified as a particular HDMI, sensor or
+recording condition. These callbacks establish separate derived state, not a
+working internal N-Log switch.
+
+The remaining decisive work is the ISP output/pixel-buffer format, how the
+actual encoder accepts that input, and where the N-Log transfer is applied.
+Changing SPS/VUI labels or a menu guard would not prove those capabilities.
+The [Nikon guide](https://nps.nikonimaging.com/technical_info/technical_solutions/z7_2_z6_2_tips/filming_n-log_footage/)
+documents external HDMI N-Log; the new offline evidence does not extend that
+claim to internal recording, nor prove that an extension is impossible.
 
 ## Service dispatcher and memory/configuration reads
 
