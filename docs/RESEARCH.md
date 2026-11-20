@@ -1,6 +1,6 @@
 # Nikon Z6 II C1.70 research notes
 
-Current evidence: 2026-11-15. This document describes offline analysis of a
+Current evidence: 2026-11-20. This document describes offline analysis of a
 specific firmware build. It is not an installation guide or a recovery procedure.
 The research goals include more flexible in-camera color and custom looks,
 investigating user-supplied 3D LUTs, and internal N-Log 10-bit recording. Color
@@ -190,6 +190,62 @@ Changing SPS/VUI labels or a menu guard would not prove those capabilities.
 The [Nikon guide](https://nps.nikonimaging.com/technical_info/technical_solutions/z7_2_z6_2_tips/filming_n-log_footage/)
 documents external HDMI N-Log; the new offline evidence does not extend that
 claim to internal recording, nor prove that an extension is impossible.
+
+### Frame descriptors at the AVC driver input
+
+The C1.70 master passes two independently supplied addresses per frame entry
+to the AVC driver. The driver setup also reserves two address slots spaced
+12,441,600 bytes apart for 3840 × 2160. This spacing equals the footprint of a
+tightly packed 8-bit 4:2:0 frame. The roles of those two slots (for example,
+input or reference surfaces) remain open. They form a separate register pair
+from the two addresses per frame entry described below.
+
+**Frame submission.** The caller at `10488CEC` copies a 28-byte source
+record into a 32-byte queue entry and submits it at `10488D06`. On the
+consumer side, `10488228` copies that entry to the stack. Starting at
+`10488238`, the adapter builds a 20-byte record. It checks that the two
+16-bit pitch-like fields (source offsets 2 and 4) match and that the field at
+offset 10 fits within each. It adds the same 16-bit displacement at offset 14
+to the two independent bases at offsets 20 and 24. These source offsets are
+decimal. The adapter and its checks were executed with synthetic entries.
+
+The ring (`104A50EA` / `104A518C`) carries the 20-byte records to
+`104A46E6`. The normal path groups three records, calculates
+`(rows × pitch × 3) >> 1` for each, and supplies a size and two addresses
+per record to descriptor builder `104D9CC4`. Here “rows” names the field at
+source offset 12. “Pitch” names one of the equal fields tested by the adapter.
+These names describe their arithmetic role. The code at `104BEE26` passes
+each address to register offset `0x43C` after selecting its index via
+`0x438`. In the checks, the pair for each input was recovered in order,
+including after a ring wrap and the three-record reorder selected by group
+field 3.
+
+| Controlled case | Rows × pitch in synthetic descriptor | Computed size | Distance between setup slots |
+| --- | --- | ---: | ---: |
+| 3840 × 2160 | 2160 × 3840 | 12,441,600 | 12,441,600 |
+| 1920 × 1080 | 1080 × 1920 | 3,110,400 | 3,133,440 |
+| 1280 × 720 | 720 × 1280 | 1,382,400 | 3,133,440 |
+| 1920 × 1080, padded input | 1080 × 2048 | 3,317,760 | — |
+
+**Setup slots.** In `104A4CD0` the firmware selects the encoder dimensions
+and populates two addresses from a common base before calling `104BE682`.
+Following the stored pointer into writer fragment `104BEF12..104BEF2A`
+produces register offsets `0x404` and `0x408`. The FHD and HD setups share
+the same spacing, numerically equal to 1920 × 1088 × 3/2. Using that spacing
+alone to infer an active frame format would give a misleading result for HD.
+
+[Reproduce the nine cases](../scripts/analyze_frame_input.py) with the
+original master image. Four submission batches of three records, three setup
+families, and two rejected geometries exercise the paths above. The harness
+replaces memory-copy/clear routines, synchronization, allocation, active-bank
+lookup and register writes. During slot setup it captures the geometry passed
+to the encoder configuration constructor. Pixel memory is left unmapped.
+The producer of the values inside the original 28-byte record, component
+order, sample precision and placement of the N-Log transform remain unresolved.
+Three static upstream submission call sites are `1026B232`, `102C940C` and
+`102C944A`, each passing a record starting at offset `0x18` in an upstream
+object. Identifying the code that fills those objects would help distinguish
+byte pitch from pixel width and establish the actual input layout.
 
 ## Service dispatcher and memory/configuration reads
 

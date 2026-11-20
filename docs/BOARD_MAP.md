@@ -126,3 +126,13 @@ recovery after a broken service session. The prior conditional POR conclusion
 is unchanged. Submit source links and counterevidence through
 [Issues](https://github.com/Findefor/Z6ModKit/issues) or
 [Discussions](https://github.com/Findefor/Z6ModKit/discussions).
+
+## Repair photographs from a Z6 II SD-slot replacement
+
+[FotoBlick's repair article](https://fotoblick.ru/nikon/nikon-z-6-2/nikon-z6-ii-ne-fiksiruetsya-karta-v-sd-slot/)
+documents removal of the Z6 II system board to replace the SD slot. The article
+includes photographs and a form for questions to the engineer. Original files
+from this repair could help locate the USB-side power components. For a
+second view, a straight-on macro of the separate DC board with readable IC
+markings and a wider view showing board revision and orientation would help.
+The article documents the repair. Charger identity on that board remains open.
