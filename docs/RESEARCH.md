@@ -240,12 +240,98 @@ families, and two rejected geometries exercise the paths above. The harness
 replaces memory-copy/clear routines, synchronization, allocation, active-bank
 lookup and register writes. During slot setup it captures the geometry passed
 to the encoder configuration constructor. Pixel memory is left unmapped.
-The producer of the values inside the original 28-byte record, component
-order, sample precision and placement of the N-Log transform remain unresolved.
+The producer of the values inside the original 28-byte record is traced in
+the two-version comparison below. Component order and placement of the N-Log
+transform remain unresolved.
 Three static upstream submission call sites are `1026B232`, `102C940C` and
 `102C944A`, each passing a record starting at offset `0x18` in an upstream
-object. Identifying the code that fills those objects would help distinguish
-byte pitch from pixel width and establish the actual input layout.
+object.
+
+### Who supplies the 4K frame planes
+
+Both stock EG masters build a pair of plane addresses within one frame allocation
+on the traced pooled route. Selector 2 reads **3840 × 2160** from each build's
+own ROM dimensions table. Selectors 0 and 1 read 1280 × 720 and 1920 × 1080.
+The 4K pool has **13,028,352 bytes per slot**. A full uncompressed 10-bit
+4:2:0 picture needs at least **15,552,000 bytes** (3840 × 2160 × 1.5 × 10/8),
+before padding. A P010 frame needs 24,883,200 bytes. Both exceed that slot.
+This bound applies to the data crossing this particular interface.
+
+| 4K constructor result | Pooled object, tag 2 | General object, family 1, tag 1 |
+| --- | ---: | ---: |
+| Active width × height | 3840 × 2160 | 3840 × 2160 |
+| Both pitch fields, storage rows | 3984, 2176 | 3840, 2176 |
+| Second plane base minus first (bytes) | 8,685,312 | 8,355,840 |
+| Initial horizontal displacement | 128 | 0 |
+| Span returned by the tag-dependent size calculation (bytes) | 13,019,904 | 16,711,680 |
+| Capacity established from the pool setup (bytes) | 13,028,352 | Unknown |
+
+The pooled constructor aligns the first base to 512 bytes. It puts the second
+plane at `align256(first + pitch × (storage_rows + 4))`. The tag-dependent
+size calculation adds half a plane for tag 2 and a whole plane for tag 1.
+For the general case the first plane occupies `3840 × 2176` bytes. Even
+active luma alone at ten independent bits per pixel needs 10,368,000 bytes,
+which exceeds **both** inter-plane distances. The general case's larger
+total span does not change that first-plane bound. These sizes fit ordinary
+8-bit luma with 4:2:0-like or 4:2:2-like storage respectively. Component
+ordering, interpretation of every format bit and pixel values are unmeasured.
+
+| Role in the master | C1.62 | C1.70 |
+| --- | --- | --- |
+| Pool setup / indexed slot lookup | `103090B8` / `1029A1AA` | `103098F0` / `1029A3D6` |
+| Pooled frame constructor / general constructor | `10308FE4` / `103044C4` | `1030981C` / `10304CFC` |
+| Job 0x10 builder / address serializer | `102B8818` / `102BF006` | `102B8BCC` / `102BF3BA` |
+| Job worker / handler for message `42193009` | `103B3820` / `103B369A` | `103B457C` / `103B43F6` |
+| Per-port dispatch / channel register writer | `103BE9DA` / `103BF3AE` | `103BF776` / `103C014A` |
+| Submit calls for context fields `+A8`, `+408`, `+440` | `1026B0F6`, `102C9058`, `102C9096` | `1026B232`, `102C940C`, `102C944A` |
+
+**From the buffer pool to the image-processing job.** In C1.70, the
+`+A8` pool registration at `10264430..1026443E` and the `+440` pool
+initializer at `102CDB2A` both reach `103099F2 → 1030981C`. The pool
+objects are later obtained through `102CE4AC`. One source for `+408` is
+`103054C8 → 10304CFC`. These links are static. Other code can replace
+the object in `+408`.
+
+For `+440`, the caller at `102C73D0` takes its input from a copy of
+the `+408` object and assigns `+440` to one of two job outputs. It clears
+the destination displacement, dispatches job `0x10`, waits on a completion
+event and sets the object's flag at `+14`. In a separate branch at
+`102C8706`, `+408` itself becomes the first job output. The job builder
+serializes both plane bases for its selected destination. The worker receives
+an 18-entry job through message `42193009`. In the initialized table, entries
+0, 9 and 17 reference the input and the two output descriptions. The channel
+writer transfers both pitches to bank offsets `+10/+14`, active dimensions to
+`+20`, and plane bases to `+24/+28`. The following two address words are
+zero in the tested cases. All register offsets here are hexadecimal.
+
+**What ran.** The [two-build reproducer](../scripts/analyze_frame_producer.py)
+rejects unexpected master hashes. It runs the original constructors, slot
+arithmetic (including wraparound), selected job routing, the complete job
+builder with a synthetic tile configuration, worker case selection, port
+serialization, and the three submission handlers up to their common queue
+and AVC adapter. The CPU executes these as
+bounded fragments. Mode and gate inputs, allocator base, tile setup and
+channel assignment are fixtures. The job table starts from each ROM's own
+scatter-load data. Clear/copy helpers are modeled, address translation uses
+an identity fixture and register writes land in emulator RAM. Channels 3 and
+12 exercise the port writer. For tags 2 and 1 it emits control words
+`09000201` and `09000001` respectively in these cases. The physical channel
+assignment and the hardware meaning of bit 9 remain open. Pixel memory stays
+unmapped throughout.
+
+Run `python scripts/analyze_frame_producer.py` with the local C1.62 package
+and the extraction setup described in the README, or pass the extracted
+`eg1850_mas_0162a` as the positional argument. The C1.70 input defaults to
+the same master as the earlier frame-input trace. The script prints both
+sets of measurements and checks them for equality.
+
+The strongest current conclusion is that ordinary full-precision linear
+10-bit planes cannot fit the examined 4K layouts. The code identifies the
+software job that configures the writes. The actual bus master, sample
+precision earlier in the ISP, proprietary packing or extra surfaces, and
+the active route for every 4K frame rate still need independent evidence.
+The next discriminating comparison is the **same channel configuration on the
+stock HDMI 10-bit branch**, especially its pitch, format word and plane count.
 
 ### Card movie baseline and N-Log research priorities
 
@@ -292,11 +378,9 @@ vendor-specific packing and ISP-resident curves remain open.
 
 **Order of investigation**
 
-1. Follow the producer of the 28-byte descriptor from the three submission
-   sites above. Look for a write or a configured DMA source that establishes
-   the units of pitch, sample packing and component order. Compare the same
-   routine across C1.70 and C1.62 by its instructions and callers. A measured
-   stride or file size alone leaves multiple layouts possible.
+1. Use the two [verified frame constructors and job outputs](#who-supplies-the-4k-frame-planes)
+   as the card-side reference. Resolve which route each 4K frame-rate setting
+   selects and compare its port configuration with the stock HDMI 10-bit path.
 2. Follow the documented HDMI N-Log state to the ISP configuration that
    selects a curve or coefficients. Compare with the card path at the last
    shared processing stage. A candidate should match several reference
