@@ -1,6 +1,6 @@
 # Nikon Z6 II C1.70 research notes
 
-Current evidence: 2026-11-20. This document describes offline analysis of a
+Current evidence: 2026-11-22. This document describes offline analysis of a
 specific firmware build. It is not an installation guide or a recovery procedure.
 The research goals include more flexible in-camera color and custom looks,
 investigating user-supplied 3D LUTs, and internal N-Log 10-bit recording. Color
@@ -246,6 +246,71 @@ Three static upstream submission call sites are `1026B232`, `102C940C` and
 `102C944A`, each passing a record starting at offset `0x18` in an upstream
 object. Identifying the code that fills those objects would help distinguish
 byte pitch from pixel width and establish the actual input layout.
+
+### Card movie baseline and N-Log research priorities
+
+Two independently downloadable samples from [Optyczne's Z6 II recording test](https://www.optyczne.pl/42.5-Inne_testy-Nikon_Z6_II_-_test_trybu_filmowego_Podsumowanie_i_filmy_przyk%C5%82adowe.html)
+supply an output baseline. The first 6 MiB of each MOV contained the movie
+metadata and AVC parameter sets. Both prefixes contained the strings
+`NIKON Z 6_2` and `Ver.01.01`. The firmware experiments above use C1.70.
+
+| Published original | Video track (ffprobe) | AVC sequence header | SHA-256 of bytes 0–6291455 |
+| --- | --- | --- | --- |
+| [Film 4](https://pliki.optyczne.pl/NZ62/filmy_przykladowe/NZ62_-_film4.MOV), FX | 3840 × 2160, 25 fps, 120.36 Mb/s | High, level 5.1, 8-bit 4:2:0 | `5c2b1827320a2b691c5da0bb43b6a9505f678030661fb591fe819a8c3b312fd6` |
+| [Film 7](https://pliki.optyczne.pl/NZ62/filmy_przykladowe/NZ62_-_film7.MOV), DX | 1920 × 1080, 25 fps, 12.38 Mb/s | High, level 4.1, 8-bit 4:2:0 | `c0acd5a7439fc3f4b94de67fbfa36e8f729bd235c37938dcbf220904d7756566` |
+
+Bitrates are track averages reported by the container. Both tracks signal
+full range and BT.709 primaries, transfer and matrix. On each prefix,
+`ffmpeg -i prefix.mov -map 0:v:0 -c copy -frames:v 1 -bsf:v trace_headers -f null -`
+independently exposes profile 100, chroma format 1 and both depth-minus-eight fields
+set to zero. These observations establish stream syntax. Scene response, sensor
+precision and actual range use would require pixel measurements.
+
+**What the paid products provide.** Nikon's service adds an HDMI menu entry for
+12-bit RAW output to a compatible external recorder. The recorder determines
+whether the resulting file is ProRes RAW or Blackmagic RAW. Nikon documents
+10-bit N-Log over HDMI separately. EOSHD advertises Z-LOG as a paid image
+profile loaded from a memory card and lists Z6 II compatibility. The vendor
+description establishes its advertised use. Its curve and its footage have
+yet to be independently evaluated here.
+[Nikon RAW guide](https://download.nikonimglib.com/archive4/ALaFi009bHw404g9Wx085U74N168/Z7IIZ6II_TG_RAW_%28Ru%2904.pdf) ·
+[Nikon N-Log recording guide](https://nps.nikonimaging.com/technical_info/technical_solutions/z7_2_z6_2_tips/filming_n-log_footage/) ·
+[EOSHD product description](https://www.eoshd.com/eoshd-z-log-nikon-z6-z7-d850/).
+
+**Curve reference.** Nikon's forward transfer function gives nearest-integer
+10-bit codes 127, 372, 603 and 619 for reflectances 0, 0.18, 0.90 and 1.00.
+These are scene-referred reference values before any video-range rescaling.
+The [comparison script](../scripts/check_nlog_tables.py) looks for exact full
+tables in the hash-verified C1.70 master and slave images. It tests 256, 1024
+and 4096 samples, linear input domains ending at 1 or 8, endpoint-inclusive
+or endpoint-exclusive grids, nearest or floor rounding, and 16-bit
+little-endian storage with output shifts 0 or 6. All 48 representations per
+image returned zero complete matches. An unaligned positive control and a
+one-word mutation check the search. Coefficients, interpolation, other grids,
+vendor-specific packing and ISP-resident curves remain open.
+[Nikon N-Log specification, section 2](https://download.nikonimglib.com/archive4/zMDhS00ZuoyY0502OFd16BeF1X67/N-Log_Specification_%28En%2901.pdf).
+
+**Order of investigation**
+
+1. Follow the producer of the 28-byte descriptor from the three submission
+   sites above. Look for a write or a configured DMA source that establishes
+   the units of pitch, sample packing and component order. Compare the same
+   routine across C1.70 and C1.62 by its instructions and callers. A measured
+   stride or file size alone leaves multiple layouts possible.
+2. Follow the documented HDMI N-Log state to the ISP configuration that
+   selects a curve or coefficients. Compare with the card path at the last
+   shared processing stage. A candidate should match several reference
+   exposures across both branches of Nikon's curve and have a justified input
+   scale and output range.
+3. Test whether the AVC input and output modes can both carry more than eight
+   significant bits. An offline routing trace can establish a candidate.
+   A convincing eventual recording would need a card file with 10-bit
+   sequence headers and a controlled gradient/exposure series consistent
+   with retained precision and the N-Log curve. An existing original
+   C1.70 clip would already help validate the stock baseline.
+4. Track the board identification independently using an attributable macro
+   with board revision and a readable package marking. Board images address
+   the power/recovery question. Recovery after interruption remains open.
 
 ## Service dispatcher and memory/configuration reads
 

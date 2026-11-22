@@ -27,6 +27,7 @@
 !/scripts/analyze_bitrate.py
 !/scripts/analyze_video_path.py
 !/scripts/analyze_frame_input.py
+!/scripts/check_nlog_tables.py
 !/scripts/analyze_ptp.py
 !/scripts/analyze_service_recovery.py
 !/scripts/analyze_config_read.py

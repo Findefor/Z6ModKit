@@ -57,6 +57,7 @@ For corrections, use [Issues](https://github.com/Findefor/Z6ModKit/issues/new/ch
 | H.264 level selection | At a maximum bitrate of 160 Mbps or above, the examined code selects a parameter corresponding to Level 6.1. Copying the Z30's 200/168 Mbps settings is therefore not a validated Z6 II modification. |
 | AVC format path | Master/slave constructor fragments retain a profile-like value 100 independently of bitrate. Register packing and three active special-FHD SPS templates were examined; those templates describe High-profile 8-bit 4:2:0. General encoder input format, ISP routing and hardware 10-bit capability remain unresolved. |
 | AVC frame input | The master module passes two addresses per frame entry to the encoder driver. The observed 4K slot spacing is 12,441,600 bytes. Sample packing and the N-Log transfer remain open. [Trace and reproduction](docs/RESEARCH.md#frame-descriptors-at-the-avc-driver-input) |
+| Card movie samples and N-Log | Two published Z6 II MOV samples identify as AVC High, 8-bit 4:2:0. A separate test compares 48 exact N-Log table representations against both C1.70 EG modules. [Results and research priorities](docs/RESEARCH.md#card-movie-baseline-and-n-log-research-priorities) |
 | Service exit, `F002` | An outer success response can coexist with a failed lower-level transition. The response alone does not establish recovery. |
 | Configuration read, `F02D` | The analyzed path transfers a copy with two bytes masked and has nested error paths. Its output is not a complete recovery image. |
 | EX service receiver | Entry refreshes differing eligible configuration regions from flash into working RAM and invokes callbacks. The examined exit handler formats an acknowledgment without performing that refresh. A pending master callback can reject another transition until a reply arrives. |
@@ -120,6 +121,7 @@ them over to another model or firmware version without re-establishing them.
 .venv/bin/python scripts/analyze_bitrate.py
 .venv/bin/python scripts/analyze_video_path.py
 .venv/bin/python scripts/analyze_frame_input.py
+.venv/bin/python scripts/check_nlog_tables.py
 .venv/bin/python scripts/analyze_service_recovery.py
 .venv/bin/python scripts/analyze_config_read.py
 .venv/bin/python scripts/analyze_ex_service.py
