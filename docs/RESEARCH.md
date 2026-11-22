@@ -426,6 +426,125 @@ emulated payload. Pixel memory stays unmapped. The JSON printed to stdout
 includes plane addresses, node paths and control runs.
 [Two-build reproducer](../scripts/compare_hdmi_card.py)
 
+### Precision controls before card output 15
+
+**The strongest candidate for narrowing the card signal is the last IIP
+processing port on each card branch.** These are logical node `10` after
+`05 → 0D` and node `11` after `02 → 04 → 06 → 0E`. Both are type
+`0A` and feed terminal `15`. In the 10-bit configuration their command
+records carry 4 in bits 7–4 of word `+68`. The equivalent port `14`
+before HDMI terminal `17` carries 0. Both original masters produce the
+following results. All node IDs and offsets are hexadecimal.
+
+| Mode fixture | Selected mode | Job `+7CC` | Range and midpoint fields | `+68[7:4]` card `10 / 11` | `+68[7:4]` HDMI `14` |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Ordinary 8-bit | `10` | 0 | 255 / 128 | 0 / 0 | 0 |
+| Ordinary 10-bit | `11` | 1 | 4095 / 2048 | 4 / 4 | 0 |
+| 10-bit with N-Log | `17` | 1 | 4095 / 2048 | 4 / 4 | 0 |
+| 10-bit with HLG | `1B` | 1 | 4095 / 2048 | 4 / 4 | 0 |
+
+**From the fork to the card.** Nodes `03/04` receive four values of
+4095 at offsets `+44..+50` in the wide configuration. Node `05` has
+links and a null settings pointer in this table. The two card paths then
+pass through `0D/0E`, each with a midpoint of 2048 at `+34` and
+limits of 4095 at `+48/+4C/+50`. The final ports `10/11` and their
+HDMI counterpart `14` still have 4095 at `+58/+60`. The card-specific
+field of 4 appears alongside those wide limits. Forcing just `job+7CC` to
+zero in a copy of the N-Log job changes the range to 255, the midpoint to
+128 and both card fields to 0 while the surface formats and pitches stay
+fixed. Changing tile geometry in a separate control preserves the 4/4/0
+result.
+
+**Delivery to the IIP.** The original allocator, with all modeled channels
+idle, assigns `35/36/37` to ports `10/11/14`. Their parser retains the
+field at `+68` and resolves the respective terminal channel numbers to
+`1/1/2`. The driver submits the actual command-record pointers at
+`201009D0`, `201009F0` and `20100BB0`. The firmware identifies the
+peripheral through its interrupt number `0x66` and the corresponding name
+`IIP`. Marking terminal channel 1 busy moves the card and HDMI terminals
+to 2 and 3. These assignments describe the specified occupancy fixtures.
+
+At terminal `15` the storage control word is `09000201`. For wide HDMI
+it is `09010001`. Varying the surface fields one at a time isolates
+`DataFormat` in terminal control bits 18–16 and `YCbCrFormat` in bits
+11–8. The other twelve channel words stay fixed in that test. The 3984-byte
+card stride and the addresses passed to AVC give independent evidence of
+the final storage width.
+
+**Interpretation.** The 4095 maximum, 2048 midpoint and card-only value
+of 4 fit a four-bit reduction from a 12-bit working representation to 8-bit
+storage. The traces identify the command field and the ports that receive it.
+A register definition or a known pixel ramp through this block would be
+needed to establish that the field implements a right shift, how values
+are rounded or dithered, and how many incoming bits carry image information.
+
+**Does this job select the N-Log curve?** Switching only the curve flags
+at 10-bit depth changes the selected mode among `11/17/1B`. All three
+select job `0A`. Within each firmware version the complete builder produces
+identical bytes throughout the contiguous 3272-byte settings region from
+the input-port record to the start of the node table. The 8-bit, forced-flag
+and different-tile controls each produce a detectable difference. The
+three posted 160-byte port records also match in full across those curve
+modes. External data referenced by pointers, earlier image processing and
+downstream HDMI processing can carry their own curve settings.
+
+| Landmark | C1.62 | C1.70 |
+| --- | --- | --- |
+| Complete job builder | `102B9AEE` | `102B9EA2` |
+| Select maximum and midpoint | `102B9E24` | `102BA1D8` |
+| Set first output field at `+68` | `102B9FE6` | `102BA39A` |
+| Type-0A parser / channel allocator | `103B55AC / 1038A870` | `103B6308 / 1038B584` |
+| Type-0A driver / command pointer submitter | `103BF622 / 103BF860` | `103C03BE / 103C05FC` |
+| Terminal channel writer | `103BF3AE` | `103C014A` |
+
+The two reproducers use the same local inputs as the HDMI/card comparison.
+The CPU executes the complete job builder, the channel allocator, the three
+output parsers and the driver paths to modeled registers. Tile storage,
+scheduler occupancy, three resource/event calls in the parser and three
+synchronization calls in the driver are fixtures. Pixel data stays unmapped.
+The stock availability of simultaneous 10-bit HDMI and card recording remains
+outside this experiment.
+[Branch and command trace](../scripts/trace_card_branches.py) ·
+[IIP identity and terminal format controls](../scripts/trace_card_format.py)
+
+#### Where the N-Log selector reaches image settings
+
+The registered callbacks convert `126E` (N-Log) and `12A4` (HLG) into
+effective properties `1688` and `16BF`. In both versions a 222-property
+snapshot places the results at context bytes `+46E/+46F`. Three consumers
+help narrow the search for the transfer that maps input light to output code.
+
+| Consumer | Result with ordinary 10-bit / N-Log / HLG | What can be attributed to it |
+| --- | --- | --- |
+| Image-parameter records | With their gate open, two record builders produce enum 0 / 1 / 2 at `+57` or `+7A`. Both normalize it to byte `+20`. A tested consumer selects table set 2 / 3 / 3. | It distinguishes wide-curve operation from ordinary video. N-Log and HLG select the same three ROM pointers. Closing the gate produces enum 0. |
+| Picture-profile selector | Selector 0 / 2 / 3. The N-Log and HLG overrides use distinct 20-byte records over profile ID 1, named `STANDARD`. Only bytes 3–5 differ, with `80 80 80` for N-Log and `84 82 82` for HLG. | The override record discriminates between N-Log and HLG. The effect of these bytes on pixel values remains unknown. |
+| N-Log-specific scalar calculation | In a mode-6 fixture the N-Log flag selects a second scalar and a cap of 2048. Two input cases give 2048 and 1536 for N-Log, versus 768 and 1024 for HLG and ordinary video. | Its caller writes three 16-bit control values covering the scalar, a second factor and their product with eight fractional bits. The test establishes a numerical effect outside the shared job. |
+
+| Landmark | C1.62 | C1.70 |
+| --- | --- | --- |
+| Bulk property list reader | `103549D0` | `1035590C` |
+| Normalized record table selector | `10365BB6` | `1036668E` |
+| N-Log / HLG profile override records | `119D7FE0 / 119D7FF4` | `119F0930 / 119F0944` |
+| Video-context profile conversion | `10274694` | `102747D0` |
+| Scalar control calculation | `10224D2C` | `10224D74` |
+
+The video-context profile conversion preserves the three differing override
+bytes in output fields 4, 5 and 6 in both masters. This provides a specific
+consumer for the values. Their role in a transfer curve remains unverified.
+
+The point where an image sample acquires Nikon's N-Log code remains open.
+Matching output descriptors can carry differently processed pixels. A
+separate search checked the master **and** slave of each version for 196
+exact sparse representations of Nikon's published transfer. None matched.
+The grids have 17, 33, 65, 129, 257, 513 or 1025 knots, linear or squared
+input spacing, upper reflectance 1 or 8, and little-endian 16-bit values
+scaled by 1, 4, 16 or 64 with nearest rounding before or after scaling.
+This test leaves other grids, piecewise coefficients and hardware tables open.
+Reproduce it with `python scripts/check_nlog_tables.py --knots MODULE ...`
+on the extracted EG images. The search checks each input against the public
+hash manifest. [Mode and scalar trace](../scripts/trace_nlog_control.py) ·
+[Curve table search](../scripts/check_nlog_tables.py)
+
 ### Card movie baseline and N-Log research priorities
 
 Two independently downloadable samples from [Optyczne's Z6 II recording test](https://www.optyczne.pl/42.5-Inne_testy-Nikon_Z6_II_-_test_trybu_filmowego_Podsumowanie_i_filmy_przyk%C5%82adowe.html)
@@ -472,10 +591,9 @@ vendor-specific packing and ISP-resident curves remain open.
 **Order of investigation**
 
 1. Map each 4K frame-rate setting to a job and its enabled outputs. For the
-   [verified job 0x0A](#where-hdmi-and-card-recording-diverge-in-4k), decode
-   the processing controls on the branches from nodes `02` and `05` through
-   the writers for card node `15`. Look for evidence that distinguishes
-   sample conversion, transfer-curve selection and final memory packing.
+   [two card writers](#precision-controls-before-card-output-15), identify
+   the documented meaning of command field `+68[7:4]` or locate a software
+   reference conversion with known inputs and outputs.
 2. Follow the documented HDMI N-Log state to the ISP configuration that
    selects a curve or coefficients. Compare with the card path at the last
    shared processing stage. A candidate should match several reference

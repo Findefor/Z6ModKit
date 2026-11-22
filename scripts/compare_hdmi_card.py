@@ -232,24 +232,21 @@ def check_links(trace, sites, nodes, count):
     return {key: [f'{node:02X}' for node in path] for key, path in paths.items()}
 
 
-def shared_job(trace, sites, card):
+def prepare_job(trace, sites, depth, nlog, hlg):
     # Use nonoverlapping fixture allocations for all three surfaces. The
     # input and HDMI constructors see the same context including mode bytes.
     card_obj, hdmi_obj = ARG+0x600, ARG+0x700
     trace.cpu.mem_write(card_obj, bytes(trace.cpu.mem_read(OBJ, 0x68)))
-    hdmi = depth_surface(trace, sites, 0, 1, 0, 0x58000001)
+    hdmi = depth_surface(trace, sites, depth, nlog, hlg, 0x58000001)
     trace.cpu.mem_write(hdmi_obj, bytes(trace.cpu.mem_read(OBJ, 0x68)))
     trace.put(POOL, 'I', 0x60000001)
     trace.run(sites.input_surface, OBJ, CFG, 0x1a)
     source = read_named_fields(trace, sites.diagnostic)
-    assert (source['YCbCrFormat'], source['DataFormat']) == (1, 2)
-    assert trace.unpack(OBJ+0x1a, '6H') == (6048, 6048, 4030, 2266, 4030, 2266)
-    assert source['AddressC-AddressY Offset'] == 6048 * 2266
     trace.run(sites.mode_selector, CFG)
     mode = trace.cpu.reg_read(UC_ARM_REG_R0)
     trace.run(sites.job_selector, mode)
     job = trace.cpu.reg_read(UC_ARM_REG_R0)
-    assert (mode, job) == (0x17, 0x0a)
+    assert job == 0x0a
     trace.cpu.mem_write(CTX, bytes(0x300))
     for offset, obj in ((0x94, OBJ), (0xa0, hdmi_obj), (0xa8, card_obj)):
         trace.put(CTX+offset, 'I', obj)
@@ -271,6 +268,15 @@ def shared_job(trace, sites, card):
     assert trace.cpu.reg_read(UC_ARM_REG_R0) == JOB
     args = [trace.cpu.reg_read(r) for r in (UC_ARM_REG_R1, UC_ARM_REG_R2)]
     trace.put(JOB+0x7e8, 'I', ARG+0x900)
+    return mode, job, args, source, hdmi, card_obj
+
+
+def shared_job(trace, sites, card):
+    mode, job, args, source, hdmi, card_obj = prepare_job(trace, sites, 0, 1, 0)
+    assert mode == 0x17
+    assert (source['YCbCrFormat'], source['DataFormat']) == (1, 2)
+    assert trace.unpack(OBJ+0x1a, '6H') == (6048, 6048, 4030, 2266, 4030, 2266)
+    assert source['AddressC-AddressY Offset'] == 6048 * 2266
     trace.run(sites.job_builder, JOB, *args, stop=sites.job_builder+0xf4)
     nodes, count = trace.unpack(args[0], 'IB')
     assert count == 28

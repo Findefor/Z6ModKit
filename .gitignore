@@ -29,6 +29,9 @@
 !/scripts/analyze_frame_input.py
 !/scripts/analyze_frame_producer.py
 !/scripts/compare_hdmi_card.py
+!/scripts/trace_card_branches.py
+!/scripts/trace_card_format.py
+!/scripts/trace_nlog_control.py
 !/scripts/check_nlog_tables.py
 !/scripts/analyze_ptp.py
 !/scripts/analyze_service_recovery.py

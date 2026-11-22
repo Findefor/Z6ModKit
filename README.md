@@ -59,6 +59,7 @@ For corrections, use [Issues](https://github.com/Findefor/Z6ModKit/issues/new/ch
 | AVC frame input | The master module passes two addresses per frame entry to the encoder driver. The observed 4K slot spacing is 12,441,600 bytes. Sample packing and the N-Log transfer remain open. [Trace and reproduction](docs/RESEARCH.md#frame-descriptors-at-the-avc-driver-input) |
 | 4K frame producer, C1.62 and C1.70 | Both masters construct the same two-plane layouts in the tested cases. The pooled 3840 × 2160 route reserves 13,028,352 bytes per frame. This excludes ordinary uncompressed full-frame 10-bit 4:2:0 in that allocation. Image-processing job 0x10 binds the destination planes before AVC submission. [Addresses, controls and limits](docs/RESEARCH.md#who-supplies-the-4k-frame-planes) |
 | HDMI 10-bit N-Log and 4K card recording | A shared job in both masters describes 5760 bytes per Y/C line for HDMI 10-bit and 3984 for the card. The card buffer is already too narrow for linear 10-bit luma before AVC submission. [Formats, plane addresses and branch points](docs/RESEARCH.md#where-hdmi-and-card-recording-diverge-in-4k) |
+| Precision on the card branches | In both versions, IIP nodes `10` and `11` post a field of 4 before card output `15`. The corresponding HDMI node posts 0. At fixed 10-bit depth, switching between ordinary video, N-Log and HLG leaves the tested job's 3272-byte settings region identical. [Controls, hardware submission and curve evidence](docs/RESEARCH.md#precision-controls-before-card-output-15) |
 | Card movie samples and N-Log | Two published Z6 II MOV samples identify as AVC High, 8-bit 4:2:0. A separate test compares 48 exact N-Log table representations against both C1.70 EG modules. [Results and research priorities](docs/RESEARCH.md#card-movie-baseline-and-n-log-research-priorities) |
 | Service exit, `F002` | An outer success response can coexist with a failed lower-level transition. The response alone does not establish recovery. |
 | Configuration read, `F02D` | The analyzed path transfers a copy with two bytes masked and has nested error paths. Its output is not a complete recovery image. |
@@ -125,6 +126,9 @@ them over to another model or firmware version without re-establishing them.
 .venv/bin/python scripts/analyze_frame_input.py
 .venv/bin/python scripts/analyze_frame_producer.py
 .venv/bin/python scripts/compare_hdmi_card.py
+.venv/bin/python scripts/trace_card_branches.py
+.venv/bin/python scripts/trace_card_format.py
+.venv/bin/python scripts/trace_nlog_control.py
 .venv/bin/python scripts/check_nlog_tables.py
 .venv/bin/python scripts/analyze_service_recovery.py
 .venv/bin/python scripts/analyze_config_read.py
@@ -133,7 +137,7 @@ them over to another model or firmware version without re-establishing them.
 .venv/bin/python scripts/analyze_ptp.py
 ```
 
-The frame-producer and HDMI/card comparisons print their results to stdout.
+The frame-producer, card-branch, terminal-format and N-Log comparisons print their results to stdout.
 For the other experiments inspect the resulting JSON files under `work/analysis`,
 including their scope, stub lists, inputs, and assertions. The checks run on
 local images and modeled inputs. The protocol analysis can run without the
