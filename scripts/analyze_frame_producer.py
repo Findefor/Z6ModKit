@@ -85,10 +85,10 @@ class Trace:
     def memory_helper(self, cpu, address, size, unused):
         dst, src, n = (cpu.reg_read(reg) for reg in ARG_REGS[:3])
         if address == self.s.clear:
-            assert src in (20, 24, 28, 32, 52)
+            assert src in (20, 24, 28, 32, 52, 112, 248, 0x784)
             cpu.mem_write(dst, bytes(src))
         else:
-            assert n == 28
+            assert n in (4, 8, 28, 32, 0x68, 112), n
             cpu.mem_write(dst, bytes(cpu.mem_read(src, n)))
         cpu.reg_write(UC_ARM_REG_PC, cpu.reg_read(UC_ARM_REG_LR))
 
@@ -253,8 +253,8 @@ class Trace:
         assert (first, second) == (frame['first'] + crop, frame['second'] + crop)
 
 
-def inspect(path, version):
-    digest, sites = BUILDS[version]
+def load_master(path, version):
+    digest, _ = BUILDS[version]
     data = path.read_bytes()
     if version == 'C1.62' and hashlib.sha256(data).hexdigest() == C162_PACKAGE_HASH:
         # Optional package input uses the repository's existing local extraction setup.
@@ -266,7 +266,11 @@ def inspect(path, version):
         data = body[start:start + size]
     if hashlib.sha256(data).hexdigest() != digest:
         raise ValueError(f'{version}: unsupported master image')
-    trace = Trace(data, sites)
+    return data
+
+
+def inspect(path, version):
+    trace = Trace(load_master(path, version), BUILDS[version][1])
     for selector in (0, 1, 2):
         frame = trace.construct(selector, False, 0)
         trace.submit(0xa8, frame, frame['crop'])

@@ -330,15 +330,108 @@ The strongest current conclusion is that ordinary full-precision linear
 software job that configures the writes. The actual bus master, sample
 precision earlier in the ISP, proprietary packing or extra surfaces, and
 the active route for every 4K frame rate still need independent evidence.
-The next discriminating comparison is the **same channel configuration on the
-stock HDMI 10-bit branch**, especially its pitch, format word and plane count.
+The following comparison resolves a shared processing job and follows its
+HDMI and pooled card surfaces to their respective consumers.
+
+### Where HDMI and card recording diverge in 4K
+
+**Result for C1.62 and C1.70.** Both original EG masters select the same
+layouts and routing for the tested 3840 × 2160 configuration. With HDMI 10-bit
+and N-Log selected, the common image-processing job describes a wide input
+and a wide HDMI destination. Its card destination already has too few bytes
+per line for ordinary, uncompressed 10-bit luma. The same card plane addresses
+reach the AVC input adapter. This places the precision bound at or before the
+write to the card surface. The instructions examined describe buffers and
+configure processing. The numerical operation that produces their samples
+remains unknown.
+
+| Surface | Firmware fields `YCbCrFormat, DataFormat` | Y / C bytes per line | `AddressC − AddressY` | Y / C addresses in one emulated allocation |
+| --- | --- | --- | ---: | --- |
+| Shared source, 4030 × 2266 | `1, 2` | 6048 / 6048 | 13,704,768 | `60000200 / 60D12040` |
+| HDMI 4K, 10-bit with N-Log | `1, 2` | 5760 / 5760 | 13,045,248 | `58000200 / 58C71000` |
+| HDMI 4K, 8-bit control | `2, 0` | 3840 / 3840 | 13,045,248 | Same bases for the same allocation |
+| Card 4K, pooled output | `2, 0` | 3984 / 3984 | 8,685,312 | `50C6CC00 / 514B5300` |
+
+Addresses in the last column are hexadecimal fixture values. At runtime
+each output gets its own allocation, with Y rounded up to a 512-byte boundary.
+The gaps above recover C from Y. Both outputs describe 2176 storage rows and
+2160 active rows. Nikon's own diagnostic code supplies the field names by
+reading offsets `+0/+1`, `+2/+4` and `+14/+18` (hex) in a 28-byte record.
+The experiment executes those reads up to the formatter. The equal HDMI
+plane gap across depths shows why the gap alone cannot identify the format.
+
+**Where the paths split.** The stock mode selector returns `0x17` for the
+tested configuration, which maps to job `0x0A`. Its builder uses 28 entries
+from the firmware's initialized table. Input entry 0 comes from context
+`+94`, card entry 21 from `+A8` and HDMI entry 22 from `+A0`.
+The following paths use logical node IDs in hex. The table indices above
+are decimal.
+
+| Destination | Directed links in the job table |
+| --- | --- |
+| HDMI | `01 → 02 → 03 → 05 → 07 → 09 → 0B → 0F → 14 → 17` |
+| Card, first path | `01 → 02 → 03 → 05 → 0D → 10 → 15` |
+| Card, second path | `01 → 02 → 04 → 06 → 0E → 11 → 15` |
+
+Node `05` explicitly lists successors `0D` and `07`. The second card path
+branches at `02`. The port parser resolves the last links to the card and
+HDMI destinations and reads their assigned channels. The builder programs
+width-minus-one values 3983, 3983 and 3839 at those three preceding ports.
+The output enables are separately gated. This is the topology available to
+the job. Simultaneous physical card recording and 10-bit HDMI output, and
+the active path for each commercial frame-rate setting, remain unverified.
+
+For independent inspection of the C1.70 pool assignments, `10264542..4E`
+loads a source into `+94`, `1026447A..84` supplies `+A0` and
+`102645A8..B2` supplies `+A8`. The reproducer supplies separately allocated
+objects at those fields, then runs the stock snapshot, job dispatch and
+builder. The mode fixture sets context byte 0 to 1, bit 2 at `+AC`, and
+the three bytes at `+4D4` to `02 02 04`.
+
+**Following the outputs.** For the ordinary depth callback inputs, property
+`126D` publishes effective depth `16A5`, and the snapshot places it at
+`+46C` in the mode context. The curve flags occupy separate bytes. Changing
+N-Log or HLG at fixed depth left the measured surface layout unchanged.
+In HDMI output 1, modes 2 and 3 carry both bases and tag 1 (10-bit)
+or 4 (8-bit) through the ring and into the display driver. With zero crop,
+the driver writes the same Y/C addresses to bank offsets `+210/+220` and
+the same pitches to `+240/+250`. Nonzero crop exercises a further difference.
+At origin (2, 3), tag 1 advances both bases by 17,283 bytes. Tag 4 advances
+Y by 11,522 and C by 3,842 bytes. These are offsets within a modeled register
+bank with base `20140000` and a zero driver displacement.
+
+For the card object in this job, submission through `+A8` carries both
+bases plus its 128-byte displacement, with both pitches still 3984. A row
+of 3840 independent 10-bit luma samples needs at least 4800 bytes. The wide
+HDMI stride establishes storage capacity. Its precise bit packing, the
+significance of the low bits, and the location of the N-Log transfer require
+separate evidence. No pixel values were observed.
+
+| Reproduction landmarks (EG master) | C1.62 | C1.70 |
+| --- | --- | --- |
+| Depth callback / snapshot depth read | `10339EDE` / `103548F4` | `1033A852` / `10355830` |
+| Shared input / HDMI surface constructor | `10307E58` / `103086A2` | `10308690` / `10308EDA` |
+| Mode selector / mode-to-job map | `103150B8` / `10264826` | `10315A2C` / `10264962` |
+| Job dispatcher / builder | `102BB0A8` / `102B9AEE` | `102BB45C` / `102B9EA2` |
+| Port parser / node ID resolver | `103B55AC` / `103B615C` | `103B6308` / `103B6EB8` |
+| HDMI packet builder / lower display driver | `1026A446` / `104D98AA` | `1026A582` / `104DD19A` |
+| Card submit call / AVC input adapter | `1026B0F6` / `10487368` | `1026B232` / `10488238` |
+
+Run `python scripts/compare_hdmi_card.py` with the same local images as the
+frame-producer experiment. The script verifies both master hashes, runs
+bounded Thumb routines and compares the resulting records for equality.
+Allocation bases, ordinary property inputs, job enables, synchronization
+and register banks are modeled. The ring stores and retrieves the actual
+emulated payload. Pixel memory stays unmapped. The JSON printed to stdout
+includes plane addresses, node paths and control runs.
+[Two-build reproducer](../scripts/compare_hdmi_card.py)
 
 ### Card movie baseline and N-Log research priorities
 
 Two independently downloadable samples from [Optyczne's Z6 II recording test](https://www.optyczne.pl/42.5-Inne_testy-Nikon_Z6_II_-_test_trybu_filmowego_Podsumowanie_i_filmy_przyk%C5%82adowe.html)
 supply an output baseline. The first 6 MiB of each MOV contained the movie
 metadata and AVC parameter sets. Both prefixes contained the strings
-`NIKON Z 6_2` and `Ver.01.01`. The firmware experiments above use C1.70.
+`NIKON Z 6_2` and `Ver.01.01`. The firmware layout comparison uses C1.62 and C1.70.
 
 | Published original | Video track (ffprobe) | AVC sequence header | SHA-256 of bytes 0–6291455 |
 | --- | --- | --- | --- |
@@ -378,9 +471,11 @@ vendor-specific packing and ISP-resident curves remain open.
 
 **Order of investigation**
 
-1. Use the two [verified frame constructors and job outputs](#who-supplies-the-4k-frame-planes)
-   as the card-side reference. Resolve which route each 4K frame-rate setting
-   selects and compare its port configuration with the stock HDMI 10-bit path.
+1. Map each 4K frame-rate setting to a job and its enabled outputs. For the
+   [verified job 0x0A](#where-hdmi-and-card-recording-diverge-in-4k), decode
+   the processing controls on the branches from nodes `02` and `05` through
+   the writers for card node `15`. Look for evidence that distinguishes
+   sample conversion, transfer-curve selection and final memory packing.
 2. Follow the documented HDMI N-Log state to the ISP configuration that
    selects a curve or coefficients. Compare with the card path at the last
    shared processing stage. A candidate should match several reference

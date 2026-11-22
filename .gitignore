@@ -28,6 +28,7 @@
 !/scripts/analyze_video_path.py
 !/scripts/analyze_frame_input.py
 !/scripts/analyze_frame_producer.py
+!/scripts/compare_hdmi_card.py
 !/scripts/check_nlog_tables.py
 !/scripts/analyze_ptp.py
 !/scripts/analyze_service_recovery.py
