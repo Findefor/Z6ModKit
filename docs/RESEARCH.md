@@ -545,6 +545,125 @@ on the extracted EG images. The search checks each input against the public
 hash manifest. [Mode and scalar trace](../scripts/trace_nlog_control.py) ·
 [Curve table search](../scripts/check_nlog_tables.py)
 
+#### Profile controls on the shared surface
+
+**A profile setting reaches the MIPU driver that programs the shared 4K
+surface.** In both masters its plane registers receive the same Y/C addresses
+as input node `01` of IIP job `0A`, upstream of forks `02` and `05`. There is
+also a separate curve-dependent lookup on the local display. Identifying the
+forward N-Log transfer still requires a mapping from input light values to
+output sample codes. These experiments executed control code with the pixel
+planes unmapped.
+
+**Which profile fields have an effect?** For the tested video modes the narrow
+builder supplies a gate of 1. The wide builder reuses its processed record.
+The three override bytes at offsets 4, 5 and 6 become `12,20,20` for N-Log
+and `16,22,22` for HLG. The following values are decimal. Each independent
+substitution starts from the same N-Log record and holds the other fields fixed.
+
+| Profile field | Reader and observed effect |
+| --- | --- |
+| `+4` | Changing 128 to 132 selects table value 8 in place of 0. The subsequent signed index changes from 0 to 6 and the 16-bit parameter at `settings+430` from 0 to 30. Both MIPU instances pack this into bits starting at bit 8. With the low byte held at zero, the word changes from `00000000` to `00001E00`. |
+| `+5` | Changing 128 to 130 changes the normalized value from 20 to 22. A reader tests the sign of `(value−20) × signed_control` and restores 20 when the product is negative. Closing the narrow-builder gate also restores 20 in the HLG fixture. Its isolated change leaves the measured MIPU word equal to zero. |
+| `+6` | The N-Log and HLG indices 20 and 22 both return zero in the measured signed table. Changing the input to 144 reaches index 36 and adds 2, moving a separate control byte at `+18` from 54 to 56. |
+
+The test fixes the narrow record's control at `+52` to 288 and enables the
+wide packing step. The ordinary mode selects no forced picture profile. The
+ordinary comparison row explicitly holds the preceding STANDARD preset.
+[Profile reader and MIPU register trace](../scripts/trace_profile_readers.py)
+
+**Which surface does MIPU receive?** The same MIPU worker takes the parameter
+section at worker offset `+A0` and the plane descriptor at `+24`. In the
+enabled case the original request builder takes `frame[+144]+93C` as its
+settings block. The worker takes the section at `settings+380` and the driver
+reads the field at `section+B0`. Closing the request's frame gate at `+64`
+clears the settings pointer. Nikon's interrupt table identifies the two
+instances as `MIPU_0` and `MIPU_1`.
+
+Two independently executed consumers establish the plane identity. One
+retrieves the frame object into `frame+94`, snapshots it and runs the IIP
+builder to node `01`. The other assembles a MIPU request, puts the plane
+pair into its worker and executes its register writes. For a populated pool,
+the first consumer queues the object for the second. The second removes it
+and copies its descriptor. With an empty pool both consult the static slot.
+The comparison covers both allocation paths, both MIPU instances, modes
+`17` (N-Log) and `1B` (HLG), and two allocation addresses per build.
+
+| Per-instance setting | MIPU 0 | MIPU 1 |
+| --- | --- | --- |
+| Profile register | `20380DDC` | `203C0DDC` |
+| Y / C plane registers, first slot in the tested bank | `20380488 / 20380498` | `203C0488 / 203C0498` |
+
+With allocation `60000001`, MIPU and IIP both receive `60000200 / 60D12040`.
+Moving the allocation to `62000001` moves both pairs to `62000200 / 62D12040`.
+
+The emulator supplies heap storage, pixel allocation, synchronization and
+the initial frame inputs. It executes the pool callbacks, descriptor copies
+and plane-register stores. Matching both planes across allocations places
+this profile control on a block associated with the pre-fork surface. Its
+mathematical effect on the samples, the physical timing and the active
+hardware instance in a particular recording remain open.
+[Shared-plane reproducer](../scripts/trace_mipu_surface.py)
+
+**Who reads the N-Log scalar?** A history keeps four 60-byte records. Two
+gated readers look up the frame key. One returns the scalar and factor at
+destination `+1B4/+1B6`. The other returns their fixed-point product at a
+separate destination `+C8`. A second path packages the values and programs
+registers associated with the `PPC_0…PPC_4` interrupt family. With the
+independent Q8 factor fixed at 128, switching on N-Log changes the scalar
+from 768 to 2048, the three words at `2006B374/378/37C` from 96 to 256 and
+bits 0–10 of `2006B398` from 192 to 512. Keeping N-Log on and raising only
+the factor to 192 gives 384 in all three words while the last field stays
+512. The PPC connection to a particular Y/C surface remains unverified.
+[Scalar, history and PPC register trace](../scripts/trace_scalar_readers.py)
+
+**What reaches the displays?** A third registered property, `126F`, supplies
+effective gate `1689` at context `+470`. With ordinary override inputs its
+callback allows a requested value of 1 when N-Log or HLG is active. We
+compared all 112 producer bytes and all 252 serialized bytes, including
+three deterministically initialized padding bytes. Pixel addresses, 10-bit
+depth and the other frame inputs were held fixed. Results below are deltas
+against ordinary 10-bit video for the same mode. Each build ran all six packer
+modes, three curves and two gate requests.
+
+| Destination | N-Log | HLG |
+| --- | --- | --- |
+| HDMI, modes 2/3 | Identical producer record and packet for either gate request. | One byte changes from 0 to 1 at producer `+64` and packet `+E8`. The HDMI setting handler reads it. |
+| Local outputs, modes 0/1 and 4/5 | With gate open, producer `+2B` and packet `+A8` change to 1. | The same byte changes to 2. For both curves, closing the gate restores the ordinary packet. |
+
+With local style zero and an initially clear modeled register bank, the
+enabled local path loads two banks, each with 32 12-bit entries for each
+of three channels. At display output 0 the first bank matches between N-Log
+and HLG, the second differs. The hardware writer issued 48 packed word
+writes per bank. These local display tables can explain a change in what
+the photographer sees. Their direction and the transfer delivered over
+HDMI are separate questions.
+
+HDMI also has a color configuration that can change independently of the
+frame packet. Its command handler writes a key/value pair to state
+`+1F4+4×key`. At key zero with packet style zero, changing state from 0 to 1
+changes the two table indices from `(4,0)` to `(4,4)`. With packet style one
+they change from `(1,2)` to `(3,6)`. All three curve selections give the
+same pair at each fixed state and style. The origin of that command during
+actual N-Log use remains open. Tracing its producer and the tables bound to
+the MIPU request would further discriminate a shared transfer from an HDMI
+output transform. [Display packets and lookup writes](../scripts/trace_display_curves.py)
+
+| Landmark | C1.62 | C1.70 |
+| --- | --- | --- |
+| Normalized profile reader / signed check of middle field | `103654BC / 10365C72` | `10365F94 / 1036674A` |
+| Wide profile packer / MIPU register writer | `1035C524 / 1036E12E` | `102FA924 / 1036E92A` |
+| Frame-source selection / MIPU request-surface selection | `102643EC / 10265066` | `10264528 / 102651A2` |
+| MIPU plane submission / IIP job snapshot | `102E7302 / 1026A0DA` | `102E760E / 1026A216` |
+| Frame-history writer / PPC register writer | `1037410C / 1020A2AA` | `10374908 / 1020A2AE` |
+| Local lookup selector / HDMI color selector / HDMI state command | `104494E2 / 104D901C / 104DBF30` | `1044A3A2 / 104DC90C / 104DF820` |
+
+All four scripts use the same hash-checked local inputs as the preceding
+HDMI/card comparison and print the two builds separately. The display test
+replaces an interrupt-mask service and controls the cache state. Digital
+pixel conversion in the silicon and an N-Log recording on the card are
+outside these measurements.
+
 ### Card movie baseline and N-Log research priorities
 
 Two independently downloadable samples from [Optyczne's Z6 II recording test](https://www.optyczne.pl/42.5-Inne_testy-Nikon_Z6_II_-_test_trybu_filmowego_Podsumowanie_i_filmy_przyk%C5%82adowe.html)

@@ -32,6 +32,10 @@
 !/scripts/trace_card_branches.py
 !/scripts/trace_card_format.py
 !/scripts/trace_nlog_control.py
+!/scripts/trace_profile_readers.py
+!/scripts/trace_scalar_readers.py
+!/scripts/trace_mipu_surface.py
+!/scripts/trace_display_curves.py
 !/scripts/check_nlog_tables.py
 !/scripts/analyze_ptp.py
 !/scripts/analyze_service_recovery.py

@@ -145,24 +145,25 @@ def check_display(trace, sites, tag, bases, source_width, x, y):
     return {'control': hex(control), 'pitch_Y_C': pitches, 'base_offsets': offsets}
 
 
-def through_router(trace, sites, root, depth, mode):
-    fields = depth_surface(trace, sites, depth, 1, 0, PIXELS + 1)
+def frame_packet(trace, sites, fields, depth, mode):
     # Modes 2 and 3 dispatch to HDMI output 1. Stop at the history lock, then
     # resume after its six-entry bookkeeping, retaining the original stack.
     trace.put(STACK, '2I', 1, 0)
-    trace.run(sites.pack, mode, CFG, CFG+0xd4, OBJ+0x18, stop=sites.pack+0x1f6)
+    lock = 0x1f6 if mode in (2, 3) else 0x25a
+    trace.run(sites.pack, mode, CFG, CFG+0xd4, OBJ+0x18, stop=sites.pack+lock)
     trace.cpu.emu_start((sites.pack+0x294) | 1, sites.enqueue, count=30)
     assert trace.cpu.reg_read(UC_ARM_REG_PC) == sites.enqueue
     route, payload, rectangle, config = (trace.cpu.reg_read(r) for r in
                                          (UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_R2, UC_ARM_REG_R3))
-    assert (route, rectangle) == (1, CFG+0xec)
+    assert (route, rectangle) == ((0, 0, 1, 1, 3, 3)[mode], CFG+0xec)
     assert trace.unpack(payload, 'I') == (1,)
     assert trace.unpack(payload+0x18, '2I') == (fields['AddressY'], fields['AddressC'])
     tag = 4 if depth else 1
     assert trace.unpack(payload+0x28, 'B') == (tag,)
     # Keep the producer payload clear of the next emulated stack; hand it to
     # the original slot copier. Skip asynchronous scheduling and locking.
-    trace.cpu.mem_write(ARG+0x100, bytes(trace.cpu.mem_read(payload, 112)))
+    record = bytes(trace.cpu.mem_read(payload, 112))
+    trace.cpu.mem_write(ARG+0x100, record)
     ring = JOB + 0xc
     trace.cpu.mem_write(JOB, bytes(0x700))
     trace.put(ring, 'I', 2)
@@ -174,14 +175,28 @@ def through_router(trace, sites, root, depth, mode):
     assert trace.cpu.reg_read(UC_ARM_REG_R0) == 1
     slot, = trace.unpack(ARG+0x200, 'I')
     assert slot == JOB+0xf8
-    # Run the consumer on the actual dequeued slot and capture the packet.
-    trace.run(sites.serialize, stop=sites.dispatch, regs=(
-        (UC_ARM_REG_R5, slot), (UC_ARM_REG_R6, 1), (UC_ARM_REG_R8, 0), (UC_ARM_REG_R9, route)))
-    assert trace.cpu.reg_read(UC_ARM_REG_R0) == 1
+    # Run the consumer's queue 0/1/3 to output 0/1/2 mapping and serialize its slot.
+    trace.run(sites.serialize-0x126, route, 1, stop=sites.serialize-0xf4)
+    outlet = trace.cpu.reg_read(UC_ARM_REG_R9)
+    assert outlet == mode//2
+    trace.cpu.mem_write(STACK, bytes(0x500))
+    trace.run(sites.serialize, stop=sites.serialize+0x120, regs=(
+        (UC_ARM_REG_R5, slot), (UC_ARM_REG_R6, 1), (UC_ARM_REG_R8, 0), (UC_ARM_REG_R9, outlet)))
+    trace.cpu.emu_start((sites.serialize+0x120) | 1, sites.dispatch, count=1)
+    assert trace.cpu.reg_read(UC_ARM_REG_PC) == sites.dispatch
+    assert trace.cpu.reg_read(UC_ARM_REG_R0) == outlet
     packet = trace.cpu.reg_read(UC_ARM_REG_R1)
     assert trace.unpack(packet, 'B') == (0,) and trace.unpack(packet+4, 'B') == (tag,)
     assert trace.unpack(packet+0xf4, '2I') == (fields['AddressY'], fields['AddressC'])
-    trace.cpu.mem_write(OBJ, bytes(trace.cpu.mem_read(packet, 0xfc)))
+    return outlet, record, bytes(trace.cpu.mem_read(packet, 0xfc))
+
+
+def through_router(trace, sites, root, depth, mode):
+    fields = depth_surface(trace, sites, depth, 1, 0, PIXELS + 1)
+    outlet, _, packet = frame_packet(trace, sites, fields, depth, mode)
+    tag = packet[4]
+    assert outlet == 1
+    trace.cpu.mem_write(OBJ, packet)
     trace.put(CFG+0x2ac, 'I', 1)
     trace.put(CFG+0x2c4, 'B', 0)
     trace.run(sites.gate, OBJ, stop=sites.gate+(0x11a if tag == 1 else 0x1c))
